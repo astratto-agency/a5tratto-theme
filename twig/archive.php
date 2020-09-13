@@ -63,6 +63,17 @@ if ( is_day() ) {
     $context['title'] = post_type_archive_title( '', false );
     $context['term'] = $term = new Timber\Term( get_queried_object_id() );
     array_unshift( $templates, 'archive-' . get_post_type() . '.twig' );
+
+    $fields = get_field_objects( 173 );
+    if( $fields ):
+        foreach( $fields as $field ):
+            $name_id = $field['name'];
+            $value_id = $field['value'];
+            $context[$name_id] = $value_id;
+        endforeach;
+    endif;
+    $context['content']         = get_post_field('post_content', 173);
+    
 }
 
 

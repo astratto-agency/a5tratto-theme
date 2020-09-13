@@ -80,8 +80,8 @@ add_filter( 'script_loader_tag', 'make_script_async', 10, 3 );
 
     // Carico Bootstrap js css
     if (get_theme_mod('a5t_setting_bootstrap')) {
-    wp_enqueue_style( 'bootstrap', get_template_directory_uri(). '/assets/bootstrap-4.3.1-dist/css/bootstrap.min.css' );
-    wp_enqueue_script( 'bootstrap-js', get_template_directory_uri(). '/assets/bootstrap-4.3.1-dist/js/bootstrap.min.js', array(), '4.3.1', true );
+    wp_enqueue_style( 'bootstrap', get_template_directory_uri(). '/assets/bootstrap-4.5.2-dist/css/bootstrap.min.css' );
+    wp_enqueue_script( 'bootstrap-js', get_template_directory_uri(). '/assets/bootstrap-4.5.2-dist/js/bootstrap.min.js', array(), '4.3.1', true );
     }
 
     // Attiva in base alla scalta cookiechoices.js
