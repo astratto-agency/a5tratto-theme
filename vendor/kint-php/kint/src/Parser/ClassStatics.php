@@ -20,6 +20,7 @@ class Kint_Parser_ClassStatics extends Kint_Parser_Plugin
         $reflection = new ReflectionClass($class);
 
         // Constants
+
         // TODO: PHP 7.1 allows private consts but reflection doesn't have a way to check them yet
         if (!isset(self::$cache[$class])) {
             $consts = array();

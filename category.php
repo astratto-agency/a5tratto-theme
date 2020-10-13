@@ -4,5 +4,7 @@ Template Name: Template Category
 */
 ?>
 <?php get_part('templates/category'); ?>
-<!-- se la categoria la vuoi vuoi spcifica  -->
+<!--Se si vuole una categoria precisa per Nome-->
 <?php /*get_part('templates/category-'.$category_name); */?>
+
+

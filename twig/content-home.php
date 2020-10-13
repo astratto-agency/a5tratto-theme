@@ -26,6 +26,8 @@ $post = new TimberPost();
 $context['post'] = $post;
 
 
+
+
 /* assegno tutte le variabili di ACF */
 $fields = get_field_objects( $post );
 if( $fields ):
