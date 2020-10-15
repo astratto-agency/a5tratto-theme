@@ -30,7 +30,7 @@ html,* { cursor: none; }
 12345 - SETTINGS-> loader
         impostazioni per modificare il loader
         effetto al caricamento della pagina composto da logo sezioni e loader
-        L'evento che fa avviare è la classe 'loaded' posizionato nel body
+        L'evento che fa avviare è la classe 'loaded' posizionato nel bodyssssss
 :::::::::::::::::::::::::::::::*/
 .preload {
     width:100px;
