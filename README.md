@@ -106,6 +106,9 @@
 					<li id="17">Intallazione chiave pubblica ssh sul server
 						<a href="https://it.siteground.com/tutorial/ssh/abilitare/">link</a>
 					</li>
+					<li id="17">Copiare chaive pubblica in ssh
+					    <code>cat ~/.ssh/id_rsa.pub | pbcopy</code>
+					</li>
 				</ul>
 			</li>
 			<li id="18">My SQL

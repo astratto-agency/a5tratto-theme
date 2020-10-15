@@ -15,6 +15,8 @@ $GLOBALS['assets_options'] = array(
 
 $GLOBALS['CSS'] = array(
     // 'example'   => 'https://example.com/my.css',
+
+
   );
 
 $GLOBALS['JS'] = array(

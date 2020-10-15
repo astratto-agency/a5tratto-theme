@@ -185,6 +185,9 @@ $wp_customize->add_section('a5t_framework_advanced_settings', array(
 	  'section' => 'a5t_framework_advanced_settings', // Add a default or your own section
 	  'label' => __( 'Twig' ),
 	));
+
+
+
 	$wp_customize->add_setting( 'a5t_adv_adminbar', array(
 		'capability' => 'edit_theme_options',
 	) );
@@ -246,6 +249,8 @@ $wp_customize->add_section('a5t_framework_advanced_settings', array(
         'section' => 'a5t_framework_theme_fileds', // Add a default or your own section
         'label' => __( 'Mail' ),
     ));
+
+
 
 
 

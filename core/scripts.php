@@ -84,6 +84,29 @@ add_filter( 'script_loader_tag', 'make_script_async', 10, 3 );
     wp_enqueue_script( 'bootstrap-js', get_template_directory_uri(). '/assets/bootstrap-4.3.1-dist/js/bootstrap.min.js', array(), '4.3.1', true );
     }
 
+
+    /* TODO imserire regole per butter_js  */
+      wp_enqueue_style( 'butter-js', get_template_directory_uri(). '/assets/butter-js/butter.js' );
+
+
+      /* TODO inserire regole ipotetica a5t_setting_magicmouse */
+
+
+
+      wp_enqueue_style( 'magic-mouse', get_template_directory_uri(). '/assets/magic-mouse-js/magic-mouse.css' );
+      wp_enqueue_script( 'magic-mouse', get_template_directory_uri(). '/assets/magic-mouse-js/magic_mouse.js');
+
+      /* TODO inserire regole ipotetica a5t_setting_noprogress */
+      wp_enqueue_style( 'nprogress', get_template_directory_uri(). '/assets/nprogress/nprogress.css' );
+      wp_enqueue_script( 'nprogress-js', get_template_directory_uri(). '/assets/nprogress/nprogress.js');
+      // Carico Bootstrap js css
+      if (get_theme_mod('a5t_setting_nprogress')) {
+          wp_enqueue_style( 'nprogress', get_template_directory_uri(). '/assets/nprogress/nprogress.css' );
+          wp_enqueue_script( 'nprogress-js', get_template_directory_uri(). '/assets/nprogress/nprogress.js');
+      }
+
+
+
     // Attiva in base alla scalta cookiechoices.js
     if ($GLOBALS['assets_options']['COOKIES']) {
         wp_enqueue_script( 'cookies', get_template_directory_uri() . '/assets/cookiechoices.js', array(), '1.0.0', true );
