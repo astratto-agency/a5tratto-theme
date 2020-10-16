@@ -85,8 +85,7 @@ add_filter( 'script_loader_tag', 'make_script_async', 10, 3 );
     }
 
 
-    /* TODO imserire regole per butter_js  */
-      wp_enqueue_style( 'butter-js', get_template_directory_uri(). '/assets/butter-js/butter.js' );
+
 
 
       /* TODO inserire regole ipotetica a5t_setting_magicmouse */
@@ -114,6 +113,10 @@ add_filter( 'script_loader_tag', 'make_script_async', 10, 3 );
 
     // Carico il JS custom
     wp_enqueue_script( 'scripts', get_template_directory_uri() . '/assets/custom.js', array(), '1.0.0', true );
+
+    /* TODO imserire regole per butter_js  */
+      wp_enqueue_script( 'butter-js', get_template_directory_uri(). '/assets/butter-js/butter.js' );
+
     wp_enqueue_script( 'credits', get_template_directory_uri() . '/assets/credits.js', array(), '1.0.0', true );
 
     // Carico il CSS custom

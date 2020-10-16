@@ -1,3 +1,4 @@
+<!-- A_SETTINGS Impostazione pagina Template Category -->
 <?php
 /*
 Template Name: Template Category

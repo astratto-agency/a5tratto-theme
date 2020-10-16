@@ -4,6 +4,8 @@ $(function() {
 
 
 
+
+
         /* TODO impostare */
 
 
@@ -29,16 +31,19 @@ $(function() {
 });
 
 $(document).ready(function() {
+
     $(".menu-icon").on("click", function() {
         $("nav ul").toggleClass("showing");
     });
+
+
 });
 
 
 
 
 
-/* TODO attivazione butter-js in mobile  */
+/* TODO attivazione butter-js  */
 
 /* inizializzazione butter-js standard */
 /*butter.init({cancelOnTouch: true});*/
@@ -48,11 +53,12 @@ var options = {
     /* impostare custom id per attivare butter-js */
     wrapperId: 'butter-active',
     /* impostare velocita butter-js  */
-    wrapperDamper: 0.70,
+    wrapperDamper: 0.10,
     /* impostare attivazione butter-js in responsive */
-    cancelOnTouch: false
+    cancelOnTouch: true,
 };
 butter.init(options);
+
 
 
 

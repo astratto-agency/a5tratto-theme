@@ -20,7 +20,8 @@ $context['post'] = $post;
 
 
 
-/* assegno tutte le variabili di ACF */
+/*  A_SETTINGS Assegno tutte le variabili di ACF a Twig
+    in caso avessi necessità puoi sostituire il valore $post con l'ID della pagina */
 $fields = get_field_objects( $post );
 if( $fields ):
     foreach( $fields as $field ):

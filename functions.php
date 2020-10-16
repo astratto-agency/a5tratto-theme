@@ -64,12 +64,6 @@ add_action( 'admin_bar_menu', 'add_my_own_logo', 1 );
 
 
 
-
-
-
-
-
-
 foreach ($a5t_includes as $file) {
   if (!$filepath = locate_template($file)) {
     trigger_error(sprintf(__('Error locating %s for inclusion', 'a5t'), $file), E_USER_ERROR);
@@ -153,6 +147,10 @@ set_query_var('posts_per_page', 1);
 }
 }
 add_action( 'pre_get_posts', 'custom_posts_per_page' );*/
+
+
+
+
 if( !is_admin() ){
     add_action( 'pre_get_posts',  'set_per_page'  );
 }

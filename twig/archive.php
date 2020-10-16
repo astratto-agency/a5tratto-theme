@@ -17,11 +17,14 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 $post = Timber::query_post();
 $context = Timber::get_context();
-/* themplates */
+
+/* A_SETTINGS Assegnazione dei template  */
 $templates = array( 'archive.twig', 'index.twig' );
-/* definizco il numero di paginazione */
+
+/* A_SETTINGS Assegnazione del numero di paginazione di post per pagina */
 $paginazione = 2;
-/* elaboro la paginazione */
+
+/* A_SETTINGS Elaborazione dell'impaginato impostare il numero successivo qui '%/page/([0-3]+)%' in base al valore assegnato nella paginazione */
 preg_match('%/page/([0-3]+)%', $_SERVER['REQUEST_URI'], $matches );
 if ( get_query_var( 'paged' ) ) {
     $paged = get_query_var( 'paged' );
@@ -33,7 +36,8 @@ if ( get_query_var( 'paged' ) ) {
 if (!isset($paged) || !$paged) {
     $paged = 1;
 }
-/* smisto le impaginazioni */
+
+/* A_SETTINGS Smistamento delle impaginazioni ai relativi template di pagina */
 $context['title'] = 'Archive';
 if ( is_day() ) {
     $context['title'] = 'Archive: '.get_the_date( 'D M Y' );
@@ -65,8 +69,8 @@ if ( is_day() ) {
     array_unshift( $templates, 'archive-' . get_post_type() . '.twig' );
 }
 
-
-/* assegno tutte le variabili di ACF */
+/*  A_SETTINGS Assegno tutte le variabili di ACF a Twig
+    in caso avessi necessità puoi sostituire il valore $post con l'ID della pagina */
 $fields = get_field_objects( $post );
 if( $fields ):
     foreach( $fields as $field ):
@@ -76,20 +80,25 @@ if( $fields ):
     endforeach;
 endif;
 
-
-/* elaboro la query */
+/*  A_SETTINGS QUERY elaboro query base */
 $args = array(
-    'post_type'             => get_post_type(), // Nome del custom post
-    'posts_per_page'        => $paginazione, // Numero custom post ( -1 = tutti )
+    /* Nome del post-type */
+    'post_type'             => get_post_type(),
+    /* Numero post per pagina ( -1 = tutti ) */
+    'posts_per_page'        => $paginazione,
+    /* Elaboro paginato */
     'paged'                 => $paged,
 );
+/*  Assegno a wp_query gli argomenti da cercare e passo i valori a Twig */
 $context['posts'] = $wp_query = new Timber\PostQuery($args);
-/* paginato */
+
+/* Gestisco la numerazione della pagine e i corrispettivi valori trovati */
 $context['found_posts' ] = $wp_query->found_posts;
 $context['startpost'] = $startpost = 1;
 $context['startpost'] = $startpost =  $paginazione*($paged - 1)+1;
 $context['endpost']   = $endpost =  ($paginazione*$paged < $wp_query->found_posts ? $paginazione*$paged : $wp_query->found_posts);
 
+/* Elaboro template a Twig */
 Timber::render( $templates, $context );
 
 

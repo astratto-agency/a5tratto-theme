@@ -1,3 +1,4 @@
+<!-- A_SETTINGS Impostazione pagina Template Search -->
 <?php
 /*
 Template Name: Template Search

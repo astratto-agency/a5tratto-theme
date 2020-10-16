@@ -1,3 +1,4 @@
+<!-- A_SETTINGS Impostazione pagina Template Tag -->
 <?php
 /*
 Template Name: Template Tag

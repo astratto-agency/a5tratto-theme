@@ -1,3 +1,4 @@
+<!-- A_SETTINGS Impostazione pagina Template 404 -->
 <?php get_part('templates/404'); ?>
 
 <?php if ( ! defined( 'ABSPATH' ) ) exit; ?>
