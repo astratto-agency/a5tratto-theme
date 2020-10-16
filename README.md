@@ -1,4 +1,4 @@
-<h1>A5tratto-Theme-beta-o73.00 </h1>
+<h1>A5tratto-Theme-lo73.01 </h1>
 ======================
 <h2>Variabili</h2>
 ----
