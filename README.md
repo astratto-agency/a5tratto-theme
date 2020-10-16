@@ -2,7 +2,7 @@
 ======================
 <h2>Variabili</h2>
 ----
-<h1>V.1.0</h1>
+<h1>V.2.0</h1>
 <code>{{v-dominio}}</code>
 <p>dominio.com</p>
 <br>
