@@ -46,6 +46,33 @@ $wp_customize->add_section('a5t_framework_general_settings', array(
 	  'section' => 'a5t_framework_general_settings', // Add a default or your own section
 	  'label' => __( 'Hover CSS' ),
 	));
+    // magic_mouse CSS
+    $wp_customize->add_setting( 'a5t_setting_magic_mouse', array(
+        'capability' => 'edit_theme_options',
+    ) );
+    $wp_customize->add_control( 'a5t_setting_magic_mouse', array(
+        'type' => 'checkbox',
+        'section' => 'a5t_framework_general_settings', // Add a default or your own section
+        'label' => __( 'magic_mouse CSS' ),
+    ));
+    // nprogress CSS
+    $wp_customize->add_setting( 'a5t_setting_nprogress', array(
+        'capability' => 'edit_theme_options',
+    ) );
+    $wp_customize->add_control( 'a5t_setting_nprogress', array(
+        'type' => 'checkbox',
+        'section' => 'a5t_framework_general_settings', // Add a default or your own section
+        'label' => __( 'nprogress CSS' ),
+    ));
+    // butter_js CSS
+    $wp_customize->add_setting( 'a5t_setting_butter_js', array(
+        'capability' => 'edit_theme_options',
+    ) );
+    $wp_customize->add_control( 'a5t_setting_butter_js', array(
+        'type' => 'checkbox',
+        'section' => 'a5t_framework_general_settings', // Add a default or your own section
+        'label' => __( 'butter_js CSS' ),
+    ));
 	// Cookies
 	$wp_customize->add_setting( 'a5t_setting_cookies', array(
 		'capability' => 'edit_theme_options',
