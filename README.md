@@ -1,8 +1,7 @@
-<h1>A5tratto-Theme-v72 </h1>
+<h1>A5tratto-Theme-v72.0 </h1>
 ======================
 <h2>Variabili</h2>
 ----
-<h1>V.2.0</h1>
 <code>{{v-dominio}}</code>
 <p>dominio.com</p>
 <br>
