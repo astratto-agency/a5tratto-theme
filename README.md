@@ -1,5 +1,20 @@
-<h1>A5tratto-Theme-Origin-Master-73.52</h1>
-======================
+<h1>A5tratto-Theme</h1>
+----
+----
+<h2>Origin-Master</h2>
+<h5>Versione</h5>
+<h3>V.73.00.0.0</h3>
+----
+<p>Numero Versione</p>
+.
+<p>Tipologia ( origin 0, master 1)</p>
+<p>Posizionemanto ( locale 0, remoto 1)</p>
+.
+<i>serie</i>
+<i>numero</i>
+
+----
+----
 <h2>Variabili</h2>
 ----
 <code>{{v-dominio}}</code>
