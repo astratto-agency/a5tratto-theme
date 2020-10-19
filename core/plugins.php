@@ -165,7 +165,11 @@ function a5t_framework_register_required_plugins()
             'slug' => 'complianz-gdpr',
             'required' => true,
         ),
-
+        array(
+            'name' => 'Compress JPEG & PNG images TinyPNG',
+            'slug' => 'tiny-compress-images',
+            'required' => true,
+        ),
         // This is an example of the use of 'is_callable' functionality. A user could - for instance -
         // have WPSEO installed *or* WPSEO Premium. The slug would in that last case be different, i.e.
         // 'wordpress-seo-premium'.
