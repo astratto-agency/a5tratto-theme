@@ -1,12 +1,17 @@
 <?php
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-::::::::::::::    * A5T-Framework core
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::    * A_SETTINGS A5T-Framework CORE
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-::::::::::::::    *
-:::::::::::::     * A5T-Framework includes
+:::::::::::::     * A_SETTINGS A5T-Framework includes
                     The $a5t_includes array determines the code library included in your theme.
                     Add or remove files to the array as needed. Supports child theme overrides.
                     Please note that missing files will produce a fatal error.
@@ -28,7 +33,7 @@ $a5t_includes = array(
 );
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-::::::::::::::    * Setting Comment
+::::::::::::::    * A_SETTINGS Setting Comment
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
 if (get_theme_mod('a5t_setting_comments')) {
@@ -36,7 +41,7 @@ if (get_theme_mod('a5t_setting_comments')) {
 }
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-::::::::::::::    * Autoload
+::::::::::::::    * A_SETTINGS Autoload
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
 if (file_exists('vendor/autoload.php')) {
@@ -44,7 +49,7 @@ if (file_exists('vendor/autoload.php')) {
 }
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-::::::::::::::    * Aggiorno il CSS nell’area amministratore
+::::::::::::::    * A_SETTINGS Aggiorno il CSS nell’area amministratore
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
 function admin_style()
@@ -58,7 +63,7 @@ add_action('admin_enqueue_scripts', 'admin_style');
 
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-::::::::::::::    * Speed test
+::::::::::::::    * A_SETTINGS Speed test
                     https://wordpress.stackexchange.com/questions/155072/get-option-vs-get-theme-mod-why-is-one-slower
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
@@ -79,7 +84,7 @@ function My_Test()
 
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-::::::::::::::    * Remove Wp Logo
+::::::::::::::    * A_SETTINGS Remove Wp Logo
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
 function remove_wp_logo($wp_admin_bar)
@@ -90,7 +95,7 @@ function remove_wp_logo($wp_admin_bar)
 add_action('admin_bar_menu', 'remove_wp_logo', 100);
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-::::::::::::::    * Customizer admin menu bar
+::::::::::::::    * A_SETTINGS Customizer admin menu bar
                     https://heera.it/customize-admin-menu-bar-in-wordpress
                     https://webriti.com/customizing-wordpress-admin-bar/
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
@@ -108,7 +113,7 @@ function add_my_own_logo($wp_admin_bar)
 add_action('admin_bar_menu', 'add_my_own_logo', 1);
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-::::::::::::::    * ?????????
+::::::::::::::    * A_SETTINGS ?????????
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
 foreach ($a5t_includes as $file) {
@@ -121,7 +126,7 @@ foreach ($a5t_includes as $file) {
 unset($file, $filepath);
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-::::::::::::::    * CONTEXT
+::::::::::::::    * A_SETTINGS CONTEXT
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 add_filter('timber/context', 'add_to_context');
 
@@ -129,24 +134,24 @@ function add_to_context($context)
 {
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::::    Site
+    ::::::::::::::    * A_SETTINGS Site
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     $context['home'] = site_url();
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::::    Menu
+    ::::::::::::::    * A_SETTINGS Menu
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     $context['menu'] = new Timber\Menu('primary-menu');
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::::    Theme Dir
+    ::::::::::::::    * A_SETTINGS Theme Dir
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     $context['tema_url'] = get_template_directory_uri();
     $context['urltema'] = get_template_directory_uri();
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::::    Post
+    ::::::::::::::    * A_SETTINGS Post
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     $context['post_class'] = get_post_class()[0];
@@ -168,21 +173,21 @@ function add_to_context($context)
     $context['page_link'] = get_page_link();
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::::    Time & Data
+    ::::::::::::::    * A_SETTINGS Time & Data
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     $context['time'] = get_the_time('c');
     $context['date'] = get_the_date();
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::::    User
+    ::::::::::::::    * A_SETTINGS User
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     $context['author_url'] = get_author_posts_url(get_the_author_meta('ID'));
     $context['author'] = get_the_author();
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::::    User WooCommerce Memberships
+    ::::::::::::::    * A_SETTINGS User WooCommerce Memberships
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins')))) {
@@ -191,7 +196,7 @@ function add_to_context($context)
     }
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::::    Footer
+    ::::::::::::::    * A_SETTINGS Footer
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     $context['pre_footer'] = Timber::get_widgets('pre_footer');
@@ -202,13 +207,13 @@ function add_to_context($context)
     $context['footer_bottom'] = Timber::get_widgets('footer_bottom');
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::::    Sidebar
+    ::::::::::::::    * A_SETTINGS Sidebar
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     $context['sidebar_primary'] = Timber::get_widgets('sidebar_primary');
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::::    Slide
+    ::::::::::::::    * A_SETTINGS Slide
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     $context['slider'] = get_field('slider');
 
@@ -217,7 +222,7 @@ function add_to_context($context)
 
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::::    Setting
+    ::::::::::::::    * A_SETTINGS Setting
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     $context['setting_intestazione'] = get_theme_mod("a5t_setting_intestazione");
@@ -228,7 +233,7 @@ function add_to_context($context)
 
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::::    If Plugin is active
+    ::::::::::::::    * A_SETTINGS If Plugin is active
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     /*if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins')))) {
@@ -239,7 +244,7 @@ function add_to_context($context)
 
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::::    WooCommerce
+    ::::::::::::::    * A_SETTINGS WooCommerce
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins')))) {
@@ -254,7 +259,7 @@ function add_to_context($context)
 
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::::    Google Maps
+    ::::::::::::::    * A_SETTINGS Google Maps
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     $key = get_theme_mod('a5t_setting_maps');
@@ -262,7 +267,7 @@ function add_to_context($context)
 
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::::    Yoast Breadcrumb
+    ::::::::::::::    * A_SETTINGS Yoast Breadcrumb
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     if (function_exists('yoast_breadcrumb')) {
@@ -337,7 +342,7 @@ function set_per_page($query)
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-::::::::::::::::    WOOOCOMMERCE
+::::::::::::::    * A_SETTINGS WOOOCOMMERCE
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
@@ -346,7 +351,7 @@ function set_per_page($query)
 if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins')))) {
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::::    Conditional function detecting if the current user has an active subscription
+    ::::::::::::::    * A_SETTINGS Conditional function detecting if the current user has an active subscription
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     function has_active_subscription($user_id = null)
     {
@@ -368,7 +373,7 @@ if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
     }
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::::    Conditionally checking and adding your subscription when a product is added to cart
+    ::::::::::::::    * A_SETTINGS Conditionally checking and adding your subscription when a product is added to cart
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     add_action('woocommerce_add_to_cart', 'add_subscription_to_cart', 10, 6);
@@ -395,7 +400,7 @@ if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
 
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::::    Add custom checkout field: woocommerce_review_order_before_submit
+    ::::::::::::::    * A_SETTINGS Add custom checkout field: woocommerce_review_order_before_submit
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     add_action('woocommerce_review_order_before_submit', 'my_custom_checkout_field_condizioni_generali');
@@ -491,7 +496,7 @@ if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
     }
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::::    Inseriemnto del Prezzo Totale se disponibile nel Prodotto
+    ::::::::::::::    * A_SETTINGS Inseriemnto del Prezzo Totale se disponibile nel Prodotto
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
 
@@ -526,7 +531,7 @@ if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
     add_filter('woocommerce_cart_item_name', 'show_sku_in_cart_items', 99, 3);
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::::    Remove image zoom product
+    ::::::::::::::    * A_SETTINGS Remove image zoom product
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     function remove_image_zoom_support()
@@ -548,7 +553,7 @@ if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
 
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::::    Rename product data tabs
+    ::::::::::::::    * A_SETTINGS Rename product data tabs
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     add_filter('woocommerce_product_tabs', 'woo_rename_tabs', 98);
     function woo_rename_tabs($tabs)
@@ -562,7 +567,7 @@ if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
     }
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::::    Utility function to get the childs array from a parent product category
+    ::::::::::::::    * A_SETTINGS Utility function to get the childs array from a parent product category
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
 

@@ -5,7 +5,7 @@ if (get_theme_mod('a5t_adv_adminbar')) {
 }
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-::::::::::::::    * Post IDs viewable in the back-end
+::::::::::::::    * A_SETTINGS Post IDs viewable in the back-end
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     add_filter('manage_posts_columns', 'posts_columns_id', 5);
@@ -24,7 +24,7 @@ if (get_theme_mod('a5t_adv_adminbar')) {
     }
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-::::::::::::::    * Add Modern Social support for profiles
+::::::::::::::    * A_SETTINGS Add Modern Social support for profiles
 ::::::::::::::      https://laceytechsolutions.co.uk/blog/add-social-media-contact-methods-wordpress-user-profiles/
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
@@ -47,7 +47,7 @@ add_filter('user_contactmethods','new_contactmethods',10,1);
 
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-::::::::::::::    * Custom admin footer message
+::::::::::::::    * A_SETTINGS Custom admin footer message
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
 function remove_footer_admin () 
@@ -58,7 +58,7 @@ add_filter('admin_footer_text', 'remove_footer_admin');
 
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-::::::::::::::    * Remove anused metaboxes from dashboard
+::::::::::::::    * A_SETTINGS Remove anused metaboxes from dashboard
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
 function remove_dashboard_widgets()
@@ -72,7 +72,7 @@ function remove_dashboard_widgets()
 add_action('wp_dashboard_setup', 'remove_dashboard_widgets' );
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-::::::::::::::    * Breadcrumbs
+::::::::::::::    * A_SETTINGS Breadcrumbs
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
 function breadcrumbs() {

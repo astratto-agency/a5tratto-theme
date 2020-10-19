@@ -1,7 +1,7 @@
 <?php
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-::::::::::::::    * Remove query string from static resources
+::::::::::::::    * A_SETTINGS Remove query string from static resources
 ::::::::::::::      https://kinsta.com/it/knowledgebase/rimuovere-le-query-string-dalle-risorse-statiche/
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
@@ -16,7 +16,7 @@ add_filter('style_loader_src', '_remove_script_version', 15, 1);
 
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-::::::::::::::    * Add prefetching rules
+::::::::::::::    * A_SETTINGS Add prefetching rules
 ::::::::::::::      https://authoritywebsiteincome.com/speed-up-wordpress-with-dns-prefetching/
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
@@ -31,7 +31,7 @@ function ism_dns_prefetch()
 add_action('wp_head', 'ism_dns_prefetch', 0);
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-::::::::::::::    * Imposto gli script che mi interessano come async & defer
+::::::::::::::    * A_SETTINGS Imposto gli script che mi interessano come async & defer
 ::::::::::::::      in particolare google mappe.
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
@@ -48,14 +48,14 @@ function make_script_async($tag, $handle, $src)
 add_filter('script_loader_tag', 'make_script_async', 10, 3);
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-::::::::::::::    * Carico la lista di CSS  e JS
+::::::::::::::    * A_SETTINGS Carico la lista di CSS  e JS
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
 function a5t_scripts()
 {
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * Carico la lista di CSS
+    ::::::::::::::    * A_SETTINGS Carico la lista di CSS
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     foreach ($GLOBALS['CSS'] as $nome => $percorso) {
         wp_enqueue_style($nome, $percorso);
@@ -63,7 +63,7 @@ function a5t_scripts()
 
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * Autoload
+    ::::::::::::::    * A_SETTINGS Autoload
     ::::::::::::::      jQuery is loaded using the same method from HTML5 Boilerplate:
     ::::::::::::::      It's kept in the header instead of footer to avoid conflicts with plugins.
     ::::::::::::::      Grab Google CDN's latest jQuery with a protocol relative URL; fallback to CDNJS if offline
@@ -78,7 +78,7 @@ function a5t_scripts()
     wp_enqueue_script('jquery');
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * Javascript for comments
+    ::::::::::::::    * A_SETTINGS Javascript for comments
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     if (is_single() && comments_open() && get_option('thread_comments')) {
@@ -86,14 +86,14 @@ function a5t_scripts()
     }
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * Loading custom js
+    ::::::::::::::    * A_SETTINGS Loading custom js
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     foreach ($GLOBALS['JS'] as $nome => $percorso) {
         wp_enqueue_script($nome, $percorso);
     }
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * Attiva in base alla scalta animate.css
+    ::::::::::::::    * A_SETTINGS Attiva in base alla scalta animate.css
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     if ($GLOBALS['assets_options']['ANIMATECSS']) {
@@ -101,7 +101,7 @@ function a5t_scripts()
     }
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * Attiva in base alla scalta hover.css
+    ::::::::::::::    * A_SETTINGS Attiva in base alla scalta hover.css
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     if ($GLOBALS['assets_options']['HOVERCSS']) {
@@ -109,7 +109,7 @@ function a5t_scripts()
     }
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * Attiva in base alla scalta fontawesome.js
+    ::::::::::::::    * A_SETTINGS Attiva in base alla scalta fontawesome.js
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     if ($GLOBALS['assets_options']['FONTAWESOME']) {
@@ -117,7 +117,7 @@ function a5t_scripts()
     }
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * Attiva in base alla scalta
+    ::::::::::::::    * A_SETTINGS Attiva in base alla scalta
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     if (get_theme_mod('a5t_setting_magic_mouse')) {
@@ -126,7 +126,7 @@ function a5t_scripts()
     }
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * Attiva in base alla scalta
+    ::::::::::::::    * A_SETTINGS Attiva in base alla scalta
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     if (get_theme_mod('a5t_setting_nprogress')) {
@@ -135,7 +135,7 @@ function a5t_scripts()
     }
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * Attiva in base alla scalta
+    ::::::::::::::    * A_SETTINGS Attiva in base alla scalta
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     if (get_theme_mod('a5t_setting_butter')) {
@@ -143,7 +143,7 @@ function a5t_scripts()
     }
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * Attiva in base alla scalta
+    ::::::::::::::    * A_SETTINGS Attiva in base alla scalta
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     if (get_theme_mod('a5t_setting_owl_carousel')) {
@@ -152,7 +152,7 @@ function a5t_scripts()
     }
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * Carico Bootstrap js css
+    ::::::::::::::    * A_SETTINGS Carico Bootstrap js css
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     if (get_theme_mod('a5t_setting_bootstrap')) {
@@ -162,7 +162,7 @@ function a5t_scripts()
 
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * Attiva in base alla scalta cookiechoices.js
+    ::::::::::::::    * A_SETTINGS Attiva in base alla scalta cookiechoices.js
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     if ($GLOBALS['assets_options']['COOKIES']) {
@@ -170,18 +170,18 @@ function a5t_scripts()
     }
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * Carico il JS custom
+    ::::::::::::::    * A_SETTINGS Carico il JS custom
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     wp_enqueue_script('scripts', get_template_directory_uri() . '/assets/custom.js', array(), '1.0.0', true);
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * Carico i Credits
+    ::::::::::::::    * A_SETTINGS Carico i Credits
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     wp_enqueue_script('credits', get_template_directory_uri() . '/assets/credits.js', array(), '1.0.0', true);
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * Carico il CSS custom
+    ::::::::::::::    * A_SETTINGS Carico il CSS custom
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     wp_enqueue_style('default', get_template_directory_uri() . '/assets/custom.css');
 
@@ -191,7 +191,7 @@ add_action('wp_enqueue_scripts', 'a5t_scripts', 100);
 
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-::::::::::::::    * Gestisco un sostituto per JQuery nel caso in cui il primo sia offline
+::::::::::::::    * A_SETTINGS Gestisco un sostituto per JQuery nel caso in cui il primo sia offline
 ::::::::::::::      http://wordpress.stackexchange.com/a/12450
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
@@ -215,7 +215,7 @@ add_action('wp_head', 'a5t_jquery_local_fallback');
 
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-::::::::::::::    * Cookies directive script
+::::::::::::::    * A_SETTINGS Cookies directive script
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
 
@@ -234,7 +234,7 @@ if ($GLOBALS['assets_options']['COOKIES']) {
 }
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-::::::::::::::    * Google Analytics script
+::::::::::::::    * A_SETTINGS Google Analytics script
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
 if (get_theme_mod('a5t_setting_analytics') != '') {
@@ -278,7 +278,7 @@ if (get_theme_mod('a5t_setting_analytics') != '') {
 }
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-::::::::::::::    * Google Tag Manager
+::::::::::::::    * A_SETTINGS Google Tag Manager
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 if (get_theme_mod('a5t_setting_gtag') != '') {
 
@@ -322,7 +322,7 @@ if (get_theme_mod('a5t_setting_gtag') != '') {
 }
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-::::::::::::::    * Hotjar Tracking Code
+::::::::::::::    * A_SETTINGS Hotjar Tracking Code
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
 if (get_theme_mod('a5t_setting_hotjar') != '') {

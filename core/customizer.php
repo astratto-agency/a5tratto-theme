@@ -6,7 +6,7 @@
 function a5t_customize_register($wp_customize)
 {
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * GENERAL SETTINGS
+    ::::::::::::::    * A_SETTINGS GENERAL SETTINGS
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     $wp_customize->add_section('a5t_framework_general_settings', array(
@@ -16,11 +16,11 @@ function a5t_customize_register($wp_customize)
 
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * Post IDs viewable in the back-end
+    ::::::::::::::    * A_SETTINGS Post IDs viewable in the back-end
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * Google Mps Apy
+    ::::::::::::::    * A_SETTINGS Google Mps Apy
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     $wp_customize->add_setting('a5t_setting_maps', array(
@@ -33,7 +33,7 @@ function a5t_customize_register($wp_customize)
     ));
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * Fontawesome
+    ::::::::::::::    * A_SETTINGS Fontawesome
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     $wp_customize->add_setting('a5t_setting_fa', array(
@@ -46,7 +46,7 @@ function a5t_customize_register($wp_customize)
     ));
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * Animate CSS
+    ::::::::::::::    * A_SETTINGS Animate CSS
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     $wp_customize->add_setting('a5t_setting_animate', array(
@@ -59,7 +59,7 @@ function a5t_customize_register($wp_customize)
     ));
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * Hover CSS
+    ::::::::::::::    * A_SETTINGS Hover CSS
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     $wp_customize->add_setting('a5t_setting_hover', array(
@@ -72,7 +72,7 @@ function a5t_customize_register($wp_customize)
     ));
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * magic_mouse CSS
+    ::::::::::::::    * A_SETTINGS magic_mouse CSS
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     $wp_customize->add_setting('a5t_setting_magic_mouse', array(
@@ -85,7 +85,7 @@ function a5t_customize_register($wp_customize)
     ));
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * nprogress CSS
+    ::::::::::::::    * A_SETTINGS nprogress CSS
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     $wp_customize->add_setting('a5t_setting_nprogress', array(
@@ -98,7 +98,7 @@ function a5t_customize_register($wp_customize)
     ));
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * butter_js CSS
+    ::::::::::::::    * A_SETTINGS butter_js CSS
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     $wp_customize->add_setting('a5t_setting_butter_js', array(
@@ -111,7 +111,7 @@ function a5t_customize_register($wp_customize)
     ));
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * owl_carousel CSS
+    ::::::::::::::    * A_SETTINGS owl_carousel CSS
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     $wp_customize->add_setting('a5t_setting_owl_carousel', array(
@@ -124,7 +124,7 @@ function a5t_customize_register($wp_customize)
     ));
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * Cookies
+    ::::::::::::::    * A_SETTINGS Cookies
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     $wp_customize->add_setting('a5t_setting_cookies', array(
@@ -137,7 +137,7 @@ function a5t_customize_register($wp_customize)
     ));
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * Disable Comments
+    ::::::::::::::    * A_SETTINGS Disable Comments
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     $wp_customize->add_setting('a5t_setting_comments', array(
@@ -150,7 +150,7 @@ function a5t_customize_register($wp_customize)
     ));
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * Bootstrap
+    ::::::::::::::    * A_SETTINGS Bootstrap
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     $wp_customize->add_setting('a5t_setting_bootstrap', array(
@@ -163,7 +163,7 @@ function a5t_customize_register($wp_customize)
     ));
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * Container / Fluid
+    ::::::::::::::    * A_SETTINGS Container / Fluid
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     $wp_customize->add_setting('a5t_setting_main_container', array(
@@ -181,7 +181,7 @@ function a5t_customize_register($wp_customize)
     ));
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * TRACKING SETTINGS
+    ::::::::::::::    * A_SETTINGS TRACKING SETTINGS
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     $wp_customize->add_section('a5t_framework_tracking_settings', array(
@@ -190,7 +190,7 @@ function a5t_customize_register($wp_customize)
     ));
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * Google Analytics
+    ::::::::::::::    * A_SETTINGS Google Analytics
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     $wp_customize->add_setting('a5t_setting_analytics', array(
@@ -204,7 +204,7 @@ function a5t_customize_register($wp_customize)
 
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * Google Tag
+    ::::::::::::::    * A_SETTINGS Google Tag
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     $wp_customize->add_setting('a5t_setting_gtag', array(
@@ -218,7 +218,7 @@ function a5t_customize_register($wp_customize)
 
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * Hot Jar
+    ::::::::::::::    * A_SETTINGS Hot Jar
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     $wp_customize->add_setting('a5t_setting_hotjar', array(
@@ -232,7 +232,7 @@ function a5t_customize_register($wp_customize)
 
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * COOKIES SETTINGS
+    ::::::::::::::    * A_SETTINGS COOKIES SETTINGS
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     $wp_customize->add_section('a5t_framework_cookies_settings', array(
@@ -241,7 +241,7 @@ function a5t_customize_register($wp_customize)
     ));
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * Privacy Message
+    ::::::::::::::    * A_SETTINGS Privacy Message
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     $wp_customize->add_setting('a5t_setting_pri_msg', array(
@@ -254,7 +254,7 @@ function a5t_customize_register($wp_customize)
     ));
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * Privacy close text
+    ::::::::::::::    * A_SETTINGS Privacy close text
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     $wp_customize->add_setting('a5t_setting_pri_close', array(
@@ -267,7 +267,7 @@ function a5t_customize_register($wp_customize)
     ));
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * Privacy title
+    ::::::::::::::    * A_SETTINGS Privacy title
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     $wp_customize->add_setting('a5t_setting_pri_title', array(
@@ -280,7 +280,7 @@ function a5t_customize_register($wp_customize)
     ));
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * Privacy url
+    ::::::::::::::    * A_SETTINGS Privacy url
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     $wp_customize->add_setting('a5t_setting_pri_url', array(
@@ -293,7 +293,7 @@ function a5t_customize_register($wp_customize)
     ));
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * ADVANCED SETTINGS
+    ::::::::::::::    * A_SETTINGS ADVANCED SETTINGS
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     $wp_customize->add_section('a5t_framework_advanced_settings', array(
@@ -302,7 +302,7 @@ function a5t_customize_register($wp_customize)
     ));
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * Privacy Message
+    ::::::::::::::    * A_SETTINGS Privacy Message
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     $wp_customize->add_setting('a5t_adv_twig', array(
@@ -315,7 +315,7 @@ function a5t_customize_register($wp_customize)
     ));
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * COOKIES SETTINGS
+    ::::::::::::::    * A_SETTINGS COOKIES SETTINGS
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     $wp_customize->add_setting('a5t_adv_adminbar', array(
@@ -328,7 +328,7 @@ function a5t_customize_register($wp_customize)
     ));
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * COOKIES SETTINGS
+    ::::::::::::::    * A_SETTINGS COOKIES SETTINGS
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     $wp_customize->add_section('a5t_framework_theme_fileds', array(
@@ -337,7 +337,7 @@ function a5t_customize_register($wp_customize)
     ));
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * Intestazione Principale
+    ::::::::::::::    * A_SETTINGS Intestazione Principale
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     $wp_customize->add_setting('a5t_setting_intestazione', array(
@@ -350,7 +350,7 @@ function a5t_customize_register($wp_customize)
     ));
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * P. IVA Principale
+    ::::::::::::::    * A_SETTINGS P. IVA Principale
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     $wp_customize->add_setting('a5t_setting_piva', array(
@@ -363,7 +363,7 @@ function a5t_customize_register($wp_customize)
     ));
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * Indirizzo Principale
+    ::::::::::::::    * A_SETTINGS Indirizzo Principale
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     $wp_customize->add_setting('a5t_setting_indirizzo', array(
@@ -376,7 +376,7 @@ function a5t_customize_register($wp_customize)
     ));
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * Telefono Pricipale
+    ::::::::::::::    * A_SETTINGS Telefono Pricipale
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     $wp_customize->add_setting('a5t_setting_telefono', array(
@@ -389,7 +389,7 @@ function a5t_customize_register($wp_customize)
     ));
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * Mail Principale
+    ::::::::::::::    * A_SETTINGS Mail Principale
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     $wp_customize->add_setting('a5t_setting_mail', array(
