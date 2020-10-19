@@ -4,9 +4,9 @@ if (get_theme_mod('a5t_adv_adminbar')) {
   show_admin_bar( false );
 }
 
-/**
- * Post IDs viewable in the back-end
- */
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::    * Post IDs viewable in the back-end
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     add_filter('manage_posts_columns', 'posts_columns_id', 5);
     add_action('manage_posts_custom_column', 'posts_custom_id_columns', 5, 2);
@@ -23,10 +23,10 @@ if (get_theme_mod('a5t_adv_adminbar')) {
     }
     }
 
-
-/**
- * Add Modern Social support for profiles
- */
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::    * Add Modern Social support for profiles
+::::::::::::::      https://laceytechsolutions.co.uk/blog/add-social-media-contact-methods-wordpress-user-profiles/
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
 function new_contactmethods( $contactmethods ) {
   $contactmethods['twitter'] = 'Twitter'; // Aggiungi Twitter
@@ -46,9 +46,10 @@ return $contactmethods;
 add_filter('user_contactmethods','new_contactmethods',10,1);
 
 
-/**
- * Custom admin footer message
- */
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::    * Custom admin footer message
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
 function remove_footer_admin () 
 {
     echo '<span id="footer-thankyou">Developed by <a href="https://www.a5tratto.it" target="_blank">A5TRATTO Concrete Communication</a> with A5T Framework</span>';
@@ -56,10 +57,10 @@ function remove_footer_admin ()
 add_filter('admin_footer_text', 'remove_footer_admin');
 
 
-/**
- * Remove anused metaboxes from dashboard
- */
- 
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::    * Remove anused metaboxes from dashboard
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
 function remove_dashboard_widgets()
 {
     // Globalize the metaboxes array, this holds all the widgets for wp-admin
@@ -70,9 +71,10 @@ function remove_dashboard_widgets()
 }
 add_action('wp_dashboard_setup', 'remove_dashboard_widgets' );
 
-/*
- * Breadcrumbs
-*/
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::    * Breadcrumbs
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
 function breadcrumbs() {
   /* === OPTIONS === */
   $text['home']     = 'Home'; // text for the 'Home' link

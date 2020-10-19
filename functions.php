@@ -62,7 +62,7 @@ add_action('admin_enqueue_scripts', 'admin_style');
                     https://wordpress.stackexchange.com/questions/155072/get-option-vs-get-theme-mod-why-is-one-slower
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
-add_action('wp', 'My_Test');
+/*add_action('wp', 'My_Test');
 function My_Test()
 {
     var_dump(microtime(true));
@@ -75,7 +75,7 @@ function My_Test()
     }
     var_dump(microtime(true));
     exit;
-}
+}*/
 
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::

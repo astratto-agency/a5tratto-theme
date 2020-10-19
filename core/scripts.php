@@ -1,6 +1,10 @@
 <?php
 
-// remove query string from static resources
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::    * Remove query string from static resources
+::::::::::::::      https://kinsta.com/it/knowledgebase/rimuovere-le-query-string-dalle-risorse-statiche/
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
 function _remove_script_version($src)
 {
     $parts = explode('?', $src);
@@ -10,21 +14,28 @@ function _remove_script_version($src)
 add_filter('script_loader_src', '_remove_script_version', 15, 1);
 add_filter('style_loader_src', '_remove_script_version', 15, 1);
 
-// add prefetching rules
+
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::    * Add prefetching rules
+::::::::::::::      https://authoritywebsiteincome.com/speed-up-wordpress-with-dns-prefetching/
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
 function ism_dns_prefetch()
 {
-    echo '<meta http-equiv="x-dns-prefetch-control" content="on">
-  <link rel="dns-prefetch" href="//code.jquery.com" />
-  <link rel="dns-prefetch" href="//fonts.gstatic.com" />
-  <link rel="dns-prefetch" href="//use.fontawesome.com" />
-  <link rel="dns-prefetch" href="//www.googletagmanager.com" />
-  ';
+    echo '<meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="//code.jquery.com" />
+<link rel="dns-prefetch" href="//fonts.gstatic.com" />
+<link rel="dns-prefetch" href="//use.fontawesome.com" />
+<link rel="dns-prefetch" href="//www.googletagmanager.com" />';
 }
 
 add_action('wp_head', 'ism_dns_prefetch', 0);
 
-// Imposto gli script che mi interessano come async & defer
-// in particolare google mappe.
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::    * Imposto gli script che mi interessano come async & defer
+::::::::::::::      in particolare google mappe.
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+
 function make_script_async($tag, $handle, $src)
 {
     if ('googlemaps' != $handle) {
@@ -36,22 +47,29 @@ function make_script_async($tag, $handle, $src)
 
 add_filter('script_loader_tag', 'make_script_async', 10, 3);
 
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::    * Carico la lista di CSS  e JS
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
-/**
- * CARICO I CSS E I JS
- */
 function a5t_scripts()
 {
 
-    // Carico la lista di CSS     
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    ::::::::::::::    * Carico la lista di CSS
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     foreach ($GLOBALS['CSS'] as $nome => $percorso) {
         wp_enqueue_style($nome, $percorso);
     }
 
-    // jQuery is loaded using the same method from HTML5 Boilerplate:
-    // Grab Google CDN's latest jQuery with a protocol relative URL; fallback to CDNJS if offline
-    // It's kept in the header instead of footer to avoid conflicts with plugins.
-    // Support added in init.php
+
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    ::::::::::::::    * Autoload
+    ::::::::::::::      jQuery is loaded using the same method from HTML5 Boilerplate:
+    ::::::::::::::      It's kept in the header instead of footer to avoid conflicts with plugins.
+    ::::::::::::::      Grab Google CDN's latest jQuery with a protocol relative URL; fallback to CDNJS if offline
+    ::::::::::::::      Support added in init.php
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
     if (!is_admin() && current_theme_supports('jquery-cdn')) {
         wp_deregister_script('jquery');
         wp_register_script('jquery', 'https://code.jquery.com/jquery-1.11.3.min.js', array(), null, false);
@@ -59,74 +77,112 @@ function a5t_scripts()
     }
     wp_enqueue_script('jquery');
 
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    ::::::::::::::    * Javascript for comments
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
-
-    // Javascript for comments
     if (is_single() && comments_open() && get_option('thread_comments')) {
         wp_enqueue_script('comment-reply');
     }
 
-    // Loading custom js   
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    ::::::::::::::    * Loading custom js
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     foreach ($GLOBALS['JS'] as $nome => $percorso) {
         wp_enqueue_script($nome, $percorso);
     }
 
-    // Attiva in base alla scalta animate.css
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    ::::::::::::::    * Attiva in base alla scalta animate.css
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
     if ($GLOBALS['assets_options']['ANIMATECSS']) {
         wp_enqueue_style('animate', get_template_directory_uri() . '/assets/animate.css');
     }
 
-    // Attiva in base alla scalta hover.css
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    ::::::::::::::    * Attiva in base alla scalta hover.css
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
     if ($GLOBALS['assets_options']['HOVERCSS']) {
         wp_enqueue_style('hover', get_template_directory_uri() . '/assets/hover.css');
     }
 
-    // Attiva in base alla scalta fontawesome.js
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    ::::::::::::::    * Attiva in base alla scalta fontawesome.js
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
     if ($GLOBALS['assets_options']['FONTAWESOME']) {
         wp_enqueue_script('fa', 'https://use.fontawesome.com/releases/v5.0.6/js/all.js', array(), '5.0.6', true);
     }
-    // Attiva in base alla scalta
+
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    ::::::::::::::    * Attiva in base alla scalta
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
     if (get_theme_mod('a5t_setting_magic_mouse')) {
         wp_enqueue_style('magic-mouse-css', get_template_directory_uri() . '/assets/magic-mouse-js/magic-mouse.css');
         wp_enqueue_script('magic-mouse-js', get_template_directory_uri() . '/assets/magic-mouse-js/magic_mouse.js');
     }
-    // Attiva in base alla scalta
+
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    ::::::::::::::    * Attiva in base alla scalta
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
     if (get_theme_mod('a5t_setting_nprogress')) {
-        wp_enqueue_style( 'nprogress-css', get_template_directory_uri(). '/assets/nprogress/nprogress.css' );
-        wp_enqueue_script( 'nprogress-js', get_template_directory_uri(). '/assets/nprogress/nprogress.js');
+        wp_enqueue_style('nprogress-css', get_template_directory_uri() . '/assets/nprogress/nprogress.css');
+        wp_enqueue_script('nprogress-js', get_template_directory_uri() . '/assets/nprogress/nprogress.js');
     }
 
-    // Attiva in base alla scalta
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    ::::::::::::::    * Attiva in base alla scalta
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
     if (get_theme_mod('a5t_setting_butter')) {
         wp_enqueue_script('butter-js', get_template_directory_uri() . '/assets/butter-js/butter.js');
     }
 
-    // Attiva in base alla scalta
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    ::::::::::::::    * Attiva in base alla scalta
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
     if (get_theme_mod('a5t_setting_owl_carousel')) {
-        wp_enqueue_style( 'owl_carousel-css' , get_template_directory_uri().'/assets/owl-carousel/owl.carousel.min.css' );
-        wp_enqueue_script( 'owl_carousel-js' , get_template_directory_uri().'/assets/owl-carousel/owl.carousel.min.js');
+        wp_enqueue_style('owl_carousel-css', get_template_directory_uri() . '/assets/owl-carousel/owl.carousel.min.css');
+        wp_enqueue_script('owl_carousel-js', get_template_directory_uri() . '/assets/owl-carousel/owl.carousel.min.js');
     }
 
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    ::::::::::::::    * Carico Bootstrap js css
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
-    // Carico Bootstrap js css
     if (get_theme_mod('a5t_setting_bootstrap')) {
         wp_enqueue_style('bootstrap', get_template_directory_uri() . '/assets/bootstrap-4.3.1-dist/css/bootstrap.min.css');
         wp_enqueue_script('bootstrap-js', get_template_directory_uri() . '/assets/bootstrap-4.3.1-dist/js/bootstrap.min.js', array(), '4.3.1', true);
     }
 
 
-    // Attiva in base alla scalta cookiechoices.js
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    ::::::::::::::    * Attiva in base alla scalta cookiechoices.js
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
     if ($GLOBALS['assets_options']['COOKIES']) {
         wp_enqueue_script('cookies', get_template_directory_uri() . '/assets/cookiechoices.js', array(), '1.0.0', true);
     }
 
-    // Carico il JS custom
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    ::::::::::::::    * Carico il JS custom
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     wp_enqueue_script('scripts', get_template_directory_uri() . '/assets/custom.js', array(), '1.0.0', true);
 
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    ::::::::::::::    * Carico i Credits
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     wp_enqueue_script('credits', get_template_directory_uri() . '/assets/credits.js', array(), '1.0.0', true);
 
-    // Carico il CSS custom
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    ::::::::::::::    * Carico il CSS custom
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     wp_enqueue_style('default', get_template_directory_uri() . '/assets/custom.css');
 
 }
@@ -134,8 +190,11 @@ function a5t_scripts()
 add_action('wp_enqueue_scripts', 'a5t_scripts', 100);
 
 
-// http://wordpress.stackexchange.com/a/12450
-// Gestisco un sostituto per JQuery nel caso in cui il primo sia offline
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::    * Gestisco un sostituto per JQuery nel caso in cui il primo sia offline
+::::::::::::::      http://wordpress.stackexchange.com/a/12450
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
 function a5t_jquery_local_fallback($src, $handle = null)
 {
     static $add_jquery_fallback = false;
@@ -155,9 +214,10 @@ function a5t_jquery_local_fallback($src, $handle = null)
 add_action('wp_head', 'a5t_jquery_local_fallback');
 
 
-/**
- * Cookies directive script
- */
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::    * Cookies directive script
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
 
 function a5t_cookies()
 { ?>
@@ -173,10 +233,10 @@ if ($GLOBALS['assets_options']['COOKIES']) {
     add_action('wp_footer', 'a5t_cookies', 20);
 }
 
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::    * Google Analytics script
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
-/**
- * Analytics script
- */
 if (get_theme_mod('a5t_setting_analytics') != '') {
     function a5t_google_analytics()
     { ?>
@@ -217,7 +277,9 @@ if (get_theme_mod('a5t_setting_analytics') != '') {
     add_action('wp_head', 'a5t_google_analytics', 20);
 }
 
-
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::    * Google Tag Manager
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 if (get_theme_mod('a5t_setting_gtag') != '') {
 
 
@@ -259,6 +321,9 @@ if (get_theme_mod('a5t_setting_gtag') != '') {
     add_action('after_body', 'a5t_gtag_body_analytics', 20);
 }
 
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::    * Hotjar Tracking Code
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
 if (get_theme_mod('a5t_setting_hotjar') != '') {
     function a5t_hotjar_analytics()

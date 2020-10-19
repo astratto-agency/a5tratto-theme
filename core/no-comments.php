@@ -3,6 +3,7 @@
 if (get_theme_mod('a5t_setting_comments')) {
 
     // Disable support for comments and trackbacks in post types
+    // https://gist.github.com/ckschmieder/92c67e049735402e7c2a5d16e0313201
     function df_disable_comments_post_types_support() {
       $post_types = get_post_types();
       foreach ($post_types as $post_type) {
