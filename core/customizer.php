@@ -73,6 +73,15 @@ $wp_customize->add_section('a5t_framework_general_settings', array(
         'section' => 'a5t_framework_general_settings', // Add a default or your own section
         'label' => __( 'butter_js CSS' ),
     ));
+    // owl_carousel CSS
+    $wp_customize->add_setting( 'a5t_setting_owl_carousel', array(
+        'capability' => 'edit_theme_options',
+    ) );
+    $wp_customize->add_control( 'a5t_setting_owl_carousel', array(
+        'type' => 'checkbox',
+        'section' => 'a5t_framework_general_settings', // Add a default or your own section
+        'label' => __( 'owl_carousel CSS' ),
+    ));
 	// Cookies
 	$wp_customize->add_setting( 'a5t_setting_cookies', array(
 		'capability' => 'edit_theme_options',
