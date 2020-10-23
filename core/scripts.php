@@ -54,12 +54,7 @@ add_filter('script_loader_tag', 'make_script_async', 10, 3);
 function a5t_scripts()
 {
 
-    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * A_SETTINGS Carico la lista di CSS
-    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    foreach ($GLOBALS['CSS'] as $nome => $percorso) {
-        wp_enqueue_style($nome, $percorso);
-    }
+
 
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -86,10 +81,12 @@ function a5t_scripts()
     }
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * A_SETTINGS Loading custom js
-    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    foreach ($GLOBALS['JS'] as $nome => $percorso) {
-        wp_enqueue_script($nome, $percorso);
+      ::::::::::::::    * A_SETTINGS Carico Bootstrap js css
+      :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+    if (get_theme_mod('a5t_setting_bootstrap')) {
+        wp_enqueue_style('bootstrap', get_template_directory_uri() . '/assets/bootstrap-4.3.1-dist/css/bootstrap.min.css');
+        wp_enqueue_script('bootstrap-js', get_template_directory_uri() . '/assets/bootstrap-4.3.1-dist/js/bootstrap.min.js', array(), '4.3.1', true);
     }
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -152,14 +149,20 @@ function a5t_scripts()
     }
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * A_SETTINGS Carico Bootstrap js css
+    ::::::::::::::    * A_SETTINGS Carico la lista di CSS
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
-    if (get_theme_mod('a5t_setting_bootstrap')) {
-        wp_enqueue_style('bootstrap', get_template_directory_uri() . '/assets/bootstrap-4.3.1-dist/css/bootstrap.min.css');
-        wp_enqueue_script('bootstrap-js', get_template_directory_uri() . '/assets/bootstrap-4.3.1-dist/js/bootstrap.min.js', array(), '4.3.1', true);
+    foreach ($GLOBALS['CSS'] as $nome => $percorso) {
+        wp_enqueue_style($nome, $percorso);
     }
 
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    ::::::::::::::    * A_SETTINGS Loading custom js
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+    foreach ($GLOBALS['JS'] as $nome => $percorso) {
+        wp_enqueue_script($nome, $percorso);
+    }
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     ::::::::::::::    * A_SETTINGS Attiva in base alla scalta cookiechoices.js
@@ -169,9 +172,23 @@ function a5t_scripts()
         wp_enqueue_script('cookies', get_template_directory_uri() . '/assets/cookiechoices.js', array(), '1.0.0', true);
     }
 
+}
+
+add_action('wp_enqueue_scripts', 'a5t_scripts', 100);
+
+
+function a5t_scripts_custom()
+{
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    ::::::::::::::    * A_SETTINGS Carico il CSS custom
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+    wp_enqueue_style('custom', get_template_directory_uri() . '/assets/custom.css');
+
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     ::::::::::::::    * A_SETTINGS Carico il JS custom
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
     wp_enqueue_script('scripts', get_template_directory_uri() . '/assets/custom.js', array(), '1.0.0', true);
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -179,15 +196,11 @@ function a5t_scripts()
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     wp_enqueue_script('credits', get_template_directory_uri() . '/assets/credits.js', array(), '1.0.0', true);
-
-    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * A_SETTINGS Carico il CSS custom
-    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    wp_enqueue_style('default', get_template_directory_uri() . '/assets/custom.css');
-
 }
 
-add_action('wp_enqueue_scripts', 'a5t_scripts', 100);
+add_action('wp_enqueue_scripts', 'a5t_scripts_custom', 110);
+
+
 
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::

@@ -37,36 +37,36 @@ if (!isset($paged) || !$paged) {
     $paged = 1;
 }
 
+/*  A_SETTINGS TERM QUERY elaboro query base per term */
+$context['term'] = $term = new Timber\Term(get_queried_object_id());
+
 /* A_SETTINGS Smistamento delle impaginazioni ai relativi template di pagina */
 $context['title'] = 'Archive';
 if ( is_day() ) {
-    $context['title'] = 'Archive: '.get_the_date( 'D M Y' );
+    /* A_SETTINGS day  */
+    $context['title'] = 'Archive: ' . get_the_date('D M Y'); // Update title
 } else if ( is_month() ) {
-    $context['title'] = 'Archive: '.get_the_date( 'M Y' );
+    /* A_SETTINGS month  */
+    $context['title'] = 'Archive: ' . get_the_date('M Y'); // Update title
 } else if ( is_year() ) {
-    $context['title'] = 'Archive: '.get_the_date( 'Y' );
+    /* A_SETTINGS year  */
+    $context['title'] = 'Archive: ' . get_the_date('Y'); // Update title
 } else if ( is_tag() ) {
-    $context['title'] = single_tag_title( '', false );
-    $context['term'] = $term = new Timber\Term( get_queried_object_id() );
-    /* array_unshift( $templates, 'tag-' . $term->slug . '.twig' ); */
-    $templates = array( 'tag-' . $term->slug . '.twig', 'tag.twig', 'archive.twig', 'index.twig' );
-    // var_dump($term);
+    /* A_SETTINGS tag  */
+    $context['title'] = single_tag_title('', false); // Update title
+    array_unshift($templates, 'tag-' . $term->slug . '.twig', 'tag.twig'); // Update templates
 } else if ( is_category() ) {
-    $context['title'] = single_cat_title( '', false );
-    $context['term'] = $term = new Timber\Term( get_queried_object_id() );
-    /* array_unshift( $templates, 'category-' . $term->slug . '.twig' ); */
-    $templates = array( 'category-' . $term->slug . '.twig', 'categoy.twig', 'archive.twig', 'index.twig' );
-    // var_dump($term);
+    /* A_SETTINGS category  */
+    $context['title'] = single_cat_title('Title Category', false); // Update title
+    array_unshift($templates, 'category-' . $term->slug . '.twig', 'categoy.twig');// Update templates
 } else if ( is_tax() ) {
-    $context['title'] = single_cat_title( '', false );
-    $context['term'] = $term = new Timber\Term( get_queried_object_id() );
-    /* array_unshift( $templates, 'taxonomy-' . $term->slug . '.twig' ); */
-    $templates = array( 'taxonomy-' . $term->slug . '.twig', 'taxonomy.twig', 'archive.twig', 'index.twig' );
-    // var_dump($term);
+    /* A_SETTINGS taxonomy  */
+    $context['title'] = single_cat_title('', false); // Update title
+    array_unshift($templates, 'taxonomy-' . $term->slug . '.twig', 'taxonomy.twig'); // Update templates
 } else if ( is_post_type_archive() ) {
-    $context['title'] = post_type_archive_title( '', false );
-    $context['term'] = $term = new Timber\Term( get_queried_object_id() );
-    array_unshift( $templates, 'archive-' . get_post_type() . '.twig' );
+    /* A_SETTINGS archive  */
+    $context['title'] = post_type_archive_title('', false); // Update title
+    array_unshift($templates, 'archive-' . get_post_type() . '.twig'); // Update templates
 }
 
 /*  A_SETTINGS Assegno tutte le variabili di ACF a Twig
