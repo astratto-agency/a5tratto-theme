@@ -362,43 +362,197 @@ function a5t_customize_register($wp_customize)
         'label' => __('P. IVA'),
     ));
 
-    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * A_SETTINGS Indirizzo Principale
-    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-
-    $wp_customize->add_setting('a5t_setting_indirizzo', array(
-        'capability' => 'edit_theme_options',
-    ));
-    $wp_customize->add_control('a5t_setting_indirizzo', array(
-        'type' => 'text',
-        'section' => 'a5t_framework_theme_fileds', // Add a default or your own section
-        'label' => __('Indirizzo'),
-    ));
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * A_SETTINGS Telefono Pricipale
+    ::::::::::::::    * A_SETTINGS THEME FIELDS
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    $wp_customize->add_section('a5t_framework_theme_fileds', [
+        'title' => __('Theme Fields', 'a5t_framework'),
+        'priority' => 120,
+    ]);
 
-    $wp_customize->add_setting('a5t_setting_telefono', array(
-        'capability' => 'edit_theme_options',
-    ));
-    $wp_customize->add_control('a5t_setting_telefono', array(
-        'type' => 'text',
-        'section' => 'a5t_framework_theme_fileds', // Add a default or your own section
-        'label' => __('Telefono'),
-    ));
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * A_SETTINGS Mail Principale
+    ::::::::::::::    * A_SETTINGS Intestazione Principale
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-
-    $wp_customize->add_setting('a5t_setting_mail', array(
+    $wp_customize->add_setting('a5t_setting_intestazione', [
         'capability' => 'edit_theme_options',
-    ));
-    $wp_customize->add_control('a5t_setting_mail', array(
+    ]);
+    $wp_customize->add_control('a5t_setting_intestazione', [
         'type' => 'text',
         'section' => 'a5t_framework_theme_fileds', // Add a default or your own section
-        'label' => __('Mail'),
-    ));
+        'label' => __('Intestazione'),
+    ]);
+
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    ::::::::::::::    * A_SETTINGS P. IVA Principale
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    $wp_customize->add_setting('a5t_setting_piva', [
+        'capability' => 'edit_theme_options',
+    ]);
+    $wp_customize->add_control('a5t_setting_piva', [
+        'type' => 'text',
+        'section' => 'a5t_framework_theme_fileds', // Add a default or your own section
+        'label' => __('P. IVA'),
+    ]);
+
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    ::::::::::::::    * A_SETTINGS Numero Rea Principale
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    $wp_customize->add_setting('a5t_setting_rea', [
+        'capability' => 'edit_theme_options',
+    ]);
+    $wp_customize->add_control('a5t_setting_rea', [
+        'type' => 'text',
+        'section' => 'a5t_framework_theme_fileds', // Add a default or your own section
+        'label' => __('N° REA'),
+    ]);
+
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    ::::::::::::::    * A_SETTINGS Cap Sociale Principale
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    $wp_customize->add_setting('a5t_setting_cap_soc', [
+        'capability' => 'edit_theme_options',
+    ]);
+    $wp_customize->add_control('a5t_setting_cap_soc', [
+        'type' => 'text',
+        'section' => 'a5t_framework_theme_fileds', // Add a default or your own section
+        'label' => __('Capitale Sociale'),
+    ]);
+
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    ::::::::::::::    * A_SETTINGS Indirizzo 1 Principale
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    $wp_customize->add_setting('a5t_setting_indirizzo_1', [
+        'capability' => 'edit_theme_options',
+    ]);
+    $wp_customize->add_control('a5t_setting_indirizzo_1', [
+        'type' => 'text',
+        'section' => 'a5t_framework_theme_fileds', // Add a default or your own section
+        'label' => __('Indirizzo 1'),
+    ]);
+
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    ::::::::::::::    * A_SETTINGS Indirizzo 2
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    $wp_customize->add_setting('a5t_setting_indirizzo_2', [
+        'capability' => 'edit_theme_options',
+    ]);
+    $wp_customize->add_control('a5t_setting_indirizzo_2', [
+        'type' => 'text',
+        'section' => 'a5t_framework_theme_fileds', // Add a default or your own section
+        'label' => __('Indirizzo 2'),
+    ]);
+
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    ::::::::::::::    * A_SETTINGS Indirizzo 3
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    $wp_customize->add_setting('a5t_setting_indirizzo_3', [
+        'capability' => 'edit_theme_options',
+    ]);
+    $wp_customize->add_control('a5t_setting_indirizzo_3', [
+        'type' => 'text',
+        'section' => 'a5t_framework_theme_fileds', // Add a default or your own section
+        'label' => __('Indirizzo 3'),
+    ]);
+
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    ::::::::::::::    * A_SETTINGS Telefono 1 Pricipale
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    $wp_customize->add_setting('a5t_setting_tel_1', [
+        'capability' => 'edit_theme_options',
+    ]);
+    $wp_customize->add_control('a5t_setting_tel_1', [
+        'type' => 'text',
+        'section' => 'a5t_framework_theme_fileds', // Add a default or your own section
+        'label' => __('Telefono 1 Principale'),
+    ]);
+
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    ::::::::::::::    * A_SETTINGS Telefono 2
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    $wp_customize->add_setting('a5t_setting_tel_2', [
+        'capability' => 'edit_theme_options',
+    ]);
+    $wp_customize->add_control('a5t_setting_tel_2', [
+        'type' => 'text',
+        'section' => 'a5t_framework_theme_fileds', // Add a default or your own section
+        'label' => __('Telefono 2'),
+    ]);
+
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    ::::::::::::::    * A_SETTINGS Fax Pricipale
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    $wp_customize->add_setting('a5t_setting_fax', [
+        'capability' => 'edit_theme_options',
+    ]);
+    $wp_customize->add_control('a5t_setting_fax', [
+        'type' => 'text',
+        'section' => 'a5t_framework_theme_fileds', // Add a default or your own section
+        'label' => __('Fax'),
+    ]);
+
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    ::::::::::::::    * A_SETTINGS Mail 1 Principale
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    $wp_customize->add_setting('a5t_setting_mail_1', [
+        'capability' => 'edit_theme_options',
+    ]);
+    $wp_customize->add_control('a5t_setting_mail_1', [
+        'type' => 'text',
+        'type' => 'text',
+        'section' => 'a5t_framework_theme_fileds', // Add a default or your own section
+        'label' => __('Mail 1 Principale'),
+    ]);
+
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    ::::::::::::::    * A_SETTINGS Mail 2 Secondaria
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    $wp_customize->add_setting('a5t_setting_mail_2', [
+        'capability' => 'edit_theme_options',
+    ]);
+    $wp_customize->add_control('a5t_setting_mail_2', [
+        'type' => 'text',
+        'section' => 'a5t_framework_theme_fileds', // Add a default or your own section
+        'label' => __('Mail 2 Secondaria'),
+    ]);
+
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    ::::::::::::::    * A_SETTINGS Mail 3
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    $wp_customize->add_setting('a5t_setting_mail_3', [
+        'capability' => 'edit_theme_options',
+    ]);
+    $wp_customize->add_control('a5t_setting_mail_3', [
+        'type' => 'text',
+        'section' => 'a5t_framework_theme_fileds', // Add a default or your own section
+        'label' => __('Mail 3'),
+    ]);
+
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    ::::::::::::::    * A_SETTINGS LInkedin
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    $wp_customize->add_setting('a5t_setting_linkedin', [
+        'capability' => 'edit_theme_options',
+    ]);
+    $wp_customize->add_control('a5t_setting_linkedin', [
+        'type' => 'text',
+        'section' => 'a5t_framework_theme_fileds', // Add a default or your own section
+        'label' => __('Linkedin'),
+    ]);
+
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    ::::::::::::::    * A_SETTINGS Fecebook
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    $wp_customize->add_setting('a5t_setting_facebook', [
+        'capability' => 'edit_theme_options',
+    ]);
+    $wp_customize->add_control('a5t_setting_facebook', [
+        'type' => 'text',
+        'section' => 'a5t_framework_theme_fileds', // Add a default or your own section
+        'label' => __('Facebook'),
+    ]);
+
+
 }
 add_action('customize_register', 'a5t_customize_register');
