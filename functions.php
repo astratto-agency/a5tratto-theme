@@ -228,6 +228,23 @@ function add_to_context($context)
 
     $context['main_container'] = get_theme_mod("a5t_setting_main_container");
 
+    $context['a5t_setting_gototop'] = get_theme_mod("a5t_setting_gototop");
+
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    ::::::::::::::    * A_SETTINGS Google Fonts
+                        // Attiva Google Fonts per ogni riga fonts.google.com
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+    /*    $a5t_setting_google_fonts = get_theme_mod("a5t_setting_google_fonts");
+        $google_fonts = explode("\n", $a5t_setting_google_fonts);
+        $google_fonts = array_filter($google_fonts, 'trim'); // remove any extra \r characters left behind
+
+
+
+        Sgoogle_fonts[] rows = textArea.getText().split("\n");
+        $a5t_setting_google_fonts
+        $context['a5t_setting_google_fonts'] =*/
+
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     ::::::::::::::    * A_SETTINGS Setting
@@ -286,8 +303,8 @@ function add_to_context($context)
     ::::::::::::::    * A_SETTINGS Google Maps
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
-    $key = get_theme_mod('a5t_setting_maps');
-    $context['googleapis'] = 'http://maps.googleapis.com/maps/api/js?key=' . $key . '&amp;sensor=false';
+    $gmaps_api_key = get_theme_mod('a5t_setting_maps');
+    $context['google_maps_api'] = 'http://maps.googleapis.com/maps/api/js?key=' . $gmaps_api_key . '&amp;sensor=false';
 
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -325,6 +342,25 @@ if (get_theme_mod('a5t_adv_adminbar')) {
 
 
 */
+
+
+// Method 1: Filter.
+function my_acf_google_map_api($api)
+{
+    $api['key'] = get_theme_mod('a5t_setting_maps');
+    return $api;
+}
+
+add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
+
+// Method 2: Setting.
+function my_acf_init()
+{
+    acf_update_setting('google_api_key', get_theme_mod('a5t_setting_maps'));
+}
+
+add_action('acf/init', 'my_acf_init');
+
 
 
 /**

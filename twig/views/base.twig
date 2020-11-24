@@ -10,6 +10,55 @@
 {# A_SETTINGS body #}
 <body class="{{ body_class }}" {# TODO attivare impostazione per butter-js #} data-template="base.twig">
 
+
+{#  A_SETTINGS attivazione Go To Top Button #}
+{% if a5t_setting_gototop %}
+    <button onclick="topFunction()" id="gototop-btn" title="Go to top">Top</button>
+    <script>
+        //Get the button
+        var gototop_btn = document.getElementById("gototop-btn");
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () {
+            scrollFunction()
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                gototop_btn.style.display = "block";
+            } else {
+                gototop_btn.style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+    <style>
+        #gototop-btn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 30px;
+            z-index: 99;
+            font-size: 18px;
+            border: none;
+            outline: none;
+            background-color: red;
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 4px;
+        }
+    </style>
+{% endif %}
+
+
+
+
 {#  A_SETTINGS attivazione butter-js #}
 <div id="butter-active">
 
@@ -23,8 +72,7 @@
     </div>
     <!-- /.loader -->
 
-    {# A_FIXME #}
-    <a class="magic-hover magic-hover__square">download</a>
+
 
     {# A_SETTINGS header#}
     <!-- header -->
@@ -56,7 +104,7 @@
 
     {# A_SETTINGS content #}
     <!-- main content -->
-    <section id="content" id="butter-active" role="main" class="content-wrapper">
+    <section id="content" role="main" class="content-wrapper">
 
         <div class="{{ main_container }}">
             <div class="row">
@@ -76,35 +124,43 @@
                     </div>
                 {% endif %}
             </div>
+            <div class="row">
+                <!-- Pre Footer -->
+                {% if pre_footer %}
+                    <section class="bg-primary">
+                        <div class="container ">
+                            {{ pre_footer }}
+                            {# A_FIXME #}
+                            <a class="magic-hover magic-hover__square">download</a>
+                        </div>
+                        <!-- /.container -->
+                    </section>
+                {% endif %}
+                <!-- /.pre footer -->
+
+
+                {# A_SETTINGS footer #}
+                <!-- footer -->
+                {% block footer %}
+                    <footer id="footer" class="bg-dark text-light p-5">
+                        {% include 'footer.twig' %}
+                    </footer>
+                    {{ function('wp_footer') }}
+                {% endblock %}
+                <!-- /.footer -->
+                {# end A_SETTINGS footer #}
+            </div>
             <!-- /.row -->
         </div>
-
         <!-- /.page container -->
-        <!-- Pre Footer -->
-        {% if pre_footer %}
-            <section class="bg-primary">
-                <div class="container ">
-                    {{ pre_footer }}
-                </div>
-                <!-- /.container -->
-            </section>
-        {% endif %}
-        <!-- /.pre footer -->
+
 
     </section>
     <!-- /.main content -->
     {# end A_SETTINGS content #}
 
-    {# A_SETTINGS footer #}
-    <!-- footer -->
-    {% block footer %}
-        <footer id="footer" class="bg-dark text-light p-5">
-            {% include 'footer.twig' %}
-        </footer>
-        {{ function('wp_footer') }}
-    {% endblock %}
-    <!-- /.footer -->
-    {# end A_SETTINGS footer #}
+
+
 
 </div>
 {#  end A_SETTINGS attivazione butter-js #}

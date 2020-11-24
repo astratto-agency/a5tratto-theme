@@ -19,21 +19,43 @@ function a5t_customize_register($wp_customize)
     ::::::::::::::    * A_SETTINGS Post IDs viewable in the back-end
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
+
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * A_SETTINGS Google Mps Apy
+    ::::::::::::::    * A_SETTINGS Google Fonts
+                        // Attiva Google Fonts per ogni riga fonts.google.com
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
-    $wp_customize->add_setting('a5t_setting_maps', array(
+
+    $wp_customize->add_setting('a5t_setting_google_fonts', array(
         'capability' => 'edit_theme_options',
     ));
-    $wp_customize->add_control('a5t_setting_maps', array(
-        'type' => 'text',
-        'section' => 'a5t_framework_general_settings', // Add a default or your own section
-        'label' => __('GMaps API KEY'),
+    $wp_customize->add_control('a5t_setting_google_fonts', array(
+        'type' => 'textarea',
+        'section' => 'a5t_framework_general_settings',
+        'label' => __('Google Fonts'),
+        'description' => __('Attiva Google Fonts per ogni riga fonts.google.com'),
+    ));
+
+
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    ::::::::::::::    * A_SETTINGS Attiva in base alla scalta Bootstrap 4.3.1 CSS JS
+                        // Attiva libreria Bootstrap 4.3.1 CSS JS
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+    $wp_customize->add_setting('a5t_setting_bootstrap', array(
+        'capability' => 'edit_theme_options',
+    ));
+    $wp_customize->add_control('a5t_setting_bootstrap', array(
+        'type' => 'checkbox',
+        'section' => 'a5t_framework_general_settings',
+        'label' => __('Activate Bootstrap 4'),
+        'description' => __('Attiva libreria Bootstrap 4.3.1 css/js'),
+
     ));
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * A_SETTINGS Fontawesome
+    ::::::::::::::    * A_SETTINGS Attiva in base alla scalta Fontawesome
+                        // Attiva libreria Fontawesome 5.15.1 fontawesome.com/icons
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     $wp_customize->add_setting('a5t_setting_fa', array(
@@ -41,12 +63,14 @@ function a5t_customize_register($wp_customize)
     ));
     $wp_customize->add_control('a5t_setting_fa', array(
         'type' => 'checkbox',
-        'section' => 'a5t_framework_general_settings', // Add a default or your own section
-        'label' => __('Fontawesome'),
+        'section' => 'a5t_framework_general_settings',
+        'label' => __('Fontawesome '),
+        'description' => __('Attiva libreria Fontawesome 5.15.1 fontawesome.com/icons'),
     ));
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * A_SETTINGS Animate CSS
+    ::::::::::::::    * A_SETTINGS Attiva in base alla scalta Animate CSS
+                        // Attiva libreria Animate CSS animate.style
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     $wp_customize->add_setting('a5t_setting_animate', array(
@@ -54,12 +78,14 @@ function a5t_customize_register($wp_customize)
     ));
     $wp_customize->add_control('a5t_setting_animate', array(
         'type' => 'checkbox',
-        'section' => 'a5t_framework_general_settings', // Add a default or your own section
+        'section' => 'a5t_framework_general_settings',
         'label' => __('Animate CSS'),
+        'description' => __('Attiva libreria Animate CSS animate.style'),
     ));
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * A_SETTINGS Hover CSS
+    ::::::::::::::    * A_SETTINGS Attiva in base alla scalta Hover CSS
+                        // Attiva libreria Hover CSS ianlunn.github.io/Hover
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     $wp_customize->add_setting('a5t_setting_hover', array(
@@ -67,51 +93,14 @@ function a5t_customize_register($wp_customize)
     ));
     $wp_customize->add_control('a5t_setting_hover', array(
         'type' => 'checkbox',
-        'section' => 'a5t_framework_general_settings', // Add a default or your own section
+        'section' => 'a5t_framework_general_settings',
         'label' => __('Hover CSS'),
-    ));
-
-    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * A_SETTINGS magic_mouse CSS
-    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-
-    $wp_customize->add_setting('a5t_setting_magic_mouse', array(
-        'capability' => 'edit_theme_options',
-    ));
-    $wp_customize->add_control('a5t_setting_magic_mouse', array(
-        'type' => 'checkbox',
-        'section' => 'a5t_framework_general_settings', // Add a default or your own section
-        'label' => __('magic_mouse CSS'),
-    ));
-
-    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * A_SETTINGS nprogress CSS
-    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-
-    $wp_customize->add_setting('a5t_setting_nprogress', array(
-        'capability' => 'edit_theme_options',
-    ));
-    $wp_customize->add_control('a5t_setting_nprogress', array(
-        'type' => 'checkbox',
-        'section' => 'a5t_framework_general_settings', // Add a default or your own section
-        'label' => __('nprogress CSS'),
-    ));
-
-    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * A_SETTINGS butter_js CSS
-    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-
-    $wp_customize->add_setting('a5t_setting_butter_js', array(
-        'capability' => 'edit_theme_options',
-    ));
-    $wp_customize->add_control('a5t_setting_butter_js', array(
-        'type' => 'checkbox',
-        'section' => 'a5t_framework_general_settings', // Add a default or your own section
-        'label' => __('butter_js CSS'),
+        'description' => __('Attiva libreria Hover CSS ianlunn.github.io/Hover'),
     ));
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     ::::::::::::::    * A_SETTINGS owl_carousel CSS
+                        // Attiva libreria Owl Carousel CSS JS owlcarousel2.github.io/OwlCarousel2
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     $wp_customize->add_setting('a5t_setting_owl_carousel', array(
@@ -119,8 +108,88 @@ function a5t_customize_register($wp_customize)
     ));
     $wp_customize->add_control('a5t_setting_owl_carousel', array(
         'type' => 'checkbox',
-        'section' => 'a5t_framework_general_settings', // Add a default or your own section
-        'label' => __('owl_carousel CSS'),
+        'section' => 'a5t_framework_general_settings',
+        'label' => __('Owl Carousel CSS JS'),
+        'description' => __('Attiva libreria Owl Carousel CSS JS owlcarousel2.github.io/OwlCarousel2'),
+
+    ));
+
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    ::::::::::::::    * A_SETTINGS Attiva in base alla scalta NProgress CSS JS
+                        // Attiva libreria NProgress CSS JS https://ricostacruz.com/nprogress/
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+    $wp_customize->add_setting('a5t_setting_nprogress', array(
+        'capability' => 'edit_theme_options',
+    ));
+    $wp_customize->add_control('a5t_setting_nprogress', array(
+        'type' => 'checkbox',
+        'section' => 'a5t_framework_general_settings',
+        'label' => __('NProgress CSS JS'),
+        'description' => __('Attiva libreria NProgress CSS JS https://ricostacruz.com/nprogress/'),
+    ));
+
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    ::::::::::::::    * A_SETTINGS Attiva in base alla scalta Magic Mouse CSS JS
+                        // Attiva libreria Magic Mouse CSS JS magicmousejs.web.app
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+    $wp_customize->add_setting('a5t_setting_magic_mouse', array(
+        'capability' => 'edit_theme_options',
+    ));
+    $wp_customize->add_control('a5t_setting_magic_mouse', array(
+        'type' => 'checkbox',
+        'section' => 'a5t_framework_general_settings',
+        'label' => __('Magic Mouse CSS JS'),
+        'description' => __('Attiva libreria Magic Mouse CSS JS magicmousejs.web.app'),
+
+
+    ));
+
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    ::::::::::::::    * A_SETTINGS Attiva in base alla scalta Butter JS
+                        // Attiva libreria  Butter JS bcjdevelopment.github.io/butter.js
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+    $wp_customize->add_setting('a5t_setting_butter', array(
+        'capability' => 'edit_theme_options',
+    ));
+    $wp_customize->add_control('a5t_setting_butter', array(
+        'type' => 'checkbox',
+        'section' => 'a5t_framework_general_settings',
+        'label' => __('Butter JS'),
+        'description' => __('Attiva libreria  Butter JS bcjdevelopment.github.io/butter.js'),
+
+    ));
+
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    ::::::::::::::    * A_SETTINGS Attiva in base alla scalta Cocoen CSS JS
+                        // Attiva libreria Cocoen CSS JS github.com/jotform/before-after.js
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+    $wp_customize->add_setting('a5t_setting_cocoen', array(
+        'capability' => 'edit_theme_options',
+    ));
+    $wp_customize->add_control('a5t_setting_cocoen', array(
+        'type' => 'checkbox',
+        'section' => 'a5t_framework_general_settings',
+        'label' => __('Cocoen CSS JS'),
+        'description' => __('Attiva libreria Cocoen CSS JS github.com/jotform/before-after.js'),
+
+    ));
+
+
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    ::::::::::::::    * A_SETTINGS Go To Top Button
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+    $wp_customize->add_setting('a5t_setting_gototop', array(
+        'capability' => 'edit_theme_options',
+    ));
+    $wp_customize->add_control('a5t_setting_gototop', array(
+        'type' => 'checkbox',
+        'section' => 'a5t_framework_general_settings',
+        'label' => __('Go To Top Button'),
     ));
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -132,7 +201,7 @@ function a5t_customize_register($wp_customize)
     ));
     $wp_customize->add_control('a5t_setting_cookies', array(
         'type' => 'checkbox',
-        'section' => 'a5t_framework_general_settings', // Add a default or your own section
+        'section' => 'a5t_framework_general_settings',
         'label' => __('Cookies'),
     ));
 
@@ -145,22 +214,10 @@ function a5t_customize_register($wp_customize)
     ));
     $wp_customize->add_control('a5t_setting_comments', array(
         'type' => 'checkbox',
-        'section' => 'a5t_framework_general_settings', // Add a default or your own section
+        'section' => 'a5t_framework_general_settings',
         'label' => __('Disable comments'),
     ));
 
-    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * A_SETTINGS Bootstrap
-    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-
-    $wp_customize->add_setting('a5t_setting_bootstrap', array(
-        'capability' => 'edit_theme_options',
-    ));
-    $wp_customize->add_control('a5t_setting_bootstrap', array(
-        'type' => 'checkbox',
-        'section' => 'a5t_framework_general_settings', // Add a default or your own section
-        'label' => __('Activate Bootstrap 4'),
-    ));
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     ::::::::::::::    * A_SETTINGS Container / Fluid
@@ -171,7 +228,7 @@ function a5t_customize_register($wp_customize)
     ));
     $wp_customize->add_control('a5t_setting_main_container', array(
         'type' => 'select',
-        'section' => 'a5t_framework_general_settings', // Add a default or your own section
+        'section' => 'a5t_framework_general_settings',
         'label' => __('Main Container'),
         'description' => __('Scegli la tipologia di container'),
         'choices' => array(
@@ -198,10 +255,24 @@ function a5t_customize_register($wp_customize)
     ));
     $wp_customize->add_control('a5t_setting_analytics', array(
         'type' => 'text',
-        'section' => 'a5t_framework_tracking_settings', // Add a default or your own section
+        'section' => 'a5t_framework_tracking_settings',
         'label' => __('Google Analytics UID'),
     ));
 
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    ::::::::::::::    * A_SETTINGS Google Mps Apy
+                    Inserisci API key di Google Maps console.cloud.google.com
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+    $wp_customize->add_setting('a5t_setting_maps', array(
+        'capability' => 'edit_theme_options',
+    ));
+    $wp_customize->add_control('a5t_setting_maps', array(
+        'type' => 'text',
+        'section' => 'a5t_framework_tracking_settings',
+        'label' => __('GMaps API KEY'),
+        'description' => __('Inserisci API key di Google Maps console.cloud.google.com'),
+    ));
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     ::::::::::::::    * A_SETTINGS Google Tag
@@ -212,7 +283,7 @@ function a5t_customize_register($wp_customize)
     ));
     $wp_customize->add_control('a5t_setting_gtag', array(
         'type' => 'text',
-        'section' => 'a5t_framework_tracking_settings', // Add a default or your own section
+        'section' => 'a5t_framework_tracking_settings',
         'label' => __('Google Tag ID'),
     ));
 
@@ -226,7 +297,7 @@ function a5t_customize_register($wp_customize)
     ));
     $wp_customize->add_control('a5t_setting_hotjar', array(
         'type' => 'text',
-        'section' => 'a5t_framework_tracking_settings', // Add a default or your own section
+        'section' => 'a5t_framework_tracking_settings',
         'label' => __('Hotjar ID'),
     ));
 
@@ -249,7 +320,7 @@ function a5t_customize_register($wp_customize)
     ));
     $wp_customize->add_control('a5t_setting_pri_msg', array(
         'type' => 'textarea',
-        'section' => 'a5t_framework_cookies_settings', // Add a default or your own section
+        'section' => 'a5t_framework_cookies_settings',
         'label' => __('Privacy Policy message'),
     ));
 
@@ -262,7 +333,7 @@ function a5t_customize_register($wp_customize)
     ));
     $wp_customize->add_control('a5t_setting_pri_close', array(
         'type' => 'text',
-        'section' => 'a5t_framework_cookies_settings', // Add a default or your own section
+        'section' => 'a5t_framework_cookies_settings',
         'label' => __('Close button message'),
     ));
 
@@ -275,7 +346,7 @@ function a5t_customize_register($wp_customize)
     ));
     $wp_customize->add_control('a5t_setting_pri_title', array(
         'type' => 'text',
-        'section' => 'a5t_framework_cookies_settings', // Add a default or your own section
+        'section' => 'a5t_framework_cookies_settings',
         'label' => __('Privacy Policy title'),
     ));
 
@@ -288,7 +359,7 @@ function a5t_customize_register($wp_customize)
     ));
     $wp_customize->add_control('a5t_setting_pri_url', array(
         'type' => 'dropdown-pages',
-        'section' => 'a5t_framework_cookies_settings', // Add a default or your own section
+        'section' => 'a5t_framework_cookies_settings',
         'label' => __('Privacy Policy URL'),
     ));
 
@@ -310,7 +381,7 @@ function a5t_customize_register($wp_customize)
     ));
     $wp_customize->add_control('a5t_adv_twig', array(
         'type' => 'checkbox',
-        'section' => 'a5t_framework_advanced_settings', // Add a default or your own section
+        'section' => 'a5t_framework_advanced_settings',
         'label' => __('Twig'),
     ));
 
@@ -323,7 +394,7 @@ function a5t_customize_register($wp_customize)
     ));
     $wp_customize->add_control('a5t_adv_adminbar', array(
         'type' => 'checkbox',
-        'section' => 'a5t_framework_advanced_settings', // Add a default or your own section
+        'section' => 'a5t_framework_advanced_settings',
         'label' => __('Hide Admin Bar'),
     ));
 
@@ -345,7 +416,7 @@ function a5t_customize_register($wp_customize)
     ));
     $wp_customize->add_control('a5t_setting_intestazione', array(
         'type' => 'text',
-        'section' => 'a5t_framework_theme_fileds', // Add a default or your own section
+        'section' => 'a5t_framework_theme_fileds',
         'label' => __('Intestazione'),
     ));
 
@@ -358,7 +429,7 @@ function a5t_customize_register($wp_customize)
     ));
     $wp_customize->add_control('a5t_setting_piva', array(
         'type' => 'text',
-        'section' => 'a5t_framework_theme_fileds', // Add a default or your own section
+        'section' => 'a5t_framework_theme_fileds',
         'label' => __('P. IVA'),
     ));
 
@@ -380,7 +451,7 @@ function a5t_customize_register($wp_customize)
     ]);
     $wp_customize->add_control('a5t_setting_intestazione', [
         'type' => 'text',
-        'section' => 'a5t_framework_theme_fileds', // Add a default or your own section
+        'section' => 'a5t_framework_theme_fileds',
         'label' => __('Intestazione'),
     ]);
 
@@ -392,7 +463,7 @@ function a5t_customize_register($wp_customize)
     ]);
     $wp_customize->add_control('a5t_setting_piva', [
         'type' => 'text',
-        'section' => 'a5t_framework_theme_fileds', // Add a default or your own section
+        'section' => 'a5t_framework_theme_fileds',
         'label' => __('P. IVA'),
     ]);
 
@@ -404,7 +475,7 @@ function a5t_customize_register($wp_customize)
     ]);
     $wp_customize->add_control('a5t_setting_rea', [
         'type' => 'text',
-        'section' => 'a5t_framework_theme_fileds', // Add a default or your own section
+        'section' => 'a5t_framework_theme_fileds',
         'label' => __('N° REA'),
     ]);
 
@@ -416,7 +487,7 @@ function a5t_customize_register($wp_customize)
     ]);
     $wp_customize->add_control('a5t_setting_cap_soc', [
         'type' => 'text',
-        'section' => 'a5t_framework_theme_fileds', // Add a default or your own section
+        'section' => 'a5t_framework_theme_fileds',
         'label' => __('Capitale Sociale'),
     ]);
 
@@ -428,7 +499,7 @@ function a5t_customize_register($wp_customize)
     ]);
     $wp_customize->add_control('a5t_setting_indirizzo_1', [
         'type' => 'text',
-        'section' => 'a5t_framework_theme_fileds', // Add a default or your own section
+        'section' => 'a5t_framework_theme_fileds',
         'label' => __('Indirizzo 1'),
     ]);
 
@@ -440,7 +511,7 @@ function a5t_customize_register($wp_customize)
     ]);
     $wp_customize->add_control('a5t_setting_indirizzo_2', [
         'type' => 'text',
-        'section' => 'a5t_framework_theme_fileds', // Add a default or your own section
+        'section' => 'a5t_framework_theme_fileds',
         'label' => __('Indirizzo 2'),
     ]);
 
@@ -452,7 +523,7 @@ function a5t_customize_register($wp_customize)
     ]);
     $wp_customize->add_control('a5t_setting_indirizzo_3', [
         'type' => 'text',
-        'section' => 'a5t_framework_theme_fileds', // Add a default or your own section
+        'section' => 'a5t_framework_theme_fileds',
         'label' => __('Indirizzo 3'),
     ]);
 
@@ -464,7 +535,7 @@ function a5t_customize_register($wp_customize)
     ]);
     $wp_customize->add_control('a5t_setting_tel_1', [
         'type' => 'text',
-        'section' => 'a5t_framework_theme_fileds', // Add a default or your own section
+        'section' => 'a5t_framework_theme_fileds',
         'label' => __('Telefono 1 Principale'),
     ]);
 
@@ -476,7 +547,7 @@ function a5t_customize_register($wp_customize)
     ]);
     $wp_customize->add_control('a5t_setting_tel_2', [
         'type' => 'text',
-        'section' => 'a5t_framework_theme_fileds', // Add a default or your own section
+        'section' => 'a5t_framework_theme_fileds',
         'label' => __('Telefono 2'),
     ]);
 
@@ -488,7 +559,7 @@ function a5t_customize_register($wp_customize)
     ]);
     $wp_customize->add_control('a5t_setting_fax', [
         'type' => 'text',
-        'section' => 'a5t_framework_theme_fileds', // Add a default or your own section
+        'section' => 'a5t_framework_theme_fileds',
         'label' => __('Fax'),
     ]);
 
@@ -501,7 +572,7 @@ function a5t_customize_register($wp_customize)
     $wp_customize->add_control('a5t_setting_mail_1', [
         'type' => 'text',
         'type' => 'text',
-        'section' => 'a5t_framework_theme_fileds', // Add a default or your own section
+        'section' => 'a5t_framework_theme_fileds',
         'label' => __('Mail 1 Principale'),
     ]);
 
@@ -513,7 +584,7 @@ function a5t_customize_register($wp_customize)
     ]);
     $wp_customize->add_control('a5t_setting_mail_2', [
         'type' => 'text',
-        'section' => 'a5t_framework_theme_fileds', // Add a default or your own section
+        'section' => 'a5t_framework_theme_fileds',
         'label' => __('Mail 2 Secondaria'),
     ]);
 
@@ -525,7 +596,7 @@ function a5t_customize_register($wp_customize)
     ]);
     $wp_customize->add_control('a5t_setting_mail_3', [
         'type' => 'text',
-        'section' => 'a5t_framework_theme_fileds', // Add a default or your own section
+        'section' => 'a5t_framework_theme_fileds',
         'label' => __('Mail 3'),
     ]);
 
@@ -537,7 +608,7 @@ function a5t_customize_register($wp_customize)
     ]);
     $wp_customize->add_control('a5t_setting_linkedin', [
         'type' => 'text',
-        'section' => 'a5t_framework_theme_fileds', // Add a default or your own section
+        'section' => 'a5t_framework_theme_fileds',
         'label' => __('Linkedin'),
     ]);
 
@@ -549,10 +620,11 @@ function a5t_customize_register($wp_customize)
     ]);
     $wp_customize->add_control('a5t_setting_facebook', [
         'type' => 'text',
-        'section' => 'a5t_framework_theme_fileds', // Add a default or your own section
+        'section' => 'a5t_framework_theme_fileds',
         'label' => __('Facebook'),
     ]);
 
 
 }
+
 add_action('customize_register', 'a5t_customize_register');

@@ -15,11 +15,6 @@ $context = Timber::get_context();
 $post = new TimberPost();
 $context['post'] = $post;
 
-
-
-
-
-
 /*  A_SETTINGS Assegno tutte le variabili di ACF a Twig
     in caso avessi necessità puoi sostituire il valore $post con l'ID della pagina */
 $fields = get_field_objects( $post );
@@ -30,9 +25,6 @@ if( $fields ):
         $context[$name_id] = $value_id;
     endforeach;
 endif;
-
-
-
 
 if ( post_password_required( $post->ID ) ) {
 	Timber::render( 'single-password.twig', $context );

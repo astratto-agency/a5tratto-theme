@@ -35,7 +35,6 @@ add_action('wp_head', 'ism_dns_prefetch', 0);
 ::::::::::::::      in particolare google mappe.
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
-
 function make_script_async($tag, $handle, $src)
 {
     if ('googlemaps' != $handle) {
@@ -53,9 +52,6 @@ add_filter('script_loader_tag', 'make_script_async', 10, 3);
 
 function a5t_scripts()
 {
-
-
-
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     ::::::::::::::    * A_SETTINGS Autoload
@@ -81,94 +77,118 @@ function a5t_scripts()
     }
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-      ::::::::::::::    * A_SETTINGS Carico Bootstrap js css
-      :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    ::::::::::::::    * A_SETTINGS Attiva in base alla scalta Bootstrap 4.3.1 CSS JS
+                        // Attiva libreria Bootstrap 4.3.1 CSS JS
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
-    if (get_theme_mod('a5t_setting_bootstrap')) {
+    if ($GLOBALS['assets_options']['A5T_SETTING_BOOTSTRAP']) {
         wp_enqueue_style('bootstrap', get_template_directory_uri() . '/assets/bootstrap-4.3.1-dist/css/bootstrap.min.css');
-        wp_enqueue_script('bootstrap-js', get_template_directory_uri() . '/assets/bootstrap-4.3.1-dist/js/bootstrap.min.js', array(), '4.3.1', true);
+        wp_enqueue_script('bootstrap', get_template_directory_uri() . '/assets/bootstrap-4.3.1-dist/js/bootstrap.min.js', array(), '4.3.1', true);
     }
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * A_SETTINGS Attiva in base alla scalta animate.css
+    ::::::::::::::    * A_SETTINGS Attiva in base alla scalta Fontawesome
+                        // Attiva libreria Fontawesome fontawesome.com/icons
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
-    if ($GLOBALS['assets_options']['ANIMATECSS']) {
+    if ($GLOBALS['assets_options']['A5T_SETTING_FA']) {
+        wp_enqueue_script('fa', 'https://use.fontawesome.com/releases/v5.15.1/js/all.js', array(), '5.15.1', true);
+        wp_enqueue_style('fa', 'https://use.fontawesome.com/releases/v5.15.1/css/fontawesome.css');
+        /*wp_enqueue_script('fab', 'https://use.fontawesome.com/releases/v5.15.1/js/brands.js', array(), '5.15.1', true);*/
+        /*wp_enqueue_style('fab',  'https://use.fontawesome.com/releases/v5.15.1/css/brands.css');*/
+    }
+
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    ::::::::::::::    * A_SETTINGS Attiva in base alla scalta Animate CSS
+                        // Attiva libreria Animate CSS animate.style
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+    if ($GLOBALS['assets_options']['A5T_SETTING_ANIMATE']) {
         wp_enqueue_style('animate', get_template_directory_uri() . '/assets/animate.css');
     }
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * A_SETTINGS Attiva in base alla scalta hover.css
+    ::::::::::::::    * A_SETTINGS Attiva in base alla scalta Hover CSS
+                        // Attiva libreria Hover CSS ianlunn.github.io/Hover
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
-    if ($GLOBALS['assets_options']['HOVERCSS']) {
+    if ($GLOBALS['assets_options']['A5T_SETTING_HOVER']) {
         wp_enqueue_style('hover', get_template_directory_uri() . '/assets/hover.css');
     }
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * A_SETTINGS Attiva in base alla scalta fontawesome.js
+    ::::::::::::::    * A_SETTINGS Attiva in base alla scalta Owl Carousel CSS JS
+                        // Attiva libreria Owl Carousel CSS JS owlcarousel2.github.io/OwlCarousel2
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-
-    if ($GLOBALS['assets_options']['FONTAWESOME']) {
-        wp_enqueue_script('fa', 'https://use.fontawesome.com/releases/v5.0.6/js/all.js', array(), '5.0.6', true);
+    if ($GLOBALS['assets_options']['A5T_SETTING_OWL_CAROUSEL']) {
+        wp_enqueue_style('owl_carousel', get_template_directory_uri() . '/assets/owl-carousel/owl.carousel.min.css');
+        wp_enqueue_script('owl_carousel', get_template_directory_uri() . '/assets/owl-carousel/owl.carousel.min.js');
     }
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * A_SETTINGS Attiva in base alla scalta
+    ::::::::::::::    * A_SETTINGS Attiva in base alla scalta NProgress CSS JS
+                        // Attiva libreria NProgress CSS JS https://ricostacruz.com/nprogress/
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
-    if (get_theme_mod('a5t_setting_magic_mouse')) {
-        wp_enqueue_style('magic-mouse-css', get_template_directory_uri() . '/assets/magic-mouse-js/magic-mouse.css');
-        wp_enqueue_script('magic-mouse-js', get_template_directory_uri() . '/assets/magic-mouse-js/magic_mouse.js');
+    if ($GLOBALS['assets_options']['A5T_SETTING_NPROGRESS']) {
+        wp_enqueue_style('nprogress', get_template_directory_uri() . '/assets/nprogress/nprogress.css');
+        wp_enqueue_script('nprogress', get_template_directory_uri() . '/assets/nprogress/nprogress.js');
     }
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * A_SETTINGS Attiva in base alla scalta
+    ::::::::::::::    * A_SETTINGS Attiva in base alla scalta Magic Mouse CSS JS
+                        // Attiva libreria Magic Mouse CSS JS magicmousejs.web.app
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
-    if (get_theme_mod('a5t_setting_nprogress')) {
-        wp_enqueue_style('nprogress-css', get_template_directory_uri() . '/assets/nprogress/nprogress.css');
-        wp_enqueue_script('nprogress-js', get_template_directory_uri() . '/assets/nprogress/nprogress.js');
+    if ($GLOBALS['assets_options']['A5T_SETTING_MAGIC_MOUSE']) {
+        wp_enqueue_style('magic-mouse', get_template_directory_uri() . '/assets/magic-mouse-js/magic-mouse.css');
+        wp_enqueue_script('magic-mouse', get_template_directory_uri() . '/assets/magic-mouse-js/magic_mouse.js');
     }
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * A_SETTINGS Attiva in base alla scalta
+    ::::::::::::::    * A_SETTINGS Attiva in base alla scalta Butter JS
+                        // Attiva libreria  Butter JS bcjdevelopment.github.io/butter.js
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
-    if (get_theme_mod('a5t_setting_butter')) {
-        wp_enqueue_script('butter-js', get_template_directory_uri() . '/assets/butter-js/butter.js');
+    if ($GLOBALS['assets_options']['A5T_SETTING_BUTTER']) {
+        wp_enqueue_script('butter', get_template_directory_uri() . '/assets/butter-js/butter.js');
     }
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * A_SETTINGS Attiva in base alla scalta
+    ::::::::::::::    * A_SETTINGS Attiva in base alla scalta Cocoen CSS JS
+                        // Attiva libreria Cocoen CSS JS github.com/jotform/before-after.js
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
-    if (get_theme_mod('a5t_setting_owl_carousel')) {
-        wp_enqueue_style('owl_carousel-css', get_template_directory_uri() . '/assets/owl-carousel/owl.carousel.min.css');
-        wp_enqueue_script('owl_carousel-js', get_template_directory_uri() . '/assets/owl-carousel/owl.carousel.min.js');
+    if ($GLOBALS['assets_options']['A5T_SETTING_COCOEN']) {
+        wp_enqueue_style('cocoen', get_template_directory_uri() . '/assets/cocoen/css/cocoen.min.css');
+        wp_enqueue_script('cocoen', get_template_directory_uri() . '/assets/cocoen/js/cocoen.min.js');
     }
 
+
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * A_SETTINGS Carico la lista di CSS
+    ::::::::::::::    * A_SETTINGS CSS
+                        // Carico lista percorsi CSS di terze parti in core/wp-config.php
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
-    foreach ($GLOBALS['CSS'] as $nome => $percorso) {
+    foreach ($GLOBALS['A5T_SETTING_CSS'] as $nome => $percorso) {
         wp_enqueue_style($nome, $percorso);
     }
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * A_SETTINGS Loading custom js
+    ::::::::::::::    * A_SETTINGS JS
+                        // Carico lista percorsi JS di terze parti in core/wp-config.php
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
-    foreach ($GLOBALS['JS'] as $nome => $percorso) {
+    foreach ($GLOBALS['A5T_SETTING_JS'] as $nome => $percorso) {
         wp_enqueue_script($nome, $percorso);
     }
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     ::::::::::::::    * A_SETTINGS Attiva in base alla scalta cookiechoices.js
+                        // http://www.giovannifracasso.it/accettazione-cookies-privacy-banner/
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
-    if ($GLOBALS['assets_options']['COOKIES']) {
+    if ($GLOBALS['assets_options']['A5T_SETTING_COOKIES']) {
         wp_enqueue_script('cookies', get_template_directory_uri() . '/assets/cookiechoices.js', array(), '1.0.0', true);
     }
 
@@ -179,6 +199,14 @@ add_action('wp_enqueue_scripts', 'a5t_scripts', 100);
 
 function a5t_scripts_custom()
 {
+
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    ::::::::::::::    * A_SETTINGS Carico style.css
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+    wp_enqueue_style('style', get_template_directory_uri() . '/style.css');
+
+
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     ::::::::::::::    * A_SETTINGS Carico il CSS custom
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
@@ -199,8 +227,6 @@ function a5t_scripts_custom()
 }
 
 add_action('wp_enqueue_scripts', 'a5t_scripts_custom', 110);
-
-
 
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -242,7 +268,7 @@ function a5t_cookies()
 <?php }
 
 
-if ($GLOBALS['assets_options']['COOKIES']) {
+if ($GLOBALS['assets_options']['A5T_SETTING_COOKIES']) {
     add_action('wp_footer', 'a5t_cookies', 20);
 }
 

@@ -1,37 +1,56 @@
 {% extends "base.twig" %}
 {% block content %}
-	<div class="content-wrapper">
-		<article class="post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
-			<img src="{{ post.thumbnail.src|resize(1200, 300) }}">
-			<section class="article-content">
-				<h1 class="article-h1">{{ post.title }}</h1>
-				<p class="blog-author">
-					<span>By</span><a href="{{post.author.path}}"> {{ post.author.name }} </a><span>&bull;</span> {{ post.date }}
-				</p>
-				<div class="article-body">
-					{{post.content}}
-				</div>
-			</section>
+    <article class="post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <section class="post-{{ post.post_type }}-header">
+                        <h1>{{ title }}</h1>
+                        <p class="post-{{ post.post_type }}-author">
+                            Sezione scritta da <a href="{{ post.author.path }}"> {{ post.author.name }} </a>
+                        </p>
+                        <h5 class="post-{{ post.post_type }}-category">Category:
+                            {% for category in post.terms('') %}
+                                <a href="{{ category.slug }}"
+                                   title="{{ post.title }} - {{ category.name }}">{{ category.name }}</a>
+                            {% endfor %}
+                        </h5>
+                    </section>
 
-			<!-- comment box -->
-			<section class="comment-box">
-				<!-- comments -->
-				<div class="comments">
-				    {% if post.comments %}
-					<h3> comments </h3>
-					{% for cmt in post.comments %}
-					    {% include "comment.twig" with {comment:cmt} %}
-					{% endfor %}
-				    {% endif %}
-				</div>
 
-				{% if post.comment_status == "closed" %}
-					<p> comments for this post are closed </p>
-				{% else %}
-				    <!-- comment form -->
-				    {% include "comment-form.twig" %}
-				{% endif %}
-			</section>
-		</article>
-	</div><!-- /content-wrapper -->
+                    <div class="post-{{ post.post_type }}-body">
+                        {{ post.content }}
+                    </div>
+
+
+                    {% if post.post_type == 'sections' %}
+                        <section class="section-post">
+                            {% include "views/sections/" ~ post.slug ~ ".twig" %}
+                        </section>
+                    {% endif %}
+
+
+                    <!-- comment box -->
+                    <section class="comment-box">
+                        <!-- comments -->
+                        <div class="comments">
+                            {% if post.comments %}
+                                <h3> comments </h3>
+                                {% for cmt in post.comments %}
+                                    {% include "comment.twig" with {comment:cmt} %}
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+
+                        {% if post.comment_status == "closed" %}
+                            <p> comments for this post are closed </p>
+                        {% else %}
+                            <!-- comment form -->
+                            {% include "comment-form.twig" %}
+                        {% endif %}
+                    </section>
+                </div>
+            </div>
+        </div>
+    </article>
 {% endblock %}
