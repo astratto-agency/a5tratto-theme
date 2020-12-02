@@ -51,12 +51,10 @@ $GLOBALS['assets_options'] = array(
 // Attivo lista percorsi CSS di terze parti in core/scripts.php
 $GLOBALS['A5T_SETTING_CSS'] = array(
     // 'example'   => 'https://example.com/my.css',
+    // 'example1'   => get_template_directory_uri() . '/assets/owl-carousel/owl.carousel.min.css',
 
 );
 
 // Attivo lista percorsi JS di terze parti in core/scripts.php
-$GLOBALS['A5T_SETTING_JS'] = array(
-
-    'jquery-3-2-1' => '//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js',
-
+$GLOBALS['A5T_SETTING_JS'] = array(// 'jquery-3-2-1' => '//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js',
 );

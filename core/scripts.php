@@ -68,6 +68,9 @@ function a5t_scripts()
     }
     wp_enqueue_script('jquery');
 
+    wp_enqueue_script('bootstrap', '//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js');
+
+
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     ::::::::::::::    * A_SETTINGS Javascript for comments
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
@@ -120,6 +123,7 @@ function a5t_scripts()
     ::::::::::::::    * A_SETTINGS Attiva in base alla scalta Owl Carousel CSS JS
                         // Attiva libreria Owl Carousel CSS JS owlcarousel2.github.io/OwlCarousel2
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
     if ($GLOBALS['assets_options']['A5T_SETTING_OWL_CAROUSEL']) {
         wp_enqueue_style('owl_carousel', get_template_directory_uri() . '/assets/owl-carousel/owl.carousel.min.css');
         wp_enqueue_script('owl_carousel', get_template_directory_uri() . '/assets/owl-carousel/owl.carousel.min.js');
