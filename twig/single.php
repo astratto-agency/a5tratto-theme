@@ -9,7 +9,7 @@
  * @since    Timber 0.1
  */
 
-if ( ! defined( 'ABSPATH' ) ) exit;
+if (!defined('ABSPATH')) exit;
 
 $context = Timber::get_context();
 $post = new TimberPost();
@@ -17,17 +17,26 @@ $context['post'] = $post;
 
 /*  A_SETTINGS Assegno tutte le variabili di ACF a Twig
     in caso avessi necessità puoi sostituire il valore $post con l'ID della pagina */
-$fields = get_field_objects( $post );
-if( $fields ):
-    foreach( $fields as $field ):
+$fields = get_field_objects($post);
+if ($fields):
+    foreach ($fields as $field):
         $name_id = $field['name'];
         $value_id = $field['value'];
         $context[$name_id] = $value_id;
     endforeach;
 endif;
 
-if ( post_password_required( $post->ID ) ) {
-	Timber::render( 'single-password.twig', $context );
+if (post_password_required($post->ID)) {
+    Timber::render(
+        'single-password.twig',
+        $context
+    );
 } else {
-	Timber::render( array( 'single-' . $post->ID . '.twig', 'single-' . $post->post_type . '.twig', 'single.twig' ), $context );
+    Timber::render(
+        array(
+            'single-' . $post->ID . '.twig',
+            'single-' . $post->post_type . '.twig',
+            'single.twig'),
+        $context
+    );
 }

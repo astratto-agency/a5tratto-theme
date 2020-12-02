@@ -145,7 +145,6 @@
                     <footer id="footer" class="bg-dark text-light p-5">
                         {% include 'footer.twig' %}
                     </footer>
-                    {{ function('wp_footer') }}
                 {% endblock %}
                 <!-- /.footer -->
                 {# end A_SETTINGS footer #}
@@ -160,16 +159,18 @@
     {# end A_SETTINGS content #}
 
 
-
-
 </div>
 {#  end A_SETTINGS attivazione butter-js #}
 
+{# A_SETTINGS footer #}
+{{ function('wp_footer') }}
+{# end A_SETTINGS footer #}
 
 </body>
 <!-- /.body -->
 {# end A_SETTINGS body #}
 
+
 </html>
 <!-- /.html -->
-{# end A_SETTINGS html #}
+{# end A_SETTINGS html #}{# end A_SETTINGS html #}
