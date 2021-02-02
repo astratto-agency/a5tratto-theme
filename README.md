@@ -89,6 +89,7 @@
 					<code>use nome_db;</code>
 					<p>Importa il DB direttamente dal desktop</p>
 					<code>SET autocommit=0 ; source /Users/giorgiorizza/Desktop/nome_db.sql; COMMIT ;</code>
+					<code>SET autocommit=0 ; source /Users/giorgiorizza/Downloads/dbxrgwjmsg4eeq-migrate-20210115115336.sql; COMMIT;</code>
 					<a href="https://www.webnots.com/how-to-import-large-mysql-database-in-mamp-using-terminal/">link</a>
 				</li>
 			</ul>
@@ -134,11 +135,15 @@
 					<a href="https://it.siteground.com/tutorial/ssh/">link</a>
 					<ul>
 						<li id="16">Intallazione chiave ssh sul pc</li>
+							<p>Per generare una nuova chiave rsa devi andare sul terminale posizionarti nella root principale accedere alla cartella .ssh ed eseguire il seguente codice</p>
+							<code>ssh-keygen</code>
 						<li id="17">Intallazione chiave pubblica ssh sul server
 							<a href="https://it.siteground.com/tutorial/ssh/abilitare/">link</a>
 						</li>
 						<li id="17" target="1">Copiare chiave pubblica in ssh
 							<code>cat ~/.ssh/id_rsa.pub | pbcopy</code>
+							<p>In talternativa non hai pbcopy come comando puoi usare questa </p>
+							<code>cat ~/.ssh/id_rsa.pub</code>
 						</li>
 					</ul>
 				</li>

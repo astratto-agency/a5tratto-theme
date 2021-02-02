@@ -1,16 +1,17 @@
+<!DOCTYPE html>
 <!--[if lt IE 7]><html class="no-js ie ie6 lt-ie9 lt-ie8 lt-ie7" {{ site.language_attributes }}> <![endif]-->
 <!--[if IE 7]><html class="no-js ie ie7 lt-ie9 lt-ie8" {{ site.language_attributes }}> <![endif]-->
 <!--[if IE 8]><html class="no-js ie ie8 lt-ie9" {{ site.language_attributes }}> <![endif]-->
 <!--[if gt IE 8]><!--><html class="no-js" {{ site.language_attributes }}> <!--<![endif]-->
 <head>
     <meta charset="{{ site.charset }}" />
-        <title>   
-            {% if wp_title %}
-                {{ wp_title }} - {{ site.name }}
-            {% else %}
-                {{ site.name }}
-            {% endif %}
-        </title>
+    <title>
+        {% if wp_title %}
+            {{ wp_title }} - {{ site.name }}
+        {% else %}
+            {{ site.name }}
+        {% endif %}
+    </title>
     <meta name="description" content="{{ site.description }}">
     {% if metadesc %}<meta name="description" content="{{ metadesc }}">{% else %}<meta name="description" content="{{ content_text | slice (0, 300) }}">{% endif %}
 
@@ -35,7 +36,7 @@
     <link rel="apple-touch-icon" sizes="144x144" href="{{ site.theme.link }}/img/favicon/apple-icon-144x144.png">
     <link rel="apple-touch-icon" sizes="152x152" href="{{ site.theme.link }}/img/favicon/apple-icon-152x152.png">
     <link rel="apple-touch-icon" sizes="180x180" href="{{ site.theme.link }}/img/favicon/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="{{ site.theme.link }}/img/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="{{ site.theme.link }}/img/favicon/android-icon-192x192.png">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ site.theme.link }}/img/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="{{ site.theme.link }}/img/favicon/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ site.theme.link }}/img/favicon/favicon-16x16.png">
@@ -44,4 +45,4 @@
     <meta name="msapplication-TileImage" content="{{ site.theme.link }}/img/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
     {# End Favicon https://www.favicon-generator.org #}
-    {{function('wp_head')}}
+{{function('wp_head')}}
