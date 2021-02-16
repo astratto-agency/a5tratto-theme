@@ -40,9 +40,6 @@ $(document).ready(function() {
 });
 
 
-
-
-
 /* TODO attivazione butter-js  */
 
 /* inizializzazione butter-js standard */
