@@ -392,4 +392,21 @@ if (get_theme_mod('a5t_setting_hotjar') != '') {
     add_action('wp_footer', 'a5t_hotjar_analytics', 20);
 }
 
+
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::    * A_SETTINGS Stampo log nome thempalte e versione
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+function a5t_theme_version()
+{
+    $theme = wp_get_theme();
+    $theme_name = $theme->get('Name');
+    $theme_version = $theme->get('Version');
+    ?>
+    <script>console.log('<?php echo $theme_name . ' ' . $theme_version ?>');</script>
+    <?php
+}
+
+add_action('wp_footer', 'a5t_theme_version', 22);
+
 ?>
