@@ -96,9 +96,9 @@ $args = array(
     'tax_query' => array(                     //(array) - use taxonomy parameters (available with Version 3.1).
         'relation' => 'AND',                      //(string) - Possible values are 'AND' or 'OR' and is the equivalent of ruuning a JOIN for each taxonomy
         array(
-            'taxonomy' => $term->id,
+            'taxonomy' => $term->taxonomy,
             'terms'      => $term->slug,                 // Tassonomia
-            // 'field' => 'slug',                       // Cosa usare per selezionare la tassonomie (id o slug)
+            'field' => 'slug',                       // Cosa usare per selezionare la tassonomie (id o slug)
             // 'terms' => array( 'rosso', 'verde' ),    // Termini della tassonomia. Possibili valori stringa/intero/array
             // 'include_children' => true,              // Includere o meno le i termini annidati nelle tassonomie gerarchiche
             // 'operator' => 'IN'                       // Testare la corrispondenza del termine. Possibili valori 'IN', 'NOT IN', 'AND'.
@@ -114,7 +114,7 @@ $args = array(
         */
     ),
 );
-$context['posts'] = $wp_query = new Timber\PostQuery($args);
+$context['posts'] = $posts_query = new Timber\PostQuery($args);
 
 
 
@@ -135,10 +135,10 @@ $context['parents'] = $parents = get_terms(
 
 
 /* paginato */
-$context['found_posts' ] = $wp_query->found_posts;
+$context['found_posts'] = $posts_query->found_posts;
 $context['startpost'] = $startpost = 1;
 $context['startpost'] = $startpost =  $paginazione*($paged - 1)+1;
-$context['endpost']   = $endpost =  ($paginazione*$paged < $wp_query->found_posts ? $paginazione*$paged : $wp_query->found_posts);
+$context['endpost'] = $endpost = ($paginazione * $paged < $posts_query->found_posts ? $paginazione * $paged : $posts_query->found_posts);
 
 Timber::render( $templates, $context );
 

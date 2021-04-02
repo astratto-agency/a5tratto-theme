@@ -102,7 +102,9 @@ $args = array(
     'category__not_in' => array( 3, 6 ),
     */
 );
-$context['posts'] = new Timber\PostQuery($args);
+$context['posts'] = $posts_query = new Timber\PostQuery($args);
+
+
 // Stampa child della categoria
 $context['childs'] = $childs = get_terms(
     $term->taxonomy, array(
@@ -121,10 +123,10 @@ $context['parents'] = $parents = get_terms(
 
 
 /* paginato */
-$context['found_posts' ] = $wp_query->found_posts;
+$context['found_posts'] = $posts_query->found_posts;
 $context['startpost'] = $startpost = 1;
 $context['startpost'] = $startpost =  $paginazione*($paged - 1)+1;
-$context['endpost']   = $endpost =  ($paginazione*$paged < $wp_query->found_posts ? $paginazione*$paged : $wp_query->found_posts);
+$context['endpost'] = $endpost = ($paginazione * $paged < $posts_query->found_posts ? $paginazione * $paged : $posts_query->found_posts);
 
 Timber::render( $templates, $context );
 
