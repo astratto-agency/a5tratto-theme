@@ -63,15 +63,6 @@ add_action('admin_enqueue_scripts', 'admin_style');
 
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-::::::::::::::    * A_SETTINGS Stampo log nome thempalte e versione
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-$theme = wp_get_theme();
-$theme_name = $theme->get('Name');
-$theme_version = $theme->get('Version');
-echo "<script>console.log('$theme_name $theme_version');</script>";
-
-
-/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 ::::::::::::::    * A_SETTINGS Speed test
                     https://wordpress.stackexchange.com/questions/155072/get-option-vs-get-theme-mod-why-is-one-slower
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
