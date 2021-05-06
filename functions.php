@@ -150,7 +150,8 @@ function add_to_context($context)
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     ::::::::::::::    * A_SETTINGS Menu
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    $context['menu'] = new Timber\Menu('primary-menu');
+    $context['primary_menu'] = new Timber\Menu('Primary Navigation');
+    // $context['footer_menu'] = new Timber\Menu('Footer Navigation 1');
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     ::::::::::::::    * A_SETTINGS Theme Dir
