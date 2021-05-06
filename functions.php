@@ -140,6 +140,14 @@ function add_to_context($context)
     $context['home'] = site_url();
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    ::::::::::::::    * A_SETTINGS Logo
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+    $custom_logo_id = get_theme_mod( 'custom_logo' );
+    $custom_logo_url = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+    $context['custom_logo_url'] = $custom_logo_url;
+
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     ::::::::::::::    * A_SETTINGS Menu
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     $context['menu'] = new Timber\Menu('primary-menu');
@@ -154,15 +162,21 @@ function add_to_context($context)
     ::::::::::::::    * A_SETTINGS Post
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
-    $context['post_class'] = get_post_class()[0];
+
     $context['post_title'] = get_the_title();
 
     $context['title'] = get_the_title();
     $context['the_title'] = get_the_title();
 
     if (is_page() || is_single()) {
+
+        $context['post_class'] = get_post_class()[0];
+
         $context['content'] = get_the_content();
         $context['the_content'] = get_the_content();
+
+        $context['urlpage'] = get_page_link();
+        $context['page_link'] = get_page_link();
     }
 
     $context['imgpage'] = get_the_post_thumbnail_url();
@@ -171,8 +185,7 @@ function add_to_context($context)
     $context['intro'] = get_the_excerpt();
     $context['the_excerpt'] = get_the_excerpt();
 
-    $context['urlpage'] = get_page_link();
-    $context['page_link'] = get_page_link();
+
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     ::::::::::::::    * A_SETTINGS Placeholder
@@ -313,9 +326,22 @@ function add_to_context($context)
     ::::::::::::::    * A_SETTINGS Yoast
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
-    $context['metatitle'] = get_post_meta(get_the_ID(), '_yoast_wpseo_title', true);
+    $id = get_the_ID();
 
-    $context['metadesc'] = get_post_meta(get_the_ID(), '_yoast_wpseo_metadesc', true);
+    $post         = get_post( $id, ARRAY_A );
+    $yoast_title = get_post_meta( $id, '_yoast_wpseo_title', true );
+    $yoast_desc = get_post_meta( $id, '_yoast_wpseo_metadesc', true );
+
+    $metatitle_val = wpseo_replace_vars($yoast_title, $post );
+    $metatitle_val = apply_filters( 'wpseo_title', $metatitle_val );
+
+    $metadesc_val = wpseo_replace_vars($yoast_desc, $post );
+    $metadesc_val = apply_filters( 'wpseo_metadesc', $metadesc_val );
+
+
+    $context['metatitle'] = $metatitle_val;
+
+    $context['metadesc'] = $metadesc_val;
 
     if (function_exists('yoast_breadcrumb')) {
         $context['breadcrumbs'] = yoast_breadcrumb('<div id="breadcrumbs" class="breadcrumb center mb-50">', '</div>', false);
@@ -337,6 +363,18 @@ function add_to_context($context)
 
     return $context;
 }
+
+
+
+
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::    * A_SETTINGS Allow excertp in page
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+add_post_type_support('page', 'excerpt');
+
+
+
 
 /* toglie icona wp in backend
 
@@ -403,6 +441,53 @@ function set_per_page($query)
     }
     return $query;
 }*/
+
+
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::    * A_SETTINGS Create post form CF7
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+function save_posted_data( $posted_data ) {
+
+
+    $form_id = WPCF7_ContactForm::get_current();
+    if ($form_id->id == 'ID_FORM') {
+
+        $args = array(
+            'post_type' => 'richieste',
+            'post_taxonomy' => 'in-attesa',
+            'post_title' => $posted_data['referentenome'],
+            'post_content' => $posted_data['note'],
+            'post_status' => 'private',
+            'post_author' => $posted_data['userid'],
+        );
+        $post_id = wp_insert_post($args);
+
+        if (!is_wp_error($post_id)) {
+
+            $my_post = array(
+                'ID' => $post_id,
+                'post_slug' => $post_id,
+                'post_title' => $posted_data['nomeviaggio'] . " - " . $posted_data['idviaggio'] . " - Rif. " . $posted_data['primoospitenome'] . " " . $posted_data['primoospitecognome']
+            );
+
+            wp_update_post($my_post);
+
+
+            wp_set_object_terms($post_id, 'in-attesa', 'stati');
+            wp_set_post_tags($post_id, $posted_data['concessionariatag']);
+
+
+            if (isset($posted_data['concessionaria'])) {
+                update_post_meta($post_id, 'concessionaria_nome', $posted_data['concessionaria']);
+            }
+
+            return $posted_data;
+        }
+    }
+}
+
+add_filter( 'wpcf7_posted_data', 'save_posted_data' );
 
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::

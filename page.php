@@ -2,4 +2,4 @@
 <?php while (have_posts()) : the_post(); ?>
 
 <?php endwhile; ?>
- <?php get_part('templates/content'); ?>
+ <?php get_part('templates/page'); ?>

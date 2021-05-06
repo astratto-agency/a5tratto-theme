@@ -22,9 +22,22 @@
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit;
-
 $context = Timber::get_context();
-$post = new TimberPost();
-$context['post'] = $post;
-Timber::render( array( 'page-' . $post->post_name . '.twig', 'page.twig' ), $context );
+$context['post'] = $post = new TimberPost();
 
+/* A_SETTINGS Assegnazione dei template  */
+$templates = array( 'page-policy.twig', 'page.twig' );
+
+/*  A_SETTINGS Assegno tutte le variabili di ACF a Twig
+    in caso avessi necessità puoi sostituire il valore $post con l'ID della pagina */
+$fields = get_field_objects( $post );
+if( $fields ):
+    foreach( $fields as $field ):
+        $name_id = $field['name'];
+        $value_id = $field['value'];
+        $context[$name_id] = $value_id;
+    endforeach;
+endif;
+
+/* Elaboro template a Twig */
+Timber::render( $templates, $context );

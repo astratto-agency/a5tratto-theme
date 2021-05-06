@@ -2,7 +2,9 @@
     <article class="tease tease-{{ post.post_type }}" id="tease-{{ post.ID }}">
         {% block content %}
             <h1><a href="{{ post.link }}">{{ post.title }}</a></h1>
-            <p>{{ post.date }} {{ post.published_at|date("d/M/Y g:ia") }}</p>
+            <p>post.title: {{ post.title }}</p>
+            <p>post.link: {{ post.link }}</p>
+            <p>post.date: {{ post.date }} {{ post.published_at|date("d/M/Y g:ia") }}</p>
             <hr>
             <p>Categorie:</p>
             <ul>

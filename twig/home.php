@@ -26,7 +26,7 @@ $context = Timber::get_context();
 $context['post'] = $post = new TimberPost();
 
 /* A_SETTINGS Assegnazione dei template  */
-$templates = array( 'page-' . $post->post_name . '.twig', 'page.twig' );
+$templates = array( 'page-home.twig', 'page.twig' );
 
 
 /*  A_SETTINGS Assegno tutte le variabili di ACF a Twig

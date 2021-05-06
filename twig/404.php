@@ -10,4 +10,6 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 $context = Timber::get_context();
+$post = new TimberPost();
+$context['post'] = $post;
 Timber::render( '404.twig', $context );
