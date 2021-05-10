@@ -147,9 +147,12 @@ function a5t_theme_activation_action() {
     if ($a5t_theme_activation_options['create_additional_page'] === 'true') {
         $a5t_theme_activation_options['create_additional_page'] = false;
         $default_pages[] = __('Home', 'a5t');
+        $default_pages[] = __('About', 'a5t');
+        $default_pages[] = __('Blog', 'a5t');
+        $default_pages[] = __('Contatti', 'a5t');
         $default_pages[] =  __('Privacy Policy', 'a5t');
         $default_pages[] =  __('Cookie Policy', 'a5t');
-        $default_pages[] =  __('Contatti', 'a5t');
+
     }
 
 
@@ -174,7 +177,34 @@ function a5t_theme_activation_action() {
             if ($new_page_title == 'Home') {
                 $add_default_pages = array(
                     'post_title' => $new_page_title,
-                    'post_content' => 'Testo home di prova Home',
+                    'post_content' => '',
+                    'post_status' => 'publish',
+                    'post_type' => 'page',
+                    'page_template' => 'template-home.php'
+                );
+            }
+            if ($new_page_title == 'About') {
+                $add_default_pages = array(
+                    'post_title' => $new_page_title,
+                    'post_content' => '',
+                    'post_status' => 'publish',
+                    'post_type' => 'page',
+                    'page_template' => 'template-page.php'
+                );
+            }
+            if ($new_page_title == 'Blog') {
+                $add_default_pages = array(
+                    'post_title' => $new_page_title,
+                    'post_content' => '',
+                    'post_status' => 'publish',
+                    'post_type' => 'page',
+                    'page_template' => 'archive.php'
+                );
+            }
+            if ($new_page_title == 'Contatti') {
+                $add_default_pages = array(
+                    'post_title' => $new_page_title,
+                    'post_content' => '',
                     'post_status' => 'publish',
                     'post_type' => 'page',
                     'page_template' => 'template-page.php'
@@ -183,30 +213,22 @@ function a5t_theme_activation_action() {
             if ($new_page_title == 'Privacy Policy') {
                 $add_default_pages = array(
                     'post_title' => $new_page_title,
-                    'post_content' => 'Testo home di prova Privacy',
+                    'post_content' => '',
                     'post_status' => 'publish',
                     'post_type' => 'page',
-                    'page_template' => 'template-page.php'
+                    'page_template' => 'template-policy.php'
                 );
             }
             if ($new_page_title == 'Cookie Policy') {
                 $add_default_pages = array(
                     'post_title' => $new_page_title,
-                    'post_content' => 'Testo home di prova Cookie Privacy',
+                    'post_content' => '',
                     'post_status' => 'publish',
                     'post_type' => 'page',
-                    'page_template' => 'template-page.php'
+                    'page_template' => 'template-policy.php'
                 );
             }
-            if ($new_page_title == 'Contatti') {
-                $add_default_pages = array(
-                    'post_title' => $new_page_title,
-                    'post_content' => 'Testo home di prova Contatti',
-                    'post_status' => 'publish',
-                    'post_type' => 'page',
-                    'page_template' => 'template-page.php'
-                );
-            }
+
             $result = wp_insert_post($add_default_pages);
         }
 
