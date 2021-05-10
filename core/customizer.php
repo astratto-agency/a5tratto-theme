@@ -652,6 +652,18 @@ function a5t_customize_register($wp_customize)
         'label' => __('Facebook'),
     ]);
 
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    ::::::::::::::    * A_SETTINGS Instagram
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    $wp_customize->add_setting('a5t_setting_instagram', [
+        'capability' => 'edit_theme_options',
+    ]);
+    $wp_customize->add_control('a5t_setting_instagram', [
+        'type' => 'text',
+        'section' => 'a5t_framework_theme_fileds',
+        'label' => __('Instagram'),
+    ]);
+
 
 }
 

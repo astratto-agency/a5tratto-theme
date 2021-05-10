@@ -143,8 +143,8 @@ function add_to_context($context)
     ::::::::::::::    * A_SETTINGS Logo
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
-    $custom_logo_id = get_theme_mod( 'custom_logo' );
-    $custom_logo_url = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+    $custom_logo_id = get_theme_mod('custom_logo');
+    $custom_logo_url = wp_get_attachment_image_src($custom_logo_id, 'full');
     $context['custom_logo_url'] = $custom_logo_url;
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -185,7 +185,6 @@ function add_to_context($context)
 
     $context['intro'] = get_the_excerpt();
     $context['the_excerpt'] = get_the_excerpt();
-
 
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -287,6 +286,7 @@ function add_to_context($context)
     // social
     $context['setting_facebook'] = get_theme_mod('a5t_setting_facebook');
     $context['setting_linkedin'] = get_theme_mod('a5t_setting_linkedin');
+    $context['setting_instagram'] = get_theme_mod('a5t_setting_instagram');
 
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -329,15 +329,15 @@ function add_to_context($context)
 
     $id = get_the_ID();
 
-    $post         = get_post( $id, ARRAY_A );
-    $yoast_title = get_post_meta( $id, '_yoast_wpseo_title', true );
-    $yoast_desc = get_post_meta( $id, '_yoast_wpseo_metadesc', true );
+    $post = get_post($id, ARRAY_A);
+    $yoast_title = get_post_meta($id, '_yoast_wpseo_title', true);
+    $yoast_desc = get_post_meta($id, '_yoast_wpseo_metadesc', true);
 
-    $metatitle_val = wpseo_replace_vars($yoast_title, $post );
-    $metatitle_val = apply_filters( 'wpseo_title', $metatitle_val );
+    $metatitle_val = wpseo_replace_vars($yoast_title, $post);
+    $metatitle_val = apply_filters('wpseo_title', $metatitle_val);
 
-    $metadesc_val = wpseo_replace_vars($yoast_desc, $post );
-    $metadesc_val = apply_filters( 'wpseo_metadesc', $metadesc_val );
+    $metadesc_val = wpseo_replace_vars($yoast_desc, $post);
+    $metadesc_val = apply_filters('wpseo_metadesc', $metadesc_val);
 
 
     $context['metatitle'] = $metatitle_val;
@@ -366,15 +366,11 @@ function add_to_context($context)
 }
 
 
-
-
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 ::::::::::::::    * A_SETTINGS Allow excertp in page
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
 add_post_type_support('page', 'excerpt');
-
-
 
 
 /* toglie icona wp in backend
@@ -405,7 +401,6 @@ function my_acf_init()
 }
 
 add_action('acf/init', 'my_acf_init');
-
 
 
 /**
@@ -448,12 +443,10 @@ function set_per_page($query)
 ::::::::::::::    * A_SETTINGS Create post form CF7
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
-function save_posted_data( $posted_data ) {
-
-
+function save_posted_data($posted_data)
+{
     $form_id = WPCF7_ContactForm::get_current();
     if ($form_id->id == 'ID_FORM') {
-
         $args = array(
             'post_type' => 'richieste',
             'post_taxonomy' => 'in-attesa',
@@ -463,32 +456,24 @@ function save_posted_data( $posted_data ) {
             'post_author' => $posted_data['userid'],
         );
         $post_id = wp_insert_post($args);
-
         if (!is_wp_error($post_id)) {
-
             $my_post = array(
                 'ID' => $post_id,
                 'post_slug' => $post_id,
                 'post_title' => $posted_data['nomeviaggio'] . " - " . $posted_data['idviaggio'] . " - Rif. " . $posted_data['primoospitenome'] . " " . $posted_data['primoospitecognome']
             );
-
             wp_update_post($my_post);
-
-
             wp_set_object_terms($post_id, 'in-attesa', 'stati');
             wp_set_post_tags($post_id, $posted_data['concessionariatag']);
-
-
             if (isset($posted_data['concessionaria'])) {
                 update_post_meta($post_id, 'concessionaria_nome', $posted_data['concessionaria']);
             }
-
             return $posted_data;
         }
     }
 }
 
-add_filter( 'wpcf7_posted_data', 'save_posted_data' );
+add_filter('wpcf7_posted_data', 'save_posted_data');
 
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
