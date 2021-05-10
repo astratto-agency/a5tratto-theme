@@ -134,6 +134,17 @@ function a5t_scripts()
     }
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    ::::::::::::::    * A_SETTINGS Attiva in base alla scalta Jarallax
+                    // Attiva libreria Jarallax https://github.com/nk-o/jarallax
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+    if ($GLOBALS['assets_options']['A5T_SETTING_JARALLAX']) {
+        wp_enqueue_style('jarallax', get_template_directory_uri() . '/assets/jarallax/jarallax.css');
+        wp_enqueue_script('jarallax', get_template_directory_uri() . '/assets/jarallax/owl.carousel.min.css');
+        wp_enqueue_script('jarallax_video', get_template_directory_uri() . '/assets/jarallax/owl.carousel.min.js');
+    }
+
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     ::::::::::::::    * A_SETTINGS Attiva in base alla scalta NProgress CSS JS
                         // Attiva libreria NProgress CSS JS https://ricostacruz.com/nprogress/
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/

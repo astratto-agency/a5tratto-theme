@@ -28,6 +28,9 @@ $GLOBALS['assets_options'] = array(
     // Attiva libreria Owl Carousel CSS JS owlcarousel2.github.io/OwlCarousel2
     'A5T_SETTING_OWL_CAROUSEL' => get_theme_mod('a5t_setting_owl_carousel'),
 
+    // Attiva libreria Jarallax https://github.com/nk-o/jarallax
+    'A5T_SETTING_JARALLAX' => get_theme_mod('a5t_setting_jarallax'),
+
     // Attiva libreria NProgress CSS JS https://ricostacruz.com/nprogress/
     'A5T_SETTING_NPROGRESS' => get_theme_mod('a5t_setting_nprogress'),
 

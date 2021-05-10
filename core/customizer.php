@@ -127,6 +127,22 @@ function a5t_customize_register($wp_customize)
     ));
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    ::::::::::::::    * A_SETTINGS jarallax
+                        // Attiva libreria Jarallax https://github.com/nk-o/jarallax
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+    $wp_customize->add_setting('a5t_setting_jarallax', array(
+        'capability' => 'edit_theme_options',
+    ));
+    $wp_customize->add_control('a5t_setting_jarallax', array(
+        'type' => 'checkbox',
+        'section' => 'a5t_framework_general_settings',
+        'label' => __('Jarallax'),
+        'description' => __('Attiva libreria Jarallax https://github.com/nk-o/jarallax'),
+
+    ));
+
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     ::::::::::::::    * A_SETTINGS Attiva in base alla scalta NProgress CSS JS
                         // Attiva libreria NProgress CSS JS https://ricostacruz.com/nprogress/
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
