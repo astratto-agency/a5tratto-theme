@@ -1,21 +1,30 @@
 {% if primary_menu %}
-	<ul id="primary_menu" class="nav navbar-nav ml-auto">
+    <ul id="primary-menu" class="nav navbar-nav ml-auto">
 		{% for item in primary_menu %}
 			{% if (item.get_children) %}
-				<li class="dropdown nav-item">
-					<a href="{{ item.get_link }}">{{ item.title }}</a>
+                <li class="dropdown nav-item {{ item.classes | join(' ') }}">
+                    <a href="{{ item.get_link }}">
+                        <span data-letters="{{ item.title }}">{{ item.title }}</span>
+                    </a>
 					<ul class="dropdown-menu">
 						{% for subitem in item.get_children %}
 							{% if (subitem.get_children) %}
-								<li class="dropdown nav-item">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-									   aria-haspopup="true" aria-expanded="false">{{ item.title }} <span
-												class="caret"></span></a>
+                                <li class="dropdown nav-item {{ subitem.classes | join(' ') }}">
+                                    <a href="#"
+                                       class="dropdown-toggle"
+                                       data-toggle="dropdown"
+                                       role="button"
+                                       aria-haspopup="true"
+                                       aria-expanded="false">
+                                        <span data-letters="{{ subitem.title }}">{{ subitem.title }}</span>
+                                        <span class="caret"></span>
+                                    </a>
 									<ul class="dropdown-menu">
 										{% for subsubitem in subitem.get_children %}
 											{% if (subsubitem.get_children) %}
 											{% else %}
-												<li><a href="{{ subsubitem.get_link }}">
+                                                <li class="{{ subsubitem.classes | join(' ') }}">
+                                                    <a href="{{ subsubitem.get_link }}">
 														<span data-letters="{{ subsubitem.title }}">{{ subsubitem.title }}</span>
 													</a>
 												</li>
@@ -24,7 +33,8 @@
 									</ul>
 								</li>
 							{% else %}
-								<li><a href="{{ subitem.get_link }}">
+                                <li class="{{ subitem.classes | join(' ') }}">
+                                    <a href="{{ subitem.get_link }}">
 										<span data-letters="{{ subitem.title }}">{{ subitem.title }}</span>
 									</a>
 								</li>
@@ -37,7 +47,7 @@
 					<a href="{{ item.get_link }}">
 						<span data-letters="{{ item.title }}">{{ item.title }}</span>
 					</a>
-					{% include "primary_menu.twig" with {'primary_menu': item.get_children} %}
+                    {% include "primary-menu.twig" with {'primary_menu': item.get_children} %}
 				</li>
 			{% endif %}
 		{% endfor %}
