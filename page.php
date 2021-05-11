@@ -2,4 +2,6 @@
 <?php while (have_posts()) : the_post(); ?>
 
 <?php endwhile; ?>
- <?php get_part('templates/page'); ?>
+<?php
+global $post;
+get_part('templates/page', $post->post_slug); ?>
