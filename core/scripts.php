@@ -140,8 +140,8 @@ function a5t_scripts()
 
     if ($GLOBALS['assets_options']['A5T_SETTING_JARALLAX']) {
         wp_enqueue_style('jarallax', get_template_directory_uri() . '/assets/jarallax/jarallax.css');
-        wp_enqueue_script('jarallax', get_template_directory_uri() . '/assets/jarallax/owl.carousel.min.css');
-        wp_enqueue_script('jarallax_video', get_template_directory_uri() . '/assets/jarallax/owl.carousel.min.js');
+        wp_enqueue_script('jarallax', get_template_directory_uri() . '/assets/jarallax/jarallax.js');
+        wp_enqueue_script('jarallax_video', get_template_directory_uri() . '/assets/jarallax/jarallax-video.js');
     }
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
