@@ -77,7 +77,8 @@ function a5t_theme_activation_options_render_page() { ?>
                     <td>
                         <fieldset>
                             <legend class="screen-reader-text"><span><?php _e('Create additional pages?', 'a5t'); ?></span></legend>
-                            <select name="a5t_theme_activation_options[create_additional_page]" id="create_additional_page">
+                            <select name="a5t_theme_activation_options[create_additional_page
+                            ]" id="create_additional_page">
                                 <option selected="selected" value="true"><?php echo _e('Yes', 'a5t'); ?></option>
                                 <option value="false"><?php echo _e('No', 'a5t'); ?></option>
                             </select>
@@ -180,7 +181,7 @@ function a5t_theme_activation_action() {
                     'post_content' => '',
                     'post_status' => 'publish',
                     'post_type' => 'page',
-                    'page_template' => 'template-home.php'
+                    'page_template' => 'template-home-child.php'
                 );
             }
             if ($new_page_title == 'About') {
