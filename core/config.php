@@ -53,11 +53,14 @@ $GLOBALS['assets_options'] = array(
 
 // Attivo lista percorsi CSS di terze parti in core/scripts.php
 $GLOBALS['A5T_SETTING_CSS'] = array(
-    // 'example'   => 'https://example.com/my.css',
-    // 'example1'   => get_template_directory_uri() . '/assets/owl-carousel/owl.carousel.min.css',
 
+    // 'data_table' => 'https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css',
 );
 
 // Attivo lista percorsi JS di terze parti in core/scripts.php
-$GLOBALS['A5T_SETTING_JS'] = array(// 'jquery-3-2-1' => '//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js',
+$GLOBALS['A5T_SETTING_JS'] = array(
+
+    // 'data_table' => 'https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js',
+    // 'data_table_ita' => 'https://cdn.datatables.net/plug-ins/1.10.25/i18n/Italian.json',
+
 );
