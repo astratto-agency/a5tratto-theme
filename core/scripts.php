@@ -111,7 +111,8 @@ function a5t_scripts()
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     if ($GLOBALS['assets_options']['A5T_SETTING_ANIMATE']) {
-        wp_enqueue_style('animate', get_template_directory_uri() . '/assets/animate.css');
+        wp_enqueue_style('animate', get_template_directory_uri() . '/assets/animate-css/animate.css');
+        wp_enqueue_script('viewportchecker', get_template_directory_uri() . '/assets/animate-css/viewportchecker.js');
     }
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -120,7 +121,7 @@ function a5t_scripts()
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     if ($GLOBALS['assets_options']['A5T_SETTING_HOVER']) {
-        wp_enqueue_style('hover', get_template_directory_uri() . '/assets/hover.css');
+        wp_enqueue_style('hover', get_template_directory_uri() . '/assets/hover-css/hover.css');
     }
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -139,9 +140,10 @@ function a5t_scripts()
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     if ($GLOBALS['assets_options']['A5T_SETTING_JARALLAX']) {
-        wp_enqueue_style('jarallax', get_template_directory_uri() . '/assets/jarallax/jarallax.css');
-        wp_enqueue_script('jarallax', get_template_directory_uri() . '/assets/jarallax/jarallax.js');
-        wp_enqueue_script('jarallax_video', get_template_directory_uri() . '/assets/jarallax/jarallax-video.js');
+        wp_enqueue_style('jarallax', get_template_directory_uri() . '/assets/jarallax-master/dist/jarallax.css');
+        wp_enqueue_script('jarallax', get_template_directory_uri() . '/assets/jarallax-master/dist/jarallax.js', array(), '', true);
+        wp_enqueue_script('jarallax_video', get_template_directory_uri() . '/assets/jarallax-master/dist/jarallax-video.js', array(), '', true);
+        wp_enqueue_script('jarallax_elements', get_template_directory_uri() . '/assets/jarallax-master/dist/jarallax-element.js', array(), '', true);
     }
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
