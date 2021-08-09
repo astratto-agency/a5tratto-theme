@@ -121,7 +121,7 @@ function a5t_scripts()
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     if ($GLOBALS['assets_options']['A5T_SETTING_HOVER']) {
-        wp_enqueue_style('hover', get_template_directory_uri() . '/assets/hover-css/hover.css');
+        wp_enqueue_style('hover', get_template_directory_uri() . '/assets/hover-css/css/hover.css');
     }
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
