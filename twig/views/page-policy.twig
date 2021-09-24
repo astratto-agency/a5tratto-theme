@@ -18,20 +18,24 @@
 				<div class="col-12 col-md-12 py-2 my-2"  id="cmplz-document">
 
 					{% if post.slug == "cookie-policy" %}
-						{% filter shortcodes %}
-							[cmplz-document type="cookie-statement" region="eu"]
-						{% endfilter %}
-					{% else %}
-						<div class="cmplz-document cookie-statement" id="cmplz-document">
-							{% if content is empty %}
-								<h3>INFORMATIVA PER IL TRATTAMENTO DEI DATI PERSONALI RESA AI SENSI DEGLI ART. 13 e 14 DEL
-									REGOLAMENTO (UE) 2016/679-GDPR (GENERAL DATA PROTECTION REGULATION) </h3>
-								<p>Gentile Utente,</p>
-								<p>{{ setting_intestazione }}, con sede legale in {{ setting_indirizzo }}, P.IVA
-									{{ setting_piva }}, ai sensi del Regolamento UE n. 2016/679 (di seguito “Regolamento”) è tenuta a
-									fornirLe alcune informazioni in merito all’utilizzo dei dati personali.</p>
-								<p>La presente informativa si intende resa per il sito {{ home }} (di seguito il “Sito”), e non
-									anche per altri siti web eventualmente consultabili dall'utente tramite link e costituisce parte
+                        {% filter shortcodes %}
+                            [cmplz-document type="cookie-statement" region="eu"]
+                        {% endfilter %}
+                    {% elseif %}
+                        <div class="cmplz-document cookie-statement" id="cmplz-document">
+                            {% if content is empty %}
+                                <h3>INFORMATIVA PER IL TRATTAMENTO DEI DATI PERSONALI RESA AI SENSI DEGLI ART. 13 e 14
+                                    DEL
+                                    REGOLAMENTO (UE) 2016/679-GDPR (GENERAL DATA PROTECTION REGULATION) </h3>
+                                <p>Gentile Utente,</p>
+                                <p>{{ setting_intestazione }}, con sede legale in {{ setting_indirizzo }}, P.IVA
+                                    {{ setting_piva }}, ai sensi del Regolamento UE n. 2016/679 (di seguito
+                                    “Regolamento”) è tenuta a
+                                    fornirLe alcune informazioni in merito all’utilizzo dei dati personali.</p>
+                                <p>La presente informativa si intende resa per il sito {{ home }} (di seguito il
+                                    “Sito”), e non
+                                    anche per altri siti web eventualmente consultabili dall'utente tramite link e
+                                    costituisce parte
 									integrante del Sito e dei servizi che offriamo; l’Informativa è resa ai sensi dell’art. 13 del
 									Regolamento a coloro che interagiscono con i servizi web del Sito.</p>
 								<p>I Suoi dati personali verranno trattati in accordo alle disposizioni legislative del Regolamento

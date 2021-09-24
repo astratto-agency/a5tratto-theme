@@ -2,6 +2,8 @@
 {% block content %}
     <article class="single single-type-{{ post.post_type }}" id="post-{{ post.ID }}">
         <section class="section-single">
+
+
             <div class="container">
                 <div class="row">
                     <div class="col-12 py-2 my-2">
@@ -10,7 +12,8 @@
                     </div>
                     <div class="col-12 py-2 my-2">
 
-                        <img src="{% if post.thumbnail %}{{ post.thumbnail.src|resize(1400, 600) }}{% else %}{{ placeholder }}/1400x600/?wordpress{% endif %}" alt="" class="img-fluid my-2">
+                        <img src="{% if post.thumbnail %}{{ post.thumbnail.src|resize(1400, 600) }}{% else %}{{ placeholder }}/1400x600/?wordpress{% endif %}"
+                             alt="" class="img-fluid my-2">
                         {# Section single-{{ post.post_type }}-header #}
                         <section class="single-{{ post.post_type }}-header">
                             <p class="single-{{ post.post_type }}-author pb-3">
@@ -49,27 +52,38 @@
                         <div class="single-{{ post.post_type }}-body">
                             {{ post.content }}
                         </div>
-
-
-                        {% if post.post_type == 'sections' %}
-                            <section class="section-post">
-                                {% include "views/sections/" ~ post.slug ~ ".twig" %}
-                            </section>
-                        {% endif %}
-
                         <hr>
-                        <p>function('comment_form')</p>
-                        <div class="comments">
-                            {% for comment in post.comments %}
-                                <article class="comment" id="comment-{{ comment.id }}">
-                                    <h5 class="comment-author">{{ comment.author.name }} says</h5>
-                                    {{ comment.content }}
-                                </article>
-                            {% endfor %}
-                            {{ function('comment_form') }}
-                        </div>
+                    </div>
+                </div>
+            </div>
 
-                        <p>Twig Comment</p>
+            {% if post.post_type == 'sections' %}
+                <section class="section-post">
+                    {% include "views/sections/" ~ post.slug ~ ".twig" %}
+                </section>
+            {% endif %}
+
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 py-5">
+                        <hr>
+                        <h1>Commenti:</h1>
+                        <p>Area commneti utilizzando function('comment_form')</p>
+                        <section class="comment-box">
+                            <div class="comments">
+                                {% for comment in post.comments %}
+                                    <article class="comment" id="comment-{{ comment.id }}">
+                                        <h5 class="comment-author">{{ comment.author.name }} says</h5>
+                                        {{ comment.content }}
+                                    </article>
+                                {% endfor %}
+                                {{ function('comment_form') }}
+                            </div>
+                        </section>
+                        <hr>
+                        <h1>Commenti:</h1>
+                        <p>Area commneti utilizzando Twig</p>
                         <!-- comment box -->
                         <section class="comment-box">
                             <!-- comments -->
@@ -92,7 +106,9 @@
                     </div>
 
                 </div>
+
             </div>
+
         </section>
     </article>
 {% endblock %}

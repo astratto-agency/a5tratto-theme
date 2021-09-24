@@ -8,8 +8,17 @@
  * Desription: custom ccs admin area wordpress
 */
 .wp-admin #wpcontent {
-    background: rgba(132, 255, 239, 0.24);
+    background: #CCCCFA;
 }
+
+#wpwrap {
+    background-color: #CCCCFA;
+}
+
+.php-error #adminmenuback, .php-error #adminmenuwrap {
+    margin-top: 0em;
+}
+
 /*
 
 

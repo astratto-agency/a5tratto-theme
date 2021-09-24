@@ -12,15 +12,6 @@ $(function() {
 
 
 
-        options = {
-            "cursorOuter": "circle-basic",
-            "hoverEffect": "circle-move",
-            "hoverItemMove": false,
-            "defaultCursor": false,
-            "outerWidth": 30,
-            "outerHeight": 30
-        };
-        magicMouse(options);
 
 
 
@@ -40,21 +31,6 @@ $(document).ready(function() {
 });
 
 
-/* TODO attivazione butter-js  */
-
-/* inizializzazione butter-js standard */
-/*butter.init({cancelOnTouch: true});*/
-
-/* impostazione opzioni quando si attiva butter-js */
-var options = {
-    /* impostare custom id per attivare butter-js */
-    wrapperId: 'butter-active',
-    /* impostare velocita butter-js  */
-    wrapperDamper: 0.10,
-    /* impostare attivazione butter-js in responsive */
-    cancelOnTouch: true,
-};
-butter.init(options);
 
 
 

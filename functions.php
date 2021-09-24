@@ -87,12 +87,37 @@ function My_Test()
 ::::::::::::::    * A_SETTINGS Remove Wp Logo
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
-function remove_wp_logo($wp_admin_bar)
+
+function dashboard_logo()
 {
-    $wp_admin_bar->remove_node('wp-logo');
+    echo '
+        <style type="text/css">
+#wpadminbar #wp-admin-bar-wp-logo>.ab-item {
+    padding: 0 7px;
+    background-image: url(' . get_template_directory_uri() . '/img/icona-a5tratto-w.png) !important;
+    background-size: 70%;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.8;
+}
+#wpadminbar #wp-admin-bar-wp-logo>.ab-item .ab-icon:before {
+    content: " ";
+    top: 2px;
+}
+        </style>
+    ';
 }
 
-add_action('admin_bar_menu', 'remove_wp_logo', 100);
+add_action('wp_before_admin_bar_render', 'dashboard_logo');
+
+////hook into the administrative header output
+//add_action('wp_before_admin_bar_render', 'wpb_custom_logo');
+//function remove_wp_logo($wp_admin_bar)
+//{
+//    $wp_admin_bar->remove_node('wp-logo');
+//}
+//
+//add_action('admin_bar_menu', 'remove_wp_logo', 100);
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 ::::::::::::::    * A_SETTINGS Customizer admin menu bar
@@ -111,6 +136,20 @@ function add_my_own_logo($wp_admin_bar)
 }
 
 add_action('admin_bar_menu', 'add_my_own_logo', 1);
+
+
+add_action('admin_menu', 'linked_url');
+function linked_url()
+{
+    add_menu_page('linked_url', 'ASTRATTO', 'read', 'astratto_site', '', 'dashicons-info-outline', 1);
+}
+
+add_action('admin_menu', 'linkedurl_function');
+function linkedurl_function()
+{
+    global $menu;
+    $menu[1][2] = "https://www.astratto.agency";
+}
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 ::::::::::::::    * A_SETTINGS ?????????
@@ -158,6 +197,9 @@ function add_to_context($context)
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     $context['tema_url'] = get_template_directory_uri();
     $context['urltema'] = get_template_directory_uri();
+
+    $context['template_directory_uri'] = get_template_directory_uri();
+    $context['stylesheet_directory_uri'] = get_stylesheet_directory_uri();
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     ::::::::::::::    * A_SETTINGS Post
@@ -244,6 +286,8 @@ function add_to_context($context)
     $context['main_container'] = get_theme_mod("a5t_setting_main_container");
 
     $context['a5t_setting_gototop'] = get_theme_mod("a5t_setting_gototop");
+    $context['a5t_setting_butter'] = get_theme_mod("a5t_setting_butter");
+    $context['a5t_setting_magic_mouse'] = get_theme_mod("a5t_setting_magic_mouse");
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     ::::::::::::::    * A_SETTINGS Google Fonts
