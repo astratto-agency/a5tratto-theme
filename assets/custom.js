@@ -1,5 +1,6 @@
 /*
 
+
 /!* A_SETTINGS loader *!/
 /!* add loaded and set timeout loader *!/
 $(function () {
@@ -12,26 +13,28 @@ $(document).ready(function () {
     /!* setting link disable and set timout at link fot transition loader *!/
     $('a').click(function (e) {
         e.preventDefault();
-        if (
-            ($(this).is(':not([href^="tel:"]):not([href^="mailto:"])')),
-                !$(this).hasClass("item-img-gallery"),
-                !$(this).attr("rel", "lightbox")
-        ) {
-            setTimeout(function (url) {
-                window.location = url
-            }, 1000, this.href);
-            // alert('set timeout');
+        if (($(this).is(':not([href^="tel:"]):not([href^="mailto:"])'))) {
+            if (!$(this).hasClass("item-img-gallery")) {
+                if (!$(this).is('[data-lightbox-gallery]')) {
+                    setTimeout(function (url) {
+                        window.location = url
+                    }, 1000, this.href);
+                    // alert('set');
+                    $('body').removeClass('loaded');
+                    // alert('remove');
+                }
+            }
+
+
         }
     });
-    /!* setting link disable and remove loader class at link fot transition loader *!/
     $('a').click(function () {
-        if (
-            ($(this).is(':not([href^="tel:"]):not([href^="mailto:"])')),
-                !$(this).hasClass("item-img-gallery"),
-                !$(this).attr("rel", "lightbox")
-        ) {
-            $('body').removeClass('loaded');
-            // alert('remove loaded');
+        if (($(this).is(':not([href^="tel:"]):not([href^="mailto:"])'))) {
+            if (!$(this).hasClass("item-img-gallery")) {
+                if (!$(this).is('[data-lightbox-gallery]')) {
+
+                }
+            }
         }
     });
 });
@@ -71,7 +74,7 @@ $(function () {
 /!* A_SETTINGS magicMouse *!/
 $(document).ready(function () {
     // Attivo su tutte le immagini
-    // $("img").addClass("magic-hover","magic-hover__square");
+    $("img").addClass("magic-hover","magic-hover__square");
     // $("a").addClass("magic-hover","magic-hover__square");
     var magicmouse_active = document.getElementsByClassName("magicmouse_active");
     if (magicmouse_active != null) {
@@ -149,6 +152,7 @@ $("#b-inc").click(function () {
 $("#b-100").click(function () {
     NProgress.done();
 });
+
 
 
 */
