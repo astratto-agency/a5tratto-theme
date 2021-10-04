@@ -7,5 +7,14 @@ Template Name: Template Page
 <?php while (have_posts()) : the_post(); ?>
     <?php
     global $post;
-    get_part('templates/page-' . $post->post_name); ?>
+    // echo get_stylesheet_directory().'/twig/page-'. $post->post_name.'.php';
+
+    if (file_exists(get_stylesheet_directory() . '/twig/page-' . $post->post_name . '.php')) {
+        // echo 'temaplate slug page';
+        get_part('templates/page-' . $post->post_name);
+    } else {
+        // echo 'temaplate page';
+        get_part('templates/page');
+    }
+    ?>
 <?php endwhile; ?>
