@@ -1,13 +1,13 @@
 <h1>A5tratto-Theme</h1>
 <h1>BETA</h1>
 <h2>V.7.3.9.1</h2>
-<h3></h3>
+<h3>m</h3>
 
 <p>Numero Versione</p>
 <p>Tipologia ( origin 0, master 1)</p>
 <p>Posizionemanto ( locale 0, remoto 1)</p>
 <p>serie</p>
-<i>numero</p>
+<p>numero</p>
 	<h2>Variabili</h2>
 	----
 	<code>{{v-dominio}}</code>
@@ -52,7 +52,7 @@
 								<VirtualHost *:80>
 								        ServerName giorgior5.sg-host.com
 								        DocumentRoot /Users/giorgiorizza/SitiWeb/giorgior5.sg-host.com/public_html
-								        <Directory  /Users/giorgiorizza/SitiWeb/giorgior5.sg-host.com/public_html>
+								        <Directory>  /Users/giorgiorizza/SitiWeb/giorgior5.sg-host.com/public_html>
 								                DirectoryIndex index.php
 								                AllowOverride All
 								                Order allow,deny
@@ -227,12 +227,39 @@
 						<ul>
 							<li id="60">Assets
 								<ul>
-									<li id="61">boostrap-4.3.1-dist</li>
-									<li id="62">custom.js</li>
-									<li id="63">animate.js</li>
-									<li id="64">credits.js</li>
-									<li id="65">custom.css</li>
-									<li id="66">hover.css</li>
+									<li id="61">assets <br> 
+										<p>In questa cartella sono presenti i principali file di stile e tutte le principali librerie css e js che sono necessari </p>
+									</li>
+									<li id="62">animate-css</li>
+									<li id="63">bootstrap-4.3.1-dist</li>
+									<li id="64">butter-js</li>
+									<li id="65">cocoen</li>
+									<li id="66">font</li>
+									<li id="67">hover-css</li>
+									<li id="68">jarallax-master</li>
+									<li id="69">magic-mouse-js</li>
+									<li id="70">nprogress</li>
+									<li id="71">owl-carousel</li>
+									<li id="72">popper</li>
+									<li id="73">cookiechoices.js</li>
+									<li id="74">credits.js</li>
+									<li id="75">custom.css</li>
+									<li id="76">custom.js
+										<p>A_SETTINGS loader<br>
+											Qui viene è possibile personalizzare la classe di attivazione del loader con aggiunta di una classe .loaded al body dopo 1,5 secondi dall'inizio del caricamento della pagina <br>
+											Successivamente viene fatto un controllo sulla tipologia di link per disabilitare il timeout per permettere di abilitare nuovamente la classe loaded per ottenre un effetto di transiozione fluido fra le pagine <br>
+											A_SETTINGS animate <br>
+											Qui puoi trovare impostazioni di animate.css dove per ogni classe inn__animate aggiunge la classe hidden e al viewport aggiunge le classi di animate.css con un delay di 300 ms <br>
+											A_SETTINGS sticky <br>
+											Impostazioni per far comparire lo sticky menu dopo lo scroll a 500px solo allo scoll verso il basso <br>
+											A_SETTINGS magicMouse <br>
+											Controllo della presenza della calsse attivante .magicmouse_active e successivamente impostazioni di base della libreria MagicMouse con attivazione dell'hover solo sulle classi specidificate <br>
+										</p>
+									</li>
+									<li id="77">wp-admin.css <br>
+										<p>Foglio di sitle utile per la personalizzazione dello stile del backend</p>
+									</li>
+									<li id="78">wp-admin.js</li>
 								</ul>
 							</li>
 							<li id="67">Core
