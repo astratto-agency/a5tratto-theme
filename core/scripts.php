@@ -73,7 +73,7 @@ function a5t_scripts()
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     ::::::::::::::    * A_SETTINGS Popper
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    wp_enqueue_script('popper', get_template_directory_uri() . '/assets/popper/popper.min.js',array(), '2.9.2', true);
+    wp_enqueue_script('popper', get_template_directory_uri() . '/assets/popper/popper.min.js', array(), '2.9.2', true);
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     ::::::::::::::    * A_SETTINGS Javascript for comments
@@ -220,31 +220,35 @@ add_action('wp_enqueue_scripts', 'a5t_scripts', 100);
 
 function a5t_scripts_custom()
 {
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    ::::::::::::::    * A_SETTINGS Carico style.css
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+    wp_enqueue_style('style', get_stylesheet_directory_uri() . '/style.css');
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     ::::::::::::::    * A_SETTINGS Carico style.css
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
-    wp_enqueue_style('style', get_template_directory_uri() . '/style.css');
-
+    wp_enqueue_style('main', get_stylesheet_directory_uri() . '/assets/main.css');
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     ::::::::::::::    * A_SETTINGS Carico il CSS custom
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
-    wp_enqueue_style('custom', get_template_directory_uri() . '/assets/custom.css');
+    wp_enqueue_style('custom', get_stylesheet_directory_uri() . '/assets/custom.css');
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     ::::::::::::::    * A_SETTINGS Carico il JS custom
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
-    wp_enqueue_script('scripts', get_template_directory_uri() . '/assets/custom.js', array(), '1.0.0', true);
+    wp_enqueue_script('scripts', get_stylesheet_directory_uri() . '/assets/custom.js', array(), '1.0.0', true);
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     ::::::::::::::    * A_SETTINGS Carico i Credits
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
-    wp_enqueue_script('credits', get_template_directory_uri() . '/assets/credits.js', array(), '1.0.0', true);
+    wp_enqueue_script('credits', get_stylesheet_directory_uri() . '/assets/credits.js', array(), '1.0.0', true);
 
 }
 
@@ -415,13 +419,26 @@ if (get_theme_mod('a5t_setting_hotjar') != '') {
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
 function a5t_theme_version()
+
 {
     $theme = wp_get_theme();
     $theme_name = $theme->get('Name');
     $theme_version = $theme->get('Version');
-    ?>
-    <script>console.log('<?php echo $theme_name . ' ' . $theme_version ?>');</script>
-    <?php
+
+    if (is_child_theme()) {
+        $theme_parent = wp_get_theme()->parent();
+        $theme_parent_name = $theme_parent->get('Name');
+        $theme_parent_version = $theme_parent->get('Version');
+        ?>
+        <script>console.log('<?php echo $theme_name . ' ' . $theme_version . ' => ' . $theme_parent_name . ' ' . $theme_parent_version ?>');</script>
+        <?php
+    } else {
+        ?>
+        <script>console.log('<?php echo $theme_name . ' ' . $theme_version ?>');</script>
+        <?php
+    }
+
+
 }
 
 add_action('wp_footer', 'a5t_theme_version', 22);

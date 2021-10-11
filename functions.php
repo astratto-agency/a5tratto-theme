@@ -30,6 +30,7 @@ $a5t_includes = array(
     'core/extras.php',                            // Custom functions
     'core/customizer.php',                        // Customize your layout
     'core/security.php',                          // Some security utils
+    'core/admin-customizer.php',                  // Admin customize
 );
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -47,19 +48,6 @@ if (get_theme_mod('a5t_setting_comments')) {
 if (file_exists('vendor/autoload.php')) {
     $a5t_includes[] = 'vendor/autoload.php';
 }
-
-/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-::::::::::::::    * A_SETTINGS Aggiorno il CSS nell’area amministratore
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-
-function admin_style()
-{
-    wp_enqueue_style('admin-styles', get_template_directory_uri() . '/assets/wp-admin.css');
-    /*    wp_enqueue_script( 'admin-script', get_template_directory_uri().'/assets/wp-admin.js', array( 'jquery' ), '1.2.1' );*/
-}
-
-// Esegue la funzione admin_style() all’azione admin_enqueue_scripts di WP
-add_action('admin_enqueue_scripts', 'admin_style');
 
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -81,75 +69,6 @@ function My_Test()
     var_dump(microtime(true));
     exit;
 }*/
-
-
-/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-::::::::::::::    * A_SETTINGS Remove Wp Logo
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-
-
-function dashboard_logo()
-{
-    echo '
-        <style type="text/css">
-#wpadminbar #wp-admin-bar-wp-logo>.ab-item {
-    padding: 0 7px;
-    background-image: url(' . get_template_directory_uri() . '/img/icona-a5tratto-w.png) !important;
-    background-size: 70%;
-    background-position: center;
-    background-repeat: no-repeat;
-    opacity: 0.8;
-}
-#wpadminbar #wp-admin-bar-wp-logo>.ab-item .ab-icon:before {
-    content: " ";
-    top: 2px;
-}
-        </style>
-    ';
-}
-
-add_action('wp_before_admin_bar_render', 'dashboard_logo');
-
-////hook into the administrative header output
-//add_action('wp_before_admin_bar_render', 'wpb_custom_logo');
-//function remove_wp_logo($wp_admin_bar)
-//{
-//    $wp_admin_bar->remove_node('wp-logo');
-//}
-//
-//add_action('admin_bar_menu', 'remove_wp_logo', 100);
-
-/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-::::::::::::::    * A_SETTINGS Customizer admin menu bar
-                    https://heera.it/customize-admin-menu-bar-in-wordpress
-                    https://webriti.com/customizing-wordpress-admin-bar/
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-
-
-function add_my_own_logo($wp_admin_bar)
-{
-    $args = array(
-        'id' => 'my-logo',
-        'meta' => array('class' => 'my-logo', 'title' => 'logo')
-    );
-    $wp_admin_bar->add_node($args);
-}
-
-add_action('admin_bar_menu', 'add_my_own_logo', 1);
-
-
-add_action('admin_menu', 'linked_url');
-function linked_url()
-{
-    add_menu_page('linked_url', 'ASTRATTO', 'read', 'astratto_site', '', 'dashicons-info-outline', 1);
-}
-
-add_action('admin_menu', 'linkedurl_function');
-function linkedurl_function()
-{
-    global $menu;
-    $menu[1][2] = "https://www.astratto.agency";
-}
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 ::::::::::::::    * A_SETTINGS ?????????
@@ -358,7 +277,6 @@ function add_to_context($context)
 
     }
 
-
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     ::::::::::::::    * A_SETTINGS Google Maps
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
@@ -409,24 +327,22 @@ function add_to_context($context)
     return $context;
 }
 
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::    * A_SETTINGS SEO Yoast priprity low
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+function move_yoast_below_acf()
+{
+    return 'low';
+}
+
+add_filter('wpseo_metabox_prio', 'move_yoast_below_acf');
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 ::::::::::::::    * A_SETTINGS Allow excertp in page
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
 add_post_type_support('page', 'excerpt');
-
-
-/* toglie icona wp in backend
-
-add_filter( 'timber/context', 'add_to_context' );
-
-if (get_theme_mod('a5t_adv_adminbar')) {
-  show_admin_bar(false);
-}
-
-
-*/
 
 
 // Method 1: Filter.

@@ -1,5 +1,4 @@
-<!-- A_SETTINGS Impostazione pagina Themplate Archive -->
-<?php
+ <?php
 /*
 Template Name: Template Archive
 */

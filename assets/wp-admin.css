@@ -24,6 +24,21 @@
     background: #0000E5;
 }
 
+
+#wpadminbar #wp-admin-bar-wp-logo > .ab-item {
+    padding: 0 7px;
+    background-image: url('../img/icona-a5tratto-w.png') !important;
+    background-size: 70%;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.8;
+}
+
+#wpadminbar #wp-admin-bar-wp-logo > .ab-item .ab-icon:before {
+    content: " ";
+    top: 2px;
+}
+
 /*
 
 

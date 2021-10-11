@@ -170,8 +170,6 @@ function a5t_customize_register($wp_customize)
         'section' => 'a5t_framework_general_settings',
         'label' => __('Magic Mouse CSS JS'),
         'description' => __('Attiva libreria Magic Mouse CSS JS magicmousejs.web.app'),
-
-
     ));
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
