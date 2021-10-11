@@ -54,7 +54,6 @@ https://coolors.co/f94144-f3722c-f8961e-f9844a-f9c74f-90be6d-43aa8b-4d908e-57759
 ::::::::::::::      Impostazioni font
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 @import url("font/roboto/stylesheet.css");
-
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :::::::::::::: 11 * A_SETTINGS Color
 ::::::::::::::      Impostazioni colori
@@ -377,11 +376,9 @@ button.navbar-toggler:focus, button.navbar-toggler:focus-visible {
     transition: 0.7s all ease-in-out;
     padding: 10px 14px;
 }
-
 #header-1 #primary-menu li:hover a, #header-2 #primary-menu li:hover a {
     color: #FFFF33;
 }
-
 #header-1 #primary-menu li a:before, #header-2 #primary-menu li a:before {
     content: '';
     width: 20%;
@@ -394,7 +391,6 @@ button.navbar-toggler:focus, button.navbar-toggler:focus-visible {
     position: absolute;
     transition: 0.7s all ease-in-out;
 }
-
 #header-1 #primary-menu li:hover > a:before, #header-2 #primary-menu li:hover > a:before {
     content: '';
     width: 80%;
@@ -407,7 +403,6 @@ button.navbar-toggler:focus, button.navbar-toggler:focus-visible {
     position: absolute;
     transition: 0.7s all ease-in-out;
 }
-
 #header-1 #primary-menu li.current_page_item > a:before, #header-2 #primary-menu li.current_page_item > a:before {
     content: '';
     width: 50%;
@@ -698,7 +693,6 @@ button.navbar-toggler:focus, button.navbar-toggler:focus-visible {
     line-height: 23px;
     width: 100%;
 }
-
 #contact-form-style-1 .wpcf7-form-control,
 #contact-form-style-1 input,
 #contact-form-style-1 .form-control {
@@ -715,13 +709,11 @@ button.navbar-toggler:focus, button.navbar-toggler:focus-visible {
     border-radius: 3px;
     transition: all 0.8s ease-in-out;
 }
-
 #contact-form-style-1 .form-check-input {
     position: absolute;
     margin-top: .3rem;
     margin-left: -1.1rem;
 }
-
 #contact-form-style-1 input[type="text"],
 #contact-form-style-1 .wpcf7-text,
 #contact-form-style-1 input[type="textarea"],
@@ -734,7 +726,6 @@ button.navbar-toggler:focus, button.navbar-toggler:focus-visible {
     border-bottom: solid 3px #808080;
     background: #F2F2F2;
 }
-
 #contact-form-style-1 .wpcf7-select,
 #contact-form-style-1 input[type="select"],
 #contact-form-style-1 .wpcf7-date,
@@ -746,7 +737,6 @@ button.navbar-toggler:focus, button.navbar-toggler:focus-visible {
     width: auto;
     border: none;
 }
-
 #contact-form-style-1 .wpcf7-form-control:focus,
 #contact-form-style-1 input:focus,
 #contact-form-style-1 .form-control:focus {
@@ -756,7 +746,6 @@ button.navbar-toggler:focus, button.navbar-toggler:focus-visible {
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgba(204, 204, 204, 0.5) !important;
 }
-
 #contact-form-style-1 .wpcf7-select:focus,
 #contact-form-style-1 input[type="select"]:focus,
 #contact-form-style-1 .wpcf7-date:focus,
@@ -770,16 +759,13 @@ button.navbar-toggler:focus, button.navbar-toggler:focus-visible {
     border: none;
     box-shadow: 0 0 0 0.2rem rgba(204, 204, 204, 0);
 }
-
 #contact-form-style-1 .wpcf7-list-item {
     display: block;
 }
-
 #contact-form-style-1 .wpcf7-acceptance .wpcf7-list-item {
     display: inline-block;
     margin: 0 0 0 2em;
 }
-
 #contact-form-style-1 .wpcf7-select,
 #contact-form-style-1 input[type="select"],
 #contact-form-style-1 .wpcf7-date,
@@ -788,7 +774,6 @@ button.navbar-toggler:focus, button.navbar-toggler:focus-visible {
     border-bottom: solid 3px #808080;
     background: #F2F2F2;
 }
-
 #contact-form-style-1 .wpcf7-select:focus,
 #contact-form-style-1 input[type="select"]:focus,
 #contact-form-style-1 .wpcf7-date:focus,
@@ -797,30 +782,25 @@ button.navbar-toggler:focus, button.navbar-toggler:focus-visible {
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgba(204, 204, 204, 0.5) !important;
 }
-
 #contact-form-style-1 ::placeholder {
     /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: #808080;
     opacity: 1;
     /* Firefox */
 }
-
 #contact-form-style-1 :-ms-input-placeholder {
     /* Internet Explorer 10-11 */
     color: #808080;
     opacity: 1;
 }
-
 #contact-form-style-1 ::-ms-input-placeholder {
     /* Microsoft Edge */
     color: #808080;
     opacity: 1;
 }
-
 #contact-form-style-1 .wpcf7 .ajax-loader::before {
     display: none;
 }
-
 #contact-form-style-1 .wpcf7 .ajax-loader {
     background: url("../img/loading.gif") no-repeat center center;
     -webkit-background-size: cover;
@@ -833,7 +813,6 @@ button.navbar-toggler:focus, button.navbar-toggler:focus-visible {
     border-radius: 0;
     display: inline-block;
 }
-
 #contact-form-style-1 .wpcf7-submit {
     width: auto;
 }
@@ -845,7 +824,6 @@ button.navbar-toggler:focus, button.navbar-toggler:focus-visible {
     line-height: 23px;
     width: 100%;
 }
-
 #contact-form-style-2 .wpcf7-form-control,
 #contact-form-style-2 input,
 #contact-form-style-2 .form-control {
@@ -863,13 +841,11 @@ button.navbar-toggler:focus, button.navbar-toggler:focus-visible {
     border-radius: 0;
     transition: all 0.8s ease-in-out;
 }
-
 #contact-form-style-2 .form-check-input {
     position: absolute;
     margin-top: .3rem;
     margin-left: -1.1rem;
 }
-
 #contact-form-style-2 input[type="text"],
 #contact-form-style-2 .wpcf7-text,
 #contact-form-style-2 input[type="textarea"],
@@ -881,7 +857,6 @@ button.navbar-toggler:focus, button.navbar-toggler:focus-visible {
     border: none;
     border-bottom: solid 3px #FFFF33;
 }
-
 #contact-form-style-2 .wpcf7-select,
 #contact-form-style-2 input[type="select"],
 #contact-form-style-2 .wpcf7-date,
@@ -893,7 +868,6 @@ button.navbar-toggler:focus, button.navbar-toggler:focus-visible {
     width: auto;
     border: none;
 }
-
 #contact-form-style-2 .wpcf7-form-control:focus,
 #contact-form-style-2 input:focus,
 #contact-form-style-2 .form-control:focus {
@@ -903,7 +877,6 @@ button.navbar-toggler:focus, button.navbar-toggler:focus-visible {
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgba(var(--a5t-secondary-rgb), 0.5) !important;
 }
-
 #contact-form-style-2 .wpcf7-select:focus,
 #contact-form-style-2 input[type="select"]:focus,
 #contact-form-style-2 .wpcf7-date:focus,
@@ -917,16 +890,13 @@ button.navbar-toggler:focus, button.navbar-toggler:focus-visible {
     border: none;
     box-shadow: 0 0 0 0.2rem rgba(var(--a5t-secondary-rgb), 0);
 }
-
 #contact-form-style-2 .wpcf7-list-item {
     display: block;
 }
-
 #contact-form-style-2 .wpcf7-acceptance .wpcf7-list-item {
     display: inline-block;
     margin: 0 0 0 2em;
 }
-
 #contact-form-style-2 .wpcf7-select,
 #contact-form-style-2 input[type="select"],
 #contact-form-style-2 .wpcf7-date,
@@ -934,7 +904,6 @@ button.navbar-toggler:focus, button.navbar-toggler:focus-visible {
     border: none;
     border-bottom: solid 3px #FFFF33;
 }
-
 #contact-form-style-2 .wpcf7-select:focus,
 #contact-form-style-2 input[type="select"]:focus,
 #contact-form-style-2 .wpcf7-date:focus,
@@ -945,30 +914,25 @@ button.navbar-toggler:focus, button.navbar-toggler:focus-visible {
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgba(var(--a5t-secondary-rgb), 0.5) !important;
 }
-
 #contact-form-style-2 ::placeholder {
     /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: #0000E5;
     opacity: 1;
     /* Firefox */
 }
-
 #contact-form-style-2 :-ms-input-placeholder {
     /* Internet Explorer 10-11 */
     color: #0000E5;
     opacity: 1;
 }
-
 #contact-form-style-2 ::-ms-input-placeholder {
     /* Microsoft Edge */
     color: #0000E5;
     opacity: 1;
 }
-
 #contact-form-style-2 .wpcf7 .ajax-loader::before {
     display: none;
 }
-
 #contact-form-style-2 .wpcf7 .ajax-loader {
     background: url("../img/loading.gif") no-repeat center center;
     -webkit-background-size: cover;
@@ -981,7 +945,6 @@ button.navbar-toggler:focus, button.navbar-toggler:focus-visible {
     border-radius: 0;
     display: inline-block;
 }
-
 #contact-form-style-2 .wpcf7-submit {
     width: auto;
 }
@@ -1130,7 +1093,6 @@ header {
         -o-transform: rotate(360deg);
     }
 }
-
 /* loader loaded effect exit */
 .loaded #loader-wrapper .loader-section.section-left {
     transform: translateX(-100%);
