@@ -152,8 +152,8 @@ function a5t_theme_activation_action() {
         $default_pages[] = __('Blog', 'a5t');
         $default_pages[] = __('Contatti', 'a5t');
         $default_pages[] =  __('Privacy Policy', 'a5t');
-        $default_pages[] =  __('Cookie Policy', 'a5t');
-
+        $default_pages[] = __('Cookie Policy', 'a5t');
+        $default_pages[] = __('Search', 'a5t');
     }
 
 
@@ -227,6 +227,15 @@ function a5t_theme_activation_action() {
                     'post_status' => 'publish',
                     'post_type' => 'page',
                     'page_template' => 'template-policy.php'
+                );
+            }
+            if ($new_page_title == 'Search') {
+                $add_default_pages = array(
+                    'post_title' => $new_page_title,
+                    'post_content' => '',
+                    'post_status' => 'publish',
+                    'post_type' => 'page',
+                    'page_template' => 'search.php'
                 );
             }
 
