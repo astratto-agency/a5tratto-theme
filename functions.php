@@ -436,6 +436,23 @@ function save_posted_data($posted_data)
 add_filter('wpcf7_posted_data', 'save_posted_data');
 
 
+//Remove the default search var and add a custom one
+add_filter('init', function () {
+    global $wp;
+
+    $wp->add_query_var('search_query');
+    $wp->remove_query_var('s');
+});
+
+add_filter('request', function ($request) {
+    if (isset($_REQUEST['search_query'])) {
+        $request['s'] = $_REQUEST['search_query'];
+    }
+
+    return $request;
+});
+
+
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
