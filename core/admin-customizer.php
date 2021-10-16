@@ -75,3 +75,35 @@ function login_logo_url_title()
 }
 
 add_filter('login_headerurl', 'login_logo_url_title');
+
+
+// WordPress Custom Font @ Admin
+function custom_admin_open_sans_font()
+{
+    /*    echo '<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">' . PHP_EOL;*/
+    echo '<style>body, #wpadminbar *:not([class="ab-icon"]), .wp-core-ui, .media-menu, .media-frame *, .media-modal *{font-family:"Montserrat",sans-serif !important;}</style>' . PHP_EOL;
+}
+
+add_action('admin_head', 'custom_admin_open_sans_font');
+
+// WordPress Custom Font @ Admin Frontend Toolbar
+function custom_admin_open_sans_font_frontend_toolbar()
+{
+    if (current_user_can('administrator')) {
+        /*        echo '<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">' . PHP_EOL;*/
+        echo '<style>#wpadminbar *:not([class="ab-icon"]){font-family:"Montserrat",sans-serif !important;}</style>' . PHP_EOL;
+    }
+}
+
+add_action('wp_head', 'custom_admin_open_sans_font_frontend_toolbar');
+
+// WordPress Custom Font @ Admin Login
+function custom_admin_open_sans_font_login_page()
+{
+    if (stripos($_SERVER["SCRIPT_NAME"], strrchr(wp_login_url(), '/')) !== false) {
+        /*        echo '<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">' . PHP_EOL;*/
+        echo '<style>body{font-family:"Montserrat",sans-serif !important;}</style>' . PHP_EOL;
+    }
+}
+
+add_action('login_head', 'custom_admin_open_sans_font_login_page');
