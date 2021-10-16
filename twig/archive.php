@@ -92,8 +92,10 @@ if (is_day()) {
     array_unshift($templates, 'archive-' . get_post_type() . '.twig'); // Update templates
 } else if (is_page()) {
     // A_SETTINGS page
-    $context['title'] = $obj_post_type->label; // Update title
-    array_unshift($templates, 'archive-' . $obj_post_type->name . '.twig'); // Update templates
+    if (!empty($obj_post_type)) {
+        $context['title'] = $obj_post_type->label; // Update title
+        array_unshift($templates, 'archive-' . $obj_post_type->name . '.twig'); // Update templates
+    }
 }
 
 
