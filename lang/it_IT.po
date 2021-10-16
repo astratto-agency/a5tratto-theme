@@ -263,8 +263,8 @@ msgid "A5TRATTO Starter Theme"
 msgstr "A5TRATTO Starter Theme"
 
 #. Theme URI of the plugin/theme
-msgid "https://www.a5tratto.it/"
-msgstr "https://www.a5tratto.it/"
+msgid "https://www.astratto.agency/"
+msgstr "https://www.astratto.agency/"
 
 #. Description of the plugin/theme
 msgid ""
@@ -281,8 +281,8 @@ msgid "Roots"
 msgstr "Roots"
 
 #. Author URI of the plugin/theme
-msgid "https://www.a5tratto.it/"
-msgstr "https://www.a5tratto.it/"
+msgid "https://www.astratto.agency/"
+msgstr "https://www.astratto.agency/"
 
 #. Template Name of the plugin/theme
 msgid "Custom Template"

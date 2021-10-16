@@ -52,7 +52,7 @@ add_filter('user_contactmethods','new_contactmethods',10,1);
 
 function remove_footer_admin () 
 {
-    echo '<span id="footer-thankyou">Developed by <a href="https://www.a5tratto.it" target="_blank">A5TRATTO Concrete Communication</a> with A5T Framework</span>';
+    echo '<span id="footer-thankyou">Developed by <a href="https://www.astratto.agency" target="_blank">ASTRATTO Comunicazione Concreta</a> with A5T Framework</span>';
 }
 add_filter('admin_footer_text', 'remove_footer_admin');
 
