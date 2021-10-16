@@ -27,13 +27,30 @@ $paginazione = 4;
 // A_SETTINGS Elaborazione dell'impaginato impostare il numero successivo qui '%/page/([0-3]+)%' in base al valore assegnato nella paginazione
 preg_match('%/page/([0-3]+)%', $_SERVER['REQUEST_URI'], $matches );
 if ( get_query_var( 'paged' ) ) {
-    $paged = get_query_var( 'paged' );
-} elseif ( get_query_var( 'page' ) ) {
-    $paged = get_query_var( 'page' );
+    $paged = get_query_var('paged');
+} elseif (get_query_var('page')) {
+    $paged = get_query_var('page');
 } else {
-    $paged = isset( $matches[1] ) ? $matches[1] : 1;
+    $paged = isset($matches[1]) ? $matches[1] : 1;
 }
 if (!isset($paged) || !$paged) {
+    $paged = 1;
+}
+
+// A_SETTINGS Assegnazione del numero di paginazione di post per pagina
+$paginazione = 4;
+
+// A_SETTINGS Elaborazione dell'impaginato impostare il numero successivo qui '%/page/([0-3]+)%' in base al valore assegnato nella paginazione
+preg_match('%/page/([0-3]+)%', $_SERVER['REQUEST_URI'], $matches);
+if (get_query_var('paged')) {
+    $paged = get_query_var('paged');
+} elseif (get_query_var('page')) {
+    $paged = get_query_var('page');
+} elseif (isset($matches[1])) {
+    $paged = $matches[1];
+} elseif (!isset($paged) || !$paged) {
+    $paged = 1;
+} else {
     $paged = 1;
 }
 
@@ -42,10 +59,10 @@ $context['term'] = $term = new Timber\Term(get_queried_object_id());
 
 // A_SETTINGS Smistamento delle impaginazioni ai relativi template di pagina
 $context['title'] = 'Archive';
-if ( is_day() ) {
+if (is_day()) {
     // A_SETTINGS day
     $context['title'] = 'Archive: ' . get_the_date('D M Y'); // Update title
-} else if ( is_month() ) {
+} else if (is_month()) {
     // A_SETTINGS month
     $context['title'] = 'Archive: ' . get_the_date('M Y'); // Update title
 } else if ( is_year() ) {

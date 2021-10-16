@@ -31,10 +31,11 @@ if (get_query_var('paged')) {
     $paged = get_query_var('paged');
 } elseif (get_query_var('page')) {
     $paged = get_query_var('page');
+} elseif (isset($matches[1])) {
+    $paged = $matches[1];
+} elseif (!isset($paged) || !$paged) {
+    $paged = 1;
 } else {
-    $paged = isset($matches[1]) ? $matches[1] : 1;
-}
-if (!isset($paged) || !$paged) {
     $paged = 1;
 }
 
