@@ -76,9 +76,10 @@ function a5t_theme_activation_options_render_page() { ?>
                 <tr valign="top"><th scope="row"><?php _e('Create additional pages?', 'a5t'); ?></th>
                     <td>
                         <fieldset>
-                            <legend class="screen-reader-text"><span><?php _e('Create additional pages?', 'a5t'); ?></span></legend>
-                            <select name="a5t_theme_activation_options[create_additional_page
-                            ]" id="create_additional_page">
+                            <legend class="screen-reader-text"><span><?php _e('Create additional pages?', 'a5t'); ?></span>
+                            </legend>
+                            <select name="a5t_theme_activation_options[create_additional_page]"
+                                    id="create_additional_page">
                                 <option selected="selected" value="true"><?php echo _e('Yes', 'a5t'); ?></option>
                                 <option value="false"><?php echo _e('No', 'a5t'); ?></option>
                             </select>
@@ -151,9 +152,9 @@ function a5t_theme_activation_action() {
         $default_pages[] = __('About', 'a5t');
         $default_pages[] = __('Blog', 'a5t');
         $default_pages[] = __('Contatti', 'a5t');
-        $default_pages[] =  __('Privacy Policy', 'a5t');
-        $default_pages[] = __('Cookie Policy', 'a5t');
-        $default_pages[] = __('Search', 'a5t');
+        $default_pages[] = __('Privacy Policy GDPR', 'a5t');
+        $default_pages[] = __('Cookie Policy GDPR', 'a5t');
+        $default_pages[] = __('Cerca', 'a5t');
     }
 
 
@@ -211,7 +212,7 @@ function a5t_theme_activation_action() {
                     'page_template' => 'template-page.php'
                 );
             }
-            if ($new_page_title == 'Privacy Policy') {
+            if ($new_page_title == 'Privacy Policy GDPR') {
                 $add_default_pages = array(
                     'post_title' => $new_page_title,
                     'post_content' => '',
@@ -220,7 +221,7 @@ function a5t_theme_activation_action() {
                     'page_template' => 'template-policy.php'
                 );
             }
-            if ($new_page_title == 'Cookie Policy') {
+            if ($new_page_title == 'Cookie Policy GDPR') {
                 $add_default_pages = array(
                     'post_title' => $new_page_title,
                     'post_content' => '',
@@ -229,7 +230,7 @@ function a5t_theme_activation_action() {
                     'page_template' => 'template-policy.php'
                 );
             }
-            if ($new_page_title == 'Search') {
+            if ($new_page_title == 'Cerca') {
                 $add_default_pages = array(
                     'post_title' => $new_page_title,
                     'post_content' => '',
