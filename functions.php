@@ -403,7 +403,7 @@ function set_per_page($query)
 ::::::::::::::    * A_SETTINGS Create post form CF7
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
-function save_posted_data($posted_data)
+/*function save_posted_data($posted_data)
 {
     $form_id = WPCF7_ContactForm::get_current();
     if ($form_id->id == 'ID_FORM') {
@@ -433,7 +433,7 @@ function save_posted_data($posted_data)
     }
 }
 
-add_filter('wpcf7_posted_data', 'save_posted_data');
+add_filter('wpcf7_posted_data', 'save_posted_data');*/
 
 
 //Remove the default search var and add a custom one
