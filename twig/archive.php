@@ -96,8 +96,9 @@ if (is_day()) {
         $context['title'] = $obj_post_type->label; // Update title
         array_unshift($templates, 'archive-' . $obj_post_type->name . '.twig'); // Update templates
     }
-}
 
+
+}
 
 //  A_SETTINGS Assegno tutte le variabili di ACF a Twig
 // inSorry, we couldn't find what you're looking fo caso avessi necessità puoi sostituire il valore $post con l'ID della pagina

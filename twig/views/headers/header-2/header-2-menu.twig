@@ -1,3 +1,4 @@
+
 {% if primary_menu %}
     <ul id="primary-menu" class="nav navbar-nav ml-auto">
         {% for item in primary_menu %}
@@ -53,7 +54,7 @@
         {% endfor %}
         {% if function('is_user_logged_in') %}
 
-            <li class="{{ item.classes | join(' ') }}">
+            <li class="{{item.classes | join(' ')}}">
                 <a href="{{ function('wp_logout_url', home) }}" class="color-blue"> <span><i class="iprsc-logout"></i>Esci</span></a>
             </li>
 
