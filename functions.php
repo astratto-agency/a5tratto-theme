@@ -176,7 +176,7 @@ function add_to_context($context)
 
     if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins')))) {
 
-        $context['memberships'] = $memberships = wc_memberships_get_user_active_memberships(get_current_user_id());
+        // $context['memberships'] = $memberships = wc_memberships_get_user_active_memberships(get_current_user_id());
     }
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -697,7 +697,7 @@ if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
 
 
 // Changing the add to cart button text
-    add_filter('woocommerce_product_single_add_to_cart_text', 'product_cat_single_add_to_cart_button_text', 20, 1);
+/*    add_filter('woocommerce_product_single_add_to_cart_text', 'product_cat_single_add_to_cart_button_text', 20, 1);
     function product_cat_single_add_to_cart_button_text($text)
     {
         global $product;
@@ -707,9 +707,18 @@ if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
             $text = __('ENTRA NELLA COMMUNITY', 'woocommerce');
 
         return $text;
+    }*/
+
+
+
+
+
+
+    function theme_add_woocommerce_support() {
+        add_theme_support( 'woocommerce' );
     }
 
-
+    add_action( 'after_setup_theme', 'theme_add_woocommerce_support' );
 }
 
 
