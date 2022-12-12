@@ -714,11 +714,22 @@ if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
 
 
 
-    function theme_add_woocommerce_support() {
-        add_theme_support( 'woocommerce' );
+    function theme_add_woocommerce_support()
+    {
+        add_theme_support('woocommerce');
     }
 
-    add_action( 'after_setup_theme', 'theme_add_woocommerce_support' );
+    add_action('after_setup_theme', 'theme_add_woocommerce_support');
+
+
+
+    function timber_set_product( $post ) {
+        global $product;
+
+        if ( is_woocommerce() ) {
+            $product = wc_get_product( $post->ID );
+        }
+    }
 }
 
 
