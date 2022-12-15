@@ -1,6 +1,9 @@
 {% extends "base.twig" %}
 {% block content %}
-	<article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
+	<article class="post-type-{{post.post_type}} {{post.post_type}}-{{post.slug}}" id="post-{{post.ID}}">
+		<div class="">
+			{{ breadcrumbs }}
+		</div>
 		<section class="section-page-{{ post.slug }}">
 			<div class="container">
 				<div class="row">

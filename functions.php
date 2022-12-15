@@ -308,7 +308,7 @@ function add_to_context($context)
         $context['metadesc'] = $metadesc_val;
 
         if (function_exists('yoast_breadcrumb')) {
-            $context['breadcrumbs'] = yoast_breadcrumb('<div id="breadcrumbs" class="breadcrumb center mb-50">', '</div>', false);
+            $context['breadcrumbs'] = yoast_breadcrumb('<div id="breadcrumbs" class="breadcrumb">', '</div>', false);
         }
 
     }

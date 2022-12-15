@@ -17,13 +17,13 @@ $context = Timber::get_context();
 // A_SETTINGS Assegnazione dei template
 $templates = array('search.twig', 'archive.twig', 'index.twig');
 
+$context['title'] = 'Search results for ' . get_search_query();
+
 // A_SETTINGS Assegnazione del numero di paginazione di post per pagina
-$paginazione = 4;
+$paginazione = 2;
 
 // A_SETTINGS Elaborazione dell'impaginato impostare il numero successivo qui '%/page/([0-3]+)%' in base al valore assegnato nella paginazione
-preg_match('%/page/([0-3]+)%', $_SERVER['REQUEST_URI'], $matches);
-echo('<br>');
-
+preg_match('%/page/([0-2]+)%', $_SERVER['REQUEST_URI'], $matches);
 if (get_query_var('paged')) {
     $paged = get_query_var('paged');
 } elseif (isset($matches[1])) {
@@ -35,13 +35,13 @@ if (get_query_var('paged')) {
 }
 
 /* ascolta url per prendere campo di ricerca */
-if ($_GET['search_query'] && !empty($_GET['search_query'])) {
-    $search_query = $_GET['search_query'];
+if ($_GET['s'] && !empty($_GET['s'])) {
+    $search_query = $_GET['s'];
 } else {
     $search_query = '';
 }
 
-$context['search_query'] = $search_query;
+$context['s'] = $search_query;
 
 /* assegno tutte le variabili di ACF */
 $fields = get_field_objects($post);

@@ -224,31 +224,31 @@ function a5t_scripts_custom()
     ::::::::::::::    * A_SETTINGS Carico style.css
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
-    wp_enqueue_style('style', get_stylesheet_directory_uri() . '/style.css');
+    wp_enqueue_style('style', get_template_directory_uri() . '/style.css');
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     ::::::::::::::    * A_SETTINGS Carico style.css
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
-    wp_enqueue_style('main', get_stylesheet_directory_uri() . '/assets/main.css');
+    wp_enqueue_style('main', get_template_directory_uri() . '/assets/main.css');
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     ::::::::::::::    * A_SETTINGS Carico il CSS custom
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
-    wp_enqueue_style('custom', get_stylesheet_directory_uri() . '/assets/custom.css');
+    wp_enqueue_style('custom', get_template_directory_uri() . '/assets/custom.css');
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     ::::::::::::::    * A_SETTINGS Carico il JS custom
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
-    wp_enqueue_script('scripts', get_stylesheet_directory_uri() . '/assets/custom.js', array(), '1.0.0', true);
+    wp_enqueue_script('scripts', get_template_directory_uri() . '/assets/custom.js', array(), '1.0.0', true);
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     ::::::::::::::    * A_SETTINGS Carico i Credits
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
-    wp_enqueue_script('credits', get_stylesheet_directory_uri() . '/assets/credits.js', array(), '1.0.0', true);
+    wp_enqueue_script('credits', get_template_directory_uri() . '/assets/credits.js', array(), '1.0.0', true);
 
 }
 
@@ -430,11 +430,12 @@ function a5t_theme_version()
         $theme_parent_name = $theme_parent->get('Name');
         $theme_parent_version = $theme_parent->get('Version');
         ?>
+        <script>console.log('<?php echo $theme_parent_name . ' ' . $theme_parent_version ?>');</script>
         <script>console.log('<?php echo $theme_name . ' ' . $theme_version . ' => ' . $theme_parent_name . ' ' . $theme_parent_version ?>');</script>
         <?php
     } else {
         ?>
-        <script>console.log('<?php echo $theme_name . ' ' . $theme_version ?>');</script>
+        <script>console.log('<?php echo $theme_name . ' -- ' . $theme_version ?>');</script>
         <?php
     }
 
