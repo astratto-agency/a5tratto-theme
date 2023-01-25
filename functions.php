@@ -289,25 +289,28 @@ function add_to_context($context)
     ::::::::::::::    * A_SETTINGS Yoast
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
-    $id = get_the_ID();
+    if ( is_plugin_active( 'wordpress-seo/wp-seo.php' ) || is_plugin_active( 'wordpress-seo-premium/wp-seo-premium.php' ) ) {
 
-    $post = get_post($id, ARRAY_A);
-    $yoast_title = get_post_meta($id, '_yoast_wpseo_title', true);
-    $yoast_desc = get_post_meta($id, '_yoast_wpseo_metadesc', true);
+        $id = get_the_ID();
 
-    $metatitle_val = wpseo_replace_vars($yoast_title, $post);
-    $metatitle_val = apply_filters('wpseo_title', $metatitle_val);
+        $post = get_post($id, ARRAY_A);
+        $yoast_title = get_post_meta($id, '_yoast_wpseo_title', true);
+        $yoast_desc = get_post_meta($id, '_yoast_wpseo_metadesc', true);
 
-    $metadesc_val = wpseo_replace_vars($yoast_desc, $post);
-    $metadesc_val = apply_filters('wpseo_metadesc', $metadesc_val);
+        $metatitle_val = wpseo_replace_vars($yoast_title, $post);
+        $metatitle_val = apply_filters('wpseo_title', $metatitle_val);
 
+        $metadesc_val = wpseo_replace_vars($yoast_desc, $post);
+        $metadesc_val = apply_filters('wpseo_metadesc', $metadesc_val);
 
-    $context['metatitle'] = $metatitle_val;
+        $context['metatitle'] = $metatitle_val;
 
-    $context['metadesc'] = $metadesc_val;
+        $context['metadesc'] = $metadesc_val;
 
-    if (function_exists('yoast_breadcrumb')) {
-        $context['breadcrumbs'] = yoast_breadcrumb('<div id="breadcrumbs" class="breadcrumb center mb-50">', '</div>', false);
+        if (function_exists('yoast_breadcrumb')) {
+            $context['breadcrumbs'] = yoast_breadcrumb('<div id="breadcrumbs" class="breadcrumb">', '</div>', false);
+        }
+
     }
 
 
@@ -711,11 +714,23 @@ if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
 
 
 
-    function theme_add_woocommerce_support() {
-        add_theme_support( 'woocommerce' );
+    function theme_add_woocommerce_support()
+    {
+        add_theme_support('woocommerce');
     }
 
-    add_action( 'after_setup_theme', 'theme_add_woocommerce_support' );
+
+    add_action('after_setup_theme', 'theme_add_woocommerce_support');
+
+
+
+    function timber_set_product( $post ) {
+        global $product;
+
+        if ( is_woocommerce() ) {
+            $product = wc_get_product( $post->ID );
+        }
+    }
 }
 
 

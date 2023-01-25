@@ -1,23 +1,23 @@
 <h1>A5tratto-Theme</h1>
 <h1>BETA</h1>
-<h2>V.7.4.0.2</h2>
+<h2>V.7.4.0.3</h2>
 <h3>m</h3>
 
 <p>Numero Versione</p>
 <p>Tipologia ( origin 0, master 1)</p>
-<p>Posizionemanto ( locale 0, remoto 1)</p>
+<p>git@github.com:a5tratto/a5tratto-theme.git</p>
 <p>serie</p>
 <p>numero</p>
-	<h2>Variabili</h2>
-	----
-	<code>{{v-dominio}}</code>
-	<p>dominio.com</p>
-	<br>
-	<code>{{v-dominio-old}}</code>  
-	<p>dominio-old.com</p>
-	<h2>Tematiche</h2>
-	----
-	<ul>
+<h2>Variabili</h2>
+----
+<code>{{v-dominio}}</code>
+<p>dominio.com</p>
+<br>
+<code>{{v-dominio-old}}</code>  
+<p>dominio-old.com</p>
+<h2>Tematiche</h2>
+----
+<ul>
 		<li id="01" class="cat-macro-mamp">MAMP / XAMPP
 			<ul>
 				<li id="02" target="1" >Impostazione Virtual Host
@@ -326,11 +326,11 @@ Test Markdown document
 Text
 ----
 
-Here is a paragraph with bold text. **This is some bold text.** Here is a
-paragraph with bold text. __This is also some bold text.__
+Here is a paragraph with bold text. **This is some bold text.** Here is a paragraph with bold text. __This is also some
+bold text.__
 
-Here is another one with italic text. *This is some italic text.* Here is
-another one with italic text. _This is some italic text._
+Here is another one with italic text. *This is some italic text.* Here is another one with italic text. _This is some
+italic text._
 
 Here is another one with struckout text. ~~This is some struckout text.~~
 
@@ -356,13 +356,19 @@ Headers
 -------
 
 # First level title
+
 ## Second level title
+
 ### Third level title
+
 #### Fourth level title
+
 ##### Fifth level title
+
 ###### Sixth level title
 
 ### Title with [link](http://localhost)
+
 ### Title with ![image](http://localhost)
 
 Code
@@ -380,18 +386,20 @@ Inline `code span in a` paragraph.
 This is a code block:
 
 /**
+
 * Sorts the specified array into ascending numerical order.
 *
 * <p>Implementation note: The sorting algorithm is a Dual-Pivot Quicksort
-	* by Vladimir Yaroslavskiy, Jon Bentley, and Joshua Bloch. This algorithm
-	* offers O(n log(n)) performance on many data sets that cause other
-	* quicksorts to degrade to quadratic performance, and is typically
-	* faster than traditional (one-pivot) Quicksort implementations.
-	*
-	* @param a the array to be sorted
-	*/
-	public static void sort(byte[] a) {
-	DualPivotQuicksort.sort(a);
+  * by Vladimir Yaroslavskiy, Jon Bentley, and Joshua Bloch. This algorithm
+  * offers O(n log(n)) performance on many data sets that cause other
+  * quicksorts to degrade to quadratic performance, and is typically
+  * faster than traditional (one-pivot) Quicksort implementations.
+  *
+  * @param a the array to be sorted
+  */
+  public static void sort(byte[] a) {
+  DualPivotQuicksort.sort(a);
+
 }
 
 Quotes
@@ -406,9 +414,9 @@ Quotes
 
 > A list within a blockquote:
 >
-> *	asterisk 1
-> *	asterisk 2
-> *	asterisk 3
+> * asterisk 1
+> * asterisk 2
+> * asterisk 3
 
 
 > Formatting within a blockquote:
@@ -421,8 +429,7 @@ Quotes
 Html
 -------
 
-This is inline <span>html</html>.
-	And this is an html block.
+This is inline <span>html</html>. And this is an html block.
 
 	<table>
 	<tr>
