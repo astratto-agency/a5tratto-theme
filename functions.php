@@ -710,6 +710,16 @@ if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
     }*/
 
 
+    function getRefererPage( $form_tag )
+    {
+        if ( $form_tag['name'] == 'referer-page' ) {
+            $form_tag['values'][] = htmlspecialchars($_SERVER['HTTP_REFERER']);
+        }
+        return $form_tag;
+    }
+    if ( !is_admin() ) {
+        add_filter( 'wpcf7_form_tag', 'getRefererPage' );
+    }
 
 
 
