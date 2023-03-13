@@ -12,7 +12,7 @@
                                     {# A_SETTINGS logo #}
                                     <a class="navbar-brand" href="{{ home }}">
                                         <img class="logo"
-                                             src="{% if custom_logo_url %}{{ custom_logo_url }}{% else %}{{ stylesheet_directory_uri }}/img/logo-astratto-v2-b.png{% endif %}"
+                                             src="{% if custom_logo_url %}{{ custom_logo_url[0] }}{% else %}{{ stylesheet_directory_uri }}/img/logo-astratto-v2-b.png{% endif %}"
                                              height="25">
                                     </a>
                                     <button class="navbar-toggler d-block d-lg-none ml-auto hidden-sm-up float-xs-right"
@@ -62,7 +62,7 @@
                 <nav class="container navbar navbar-expand-lg static-top">
                     <a class="navbar-brand" href="{{ home }}">
                         <img class="logo"
-                             src="{% if custom_logo_url %}{{ custom_logo_url }}{% else %}{{ stylesheet_directory_uri }}/img/logo-astratto-b.png{% endif %}"
+                             src="{% if custom_logo_url %}{{ custom_logo_url[0] }}{% else %}{{ stylesheet_directory_uri }}/img/logo-astratto-b.png{% endif %}"
                              height="50">
                     </a>
                     <button class="navbar-toggler d-block d-lg-none ml-auto hidden-sm-up float-xs-right" type="button"
@@ -85,12 +85,11 @@
 <section class="shadow-sm sticky-fix sticky" id="header-2">
     <div class="container ">
         <div class="row">
-
         {# A_SETTINGS menu #}
                 <nav class="container navbar navbar-expand-lg static-top">
                     <a class="navbar-brand" href="{{ home }}">
                         <img class="logo"
-                             src="{% if custom_logo_url %}{{ custom_logo_url }}{% else %}{{ stylesheet_directory_uri }}/img/logo-astratto-v2-b.png{% endif %}"
+                             src="{% if custom_logo_url %}{{ custom_logo_url[0] }}{% else %}{{ stylesheet_directory_uri }}/img/logo-astratto-v2-b.png{% endif %}"
                              height="20">
                     </a>
                     <button class="navbar-toggler d-block d-lg-none ml-auto hidden-sm-up float-xs-right" type="button"
@@ -105,16 +104,10 @@
                     </div>
                 </nav>
                 <!-- /.menu -->
-
-
         </div>
     </div>
 </section>
 
-<style>
 
 
 
-
-
-</style>

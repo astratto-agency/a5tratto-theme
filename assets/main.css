@@ -158,7 +158,8 @@ footer {
   width: 100%; }
 
 .breadcrumb {
-  /*  display: -ms-flexbox;
+  /*
+    display: -ms-flexbox;
     display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
@@ -166,7 +167,17 @@ footer {
     margin-bottom: 1rem;
     list-style: none;
     background-color: #e9ecef;
-    border-radius: 0.25rem;*/ }
+    border-radius: 0.25rem;
+  */
+  background-color: transparent;
+  padding: 0.25rem 0rem;
+  margin-bottom: 0rem; }
+  .breadcrumb a {
+    color: #FFFF33; }
+  .breadcrumb a:hover {
+    color: #8080F2; }
+  .breadcrumb .breadcrumb_last {
+    color: #ffffff; }
 
 /*::::::::::::::::::::::::::::
 :::::::::::::: 07 * A_SETTINGS font
@@ -184,7 +195,6 @@ h6, .h6 {
 
 a {
   font-variation-settings: 'slnt' 0;
-  font-weight: bold;
   color: #0000E5;
   text-decoration: none;
   background-color: transparent;
@@ -382,6 +392,23 @@ button.navbar-toggler:focus-visible {
     text-transform: uppercase; }
 #header-2 .nav-mobile#primary-menu .dropdown-menu {
   background-color: transparent; }
+
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::: 11 * A_SETTINGS menu mobile
+::::::::::::::      Impostazioni per css
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+.overlay-content {
+  position: relative;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px; }
+
+.full-menu-logo {
+  position: absolute;
+  margin: 0 auto;
+  left: 0;
+  right: 0; }
 
 /*::::::::::::::::::::::::::::
 :::::::::::::: 13 * A_SETTINGS shadow

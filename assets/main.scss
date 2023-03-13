@@ -217,7 +217,8 @@ footer {
 }
 
 .breadcrumb {
-  /*  display: -ms-flexbox;
+  /*
+    display: -ms-flexbox;
     display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
@@ -225,7 +226,23 @@ footer {
     margin-bottom: 1rem;
     list-style: none;
     background-color: #e9ecef;
-    border-radius: 0.25rem;*/
+    border-radius: 0.25rem;
+  */
+  background-color: transparent;
+  padding: 0.25rem 0rem;
+  margin-bottom: 0rem;
+
+  a {
+    color: $secondary;
+  }
+
+  a:hover {
+    color: $tertiary;
+  }
+
+  .breadcrumb_last {
+    color: $white;
+  }
 }
 
 /*::::::::::::::::::::::::::::
@@ -235,19 +252,6 @@ footer {
 p {
 
 }
-
-.a5t-p-sx {
-}
-
-.a5t-p-sm {
-}
-
-.a5t-p-md {
-}
-
-.a5t-p-lg {
-}
-
 
 h1, .h1,
 h2, .h2,
@@ -264,7 +268,7 @@ h6, .h6, {
 a {
   // font-variation-settings: 'wght' 900;
   font-variation-settings: 'slnt' 0;
-  font-weight: bold;
+  // font-weight: bold;
   color: $primary;
   text-decoration: none;
   background-color: transparent;
@@ -517,6 +521,31 @@ button.navbar-toggler:focus-visible {
   .dropdown-menu {
     background-color: transparent;
   }
+}
+
+
+
+
+
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::: 11 * A_SETTINGS menu mobile
+::::::::::::::      Impostazioni per css
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+.overlay-content {
+  position: relative;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+
+.full-menu-logo {
+  position: absolute;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
 }
 
 /*::::::::::::::::::::::::::::

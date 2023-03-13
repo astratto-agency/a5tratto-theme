@@ -32,7 +32,7 @@
         <div class="loader-section section-left"></div>
         <div class="loader-section section-right"></div>
         <img class="logo-loader"
-             src="{% if custom_logo_url %}{{ custom_logo_url }}{% else %}{{ stylesheet_directory_uri }}/img/icona-a5tratto-w.png{% endif %}"
+             src="{% if custom_logo_url %}{{ custom_logo_url[0] }}{% else %}{{ stylesheet_directory_uri }}/img/icona-a5tratto-w.png{% endif %}"
              height="80">
     </div>
     {# :::::::::::::: 11 * A_SETTINGS loader #}
