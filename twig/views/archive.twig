@@ -3,30 +3,27 @@
 
 {% extends "index.twig" %}
 {% block content %}
-    <article class="post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
+    <article class="post-type-{{ post_type }}" id="post-{{ post.ID }}">
         <section class="section-archive">
+
+            {% include "views/partial/page-header.twig" %}
+
             <div class="container">
                 <div class="row">
                     <div class="col-12 py-2 my-2">
-                        <h1>Archive</h1>
-                        <h2>{{ title }}</h2>
-                        <h4>{{ the_excerpt }}</h4>
+                        <h1>{{ post_type_name }} <b>{{ title }}</b></h1>
+                        <h3>{{ the_excerpt }}</h3>
                         {{ content }}
                     </div>
                 </div>
             </div>
             <div class="container bg-light">
                 <div class="row">
-                    <div class="col-12 py-2 my-2">
+                    <div class="col-12 col-md-6 py-2 my-2 ">
                         {% include 'searchform.twig' %}
                     </div>
-                </div>
-            </div>
-            <div class="container bg-light">
-                <div class="row">
-                    <div class="col-12 py-2 my-2">
-                        <label>Vista dei risultati da <b>{{ startpost }}</b> a <b>{{ endpost }}</b> di
-                            <b>{{ found_posts }}</b> </label>
+                    <div class="col-12 col-md-6 py-2 my-2 text-md-right">
+                        <p class="m-0">Vista dei risultati da <b>{{ startpost }}</b> a <b>{{ endpost }}</b> di <b>{{ found_posts }}</b> </p>
                     </div>
                 </div>
             </div>

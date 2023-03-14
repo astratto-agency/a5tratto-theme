@@ -23,10 +23,12 @@ $context = Timber::get_context();
 $templates = array('archive.twig', 'index.twig');
 
 // A_SETTINGS Assegnazione del numero di paginazione di post per pagina
-$paginazione = 4;
+$paginazione = get_option('posts_per_page');
+$num_pagina = $paginazione -1;
+$exp_reg_pag = '%/page/('.$num_pagina.')%';
 
 // A_SETTINGS Elaborazione dell'impaginato impostare il numero successivo qui '%/page/([0-3]+)%' in base al valore assegnato nella paginazione
-preg_match('%/page/([0-3]+)%', $_SERVER['REQUEST_URI'], $matches);
+preg_match($exp_reg_pag, $_SERVER['REQUEST_URI'], $matches );
 if (get_query_var('paged')) {
     $paged = get_query_var('paged');
 } elseif (get_query_var('page')) {
@@ -59,6 +61,7 @@ if (get_post_type() == 'page') {
     $context['content'] = get_the_post_type_description();
 }
 $obj_post_type = get_post_type_object($post_type);
+$context['post_type'] = 'archive';
 
 //  A_SETTINGS TERM QUERY elaboro query base per term
 $context['term'] = $term = new Timber\Term(get_queried_object_id());
@@ -95,6 +98,7 @@ if (is_day()) {
     if (!empty($obj_post_type)) {
         $context['title'] = $obj_post_type->label; // Update title
         array_unshift($templates, 'archive-' . $obj_post_type->name . '.twig'); // Update templates
+        $context['post_type_name'] = 'Page Archive';
     }
 
 

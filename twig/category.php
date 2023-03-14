@@ -23,10 +23,12 @@ $context = Timber::get_context();
 $templates = array( 'archive.twig', 'index.twig' );
 
 // A_SETTINGS Assegnazione del numero di paginazione di post per pagina
-$paginazione = 4;
+$paginazione = get_option('posts_per_page');
+$num_pagina = $paginazione -1;
+$exp_reg_pag = '%/page/('.$num_pagina.')%';
 
 // A_SETTINGS Elaborazione dell'impaginato impostare il numero successivo qui '%/page/([0-3]+)%' in base al valore assegnato nella paginazione
-preg_match('%/page/([0-3]+)%', $_SERVER['REQUEST_URI'], $matches );
+preg_match($exp_reg_pag, $_SERVER['REQUEST_URI'], $matches );
 if (get_query_var('paged')) {
     $paged = get_query_var('paged');
 } elseif (get_query_var('page')) {
@@ -38,6 +40,8 @@ if (get_query_var('paged')) {
 } else {
     $paged = 1;
 }
+
+
 
 //  A_SETTINGS TERM QUERY elaboro query base per term
 $context['term'] = $term = new Timber\Term(get_queried_object_id());

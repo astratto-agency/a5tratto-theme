@@ -450,7 +450,7 @@ button.navbar-toggler:focus-visible {
   }
 
   li:hover a {
-    color: $secondary;
+    color: $tertiary;
   }
 
   li a:before {
@@ -458,20 +458,18 @@ button.navbar-toggler:focus-visible {
     width: 20%;
     bottom: 0;
     left: 0;
-    right: 0;
     margin: 0 auto;
     height: 2px;
-    background: $secondary;
+    background: $primary;
     position: absolute;
     transition: 0.7s all ease-in-out;
   }
 
   li:hover > a:before {
     content: '';
-    width: 80%;
+    width: 100%;
     bottom: 0;
     left: 0;
-    right: 0;
     margin: 0 auto;
     height: 2px;
     background: $tertiary;
@@ -484,7 +482,6 @@ button.navbar-toggler:focus-visible {
     width: 50%;
     bottom: 0;
     left: 0;
-    right: 0;
     margin: 0 auto;
     height: 2px;
     background: $quaternary;
@@ -499,7 +496,6 @@ button.navbar-toggler:focus-visible {
 
   .dropdown:hover > .dropdown-menu {
     display: block;
-    text-align: center;
   }
 
   .dropdown-toggle:hover:after {

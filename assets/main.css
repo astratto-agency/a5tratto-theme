@@ -335,26 +335,24 @@ button.navbar-toggler:focus-visible {
     padding: 10px 14px; }
 #header-1 #primary-menu li:hover a,
 #header-2 #primary-menu li:hover a {
-  color: #FFFF33; }
+  color: #8080F2; }
 #header-1 #primary-menu li a:before,
 #header-2 #primary-menu li a:before {
   content: '';
   width: 20%;
   bottom: 0;
   left: 0;
-  right: 0;
   margin: 0 auto;
   height: 2px;
-  background: #FFFF33;
+  background: #0000E5;
   position: absolute;
   transition: 0.7s all ease-in-out; }
 #header-1 #primary-menu li:hover > a:before,
 #header-2 #primary-menu li:hover > a:before {
   content: '';
-  width: 80%;
+  width: 100%;
   bottom: 0;
   left: 0;
-  right: 0;
   margin: 0 auto;
   height: 2px;
   background: #8080F2;
@@ -366,7 +364,6 @@ button.navbar-toggler:focus-visible {
   width: 50%;
   bottom: 0;
   left: 0;
-  right: 0;
   margin: 0 auto;
   height: 2px;
   background: #CCCCFA;
@@ -378,8 +375,7 @@ button.navbar-toggler:focus-visible {
   transition: 0.7s all ease-in-out; }
 #header-1 #primary-menu .dropdown:hover > .dropdown-menu,
 #header-2 #primary-menu .dropdown:hover > .dropdown-menu {
-  display: block;
-  text-align: center; }
+  display: block; }
 #header-1 #primary-menu .dropdown-toggle:hover:after,
 #header-2 #primary-menu .dropdown-toggle:hover:after {
   display: inline-block; }
