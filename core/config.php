@@ -13,7 +13,7 @@
 
 $GLOBALS['assets_options'] = array(
 
-    // Attiva libreria Bootstrap 4.3.1 CSS JS
+    // Attiva libreria Bootstrap 4.6.2 CSS JS
     'A5T_SETTING_BOOTSTRAP' => get_theme_mod('a5t_setting_bootstrap'),
 
     // Attiva libreria Fontawesome 5.15.1 fontawesome.com/icons

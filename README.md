@@ -230,7 +230,7 @@
 										<p>In questa cartella sono presenti i principali file di stile e tutte le principali librerie css e js che sono necessari </p>
 									</li>
 									<li id="62">animate-css</li>
-									<li id="63">bootstrap-4.3.1-dist</li>
+									<li id="63">bootstrap-4.6.2-dist</li>
 									<li id="64">butter-js</li>
 									<li id="65">cocoen</li>
 									<li id="66">font</li>

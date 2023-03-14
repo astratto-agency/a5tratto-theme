@@ -50,8 +50,8 @@ function a5t_customize_register($wp_customize)
 
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * A_SETTINGS Attiva in base alla scalta Bootstrap 4.3.1 CSS JS
-                        // Attiva libreria Bootstrap 4.3.1 CSS JS
+    ::::::::::::::    * A_SETTINGS Attiva in base alla scalta Bootstrap 4.6.2 CSS JS
+                        // Attiva libreria Bootstrap 4.6.2 CSS JS
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     $wp_customize->add_setting('a5t_setting_bootstrap', array(
@@ -60,8 +60,8 @@ function a5t_customize_register($wp_customize)
     $wp_customize->add_control('a5t_setting_bootstrap', array(
         'type' => 'checkbox',
         'section' => 'a5t_framework_general_settings',
-        'label' => __('Activate Bootstrap 4'),
-        'description' => __('Attiva libreria Bootstrap 4.3.1 css/js'),
+        'label' => __('Activate Bootstrap 4.6.2'),
+        'description' => __('Attiva libreria Bootstrap 4.6.2 css/js'),
 
     ));
 
