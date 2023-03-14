@@ -27,14 +27,14 @@
                         {% for categorie in post.terms('') %}
                             {% if categorie.get_children %}
                                 <li>
-                                    <a href="{{ categorie.slug }}"
+                                    <a href="{{ categorie.link }}sssss"
                                        title="{{ post.title }} - {{ categorie.name }}">Cat {{ categorie.name }}</a>
                                 </li>
                                 <ul>
                                     {% for subcategorie in categorie.get_children %}
                                         {% if subcategorie %}
                                             <li>
-                                                <a href="{{ subcategorie.slug }}"
+                                                <a href="{{ categorie.link }}"
                                                    title="{{ post.title }} - {{ subcategorie.name }}">Cat
                                                     Child {{ subcategorie.name }}</a>
                                             </li>
@@ -44,12 +44,12 @@
                                 </ul>
                             {% elseif categorie.parent %}
                                 <li>
-                                    <a href="{{ categorie.slug }}" title="{{ post.title }} - {{ categorie.name }}">Cat
+                                    <a href="{{ categorie.link }}" title="{{ post.title }} - {{ categorie.name }}">Cat
                                         Parent {{ categorie.name }}</a>
                                 </li>
                             {% else %}
                                 <li>
-                                    <a href="{{ categorie.slug }}"
+                                    <a href="{{ categorie.link }}"
                                        title="{{ post.title }} - {{ categorie.name }}">Cat {{ categorie.name }}</a>
                                 </li>
                             {% endif %}
@@ -62,7 +62,7 @@
                     <hr>
                     <p>Tags<br>
                         {% for tags in post.terms('post_tag') %}
-                            <a href="{{ tags.slug }}" title="{{ post.title }} - {{ tags.name }}">{{ tags.name }}</a>
+                            <a href="{{ tags.link }}" title="{{ post.title }} - {{ tags.name }}">{{ tags.name }}</a>
                         {% endfor %}
                     </p>
                     <hr>

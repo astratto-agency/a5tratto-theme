@@ -93,6 +93,7 @@ if (is_day()) {
     // A_SETTINGS archive
     $context['title'] = post_type_archive_title('', false); // Update title
     array_unshift($templates, 'archive-' . get_post_type() . '.twig'); // Update templates
+    $context['post_type_name'] = 'Archive';
 } else if (is_page()) {
     // A_SETTINGS page
     if (!empty($obj_post_type)) {
@@ -100,8 +101,6 @@ if (is_day()) {
         array_unshift($templates, 'archive-' . $obj_post_type->name . '.twig'); // Update templates
         $context['post_type_name'] = 'Page Archive';
     }
-
-
 }
 
 //  A_SETTINGS Assegno tutte le variabili di ACF a Twig
